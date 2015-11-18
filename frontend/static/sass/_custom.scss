@@ -1,0 +1,703 @@
+// AVA Overrides
+
+// Variables
+
+$ava-pure-white:        #FFFFFF;
+$ava-off-white:         #FCFCFC;
+$ava-white:             #FDFDFD;
+
+$ava-main-bg:           #F5F7FA;
+$ava-lighter-blue:      #D5E2EE;
+$ava-light-blue:        #CFDBE2;
+$ava-grey-blue:         #B7CDDA;
+$ava-blue-grey:         #919DA8;
+$ava-dark-blue:         #3A3F50;
+
+$ava-light-grey:        #F0F0F0;
+$ava-mid-grey:          #E8E8E8;
+$ava-grey:              #F4F8FB;
+$ava-darker-grey:       #A8A8A8;
+$ava-black:             #242C39;
+
+$ava-primary:           #085676;
+$ava-secondary:         #FBB726;
+$ava-secondary-darker:  #C08A17;
+
+$ava-blue-light:        #0F4961;
+$ava-blue-mid:          #062D3D;
+$ava-blue-darker:       #1E405E;
+$ava-blue-black:        #0C1E2F;
+
+$ava-green:             #23A88A;
+$ava-green-mid:         #28987E;
+$ava-green-darker:      #157E66;
+$ava-green-darker-mid:  #106451;
+$ava-green-black:       #0A5746;
+
+$ava-red:               #C22A2A;
+$ava-red-darker:        #6B0E0E;
+
+$ava-error-text:        #BB252A;
+$ava-error-border:      #E0C7C7;
+$ava-error-form:        #A94442;
+
+$ava-input-text:        #555555;
+$ava-input-border:      #CCCCCC; 
+
+// Fonts
+
+$font-family-dashboard:  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;            
+
+// Body
+
+body {
+    padding-top: 50px !important;
+    background-color: $ava-main-bg !important;
+}
+
+h1 {
+    font-size: 26px !important;
+    padding-bottom: 12px;
+    font-weight: 600;
+    padding-left: 5px;
+    font-family: $font-family-dashboard;
+    margin: 20px 0px 0px !important;
+}
+
+h2 {
+    font-size: 23px;
+    padding-bottom: 12px;
+    font-weight: 600;
+    padding-left: 5px;
+    font-family: $font-family-dashboard;
+}
+
+h1, 
+.h1, 
+h2, 
+.h2, 
+h3, 
+.h3 {
+    margin-bottom: 0px;
+    font-family: $font-family-dashboard;
+}
+
+.page-header, 
+.sub-header {
+    padding: 0px 0px 5px;
+    font-size: 26px;
+}
+
+.table > thead > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > th, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > th, 
+.table > tfoot > tr > td {
+    border-top: 0px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+// HTML Components
+
+table {
+    background-color: $ava-pure-white;      
+    webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    border: 1px solid $ava-lighter-blue; 
+    border-collapse: separate !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: $ava-off-white;
+}
+
+// Page Components
+
+.content {
+    margin-left: 220px;
+    padding: 20px 25px;
+}
+
+.no-auth {
+    margin-left: 0px;
+}
+
+.navbar-inverse {
+    background-color: $ava-primary;
+    color: $ava-pure-white;
+    
+    .navbar-brand {
+        color: $ava-pure-white;
+    }
+
+    .navbar-nav > li > a {
+        color: $ava-pure-white;
+    }
+}
+
+.sidebar {
+    width: 220px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 54px;
+    z-index: 10;
+    -webkit-transform: translateZ(0);
+
+    .nav > li > a {
+        padding: 8px 20px;
+        line-height: 20px;
+        color: $ava-primary;
+
+        &:hover,
+        &:focus {
+            background-color: $ava-lighter-blue;
+            color: $ava-primary;
+        }
+    }
+
+    span {
+        background: $ava-primary;
+        color: $ava-white;
+        display: block;
+        padding: 10px 20px;
+        clear: left;
+    }
+
+    .sub-menu {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0;
+        position: relative;
+
+        > li {
+
+            &:hover,
+            &:focus {
+                background-color: $ava-lighter-blue;
+                color: $ava-primary;
+            }
+
+            a {
+                padding: 8px 20px;
+                display: block;
+                color: $ava-primary;
+                text-decoration: none;
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    left: 0;
+                    font-size: 7px;
+                    color: #889097;
+                    top: 50%;
+                    margin-top: -4px;
+                    margin-left: -6px;
+                }
+
+                &:hover,
+                &:focus {
+                    color: $ava-primary;
+                }
+            }
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 0px 0px 20px 0px;
+    overflow-x: hidden;
+    overflow-y: auto; /* scrollable contents if viewport is shorter than content */
+    background-color: $ava-off-white;
+  }
+}
+
+.sidebar-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 220px;
+    z-index: 0;
+}
+
+.page-header {
+    margin-top: 0px;
+}
+
+// Error, Warning, Info, Help
+
+.alert.bg-danger { 
+  color: $ava-error-text;
+  border: 1px solid $ava-error-border;
+}
+
+.help-text {
+    &.internal {
+        background-color: $ava-light-grey;
+        border: 1px solid $ava-mid-grey;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: left;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: $ava-darker-grey;
+    }
+}
+
+// Panels
+
+.dashboard.row {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.panel {
+    border-color: $ava-lighter-blue;    
+    min-height: 150px;
+    position: relative;
+
+    .panel-title {
+        background-color: $ava-dark-blue;
+        padding: 10px;
+    }
+
+    .panel-bottom {
+        border-top: 1px solid $ava-light-grey;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        padding: 10px 15px;
+        text-align: center;
+
+        a {
+            padding: 5px 10px;
+
+            &:nth-child(even) {
+                border-left: 1px solid $ava-light-grey;
+            }
+        }
+    }
+}
+
+// Old Dashboard -- Update
+
+.dashboard-count {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dashboard-item {
+    font-size: 15px;
+}
+
+// New Dashboard Panels
+
+.dash-info {
+    float: left;
+    width: 40%;
+    padding-left: 15px; 
+}
+
+.dash-img {
+    float: left;
+}
+
+.dash-desc {
+    float: left;
+    width: 55%;
+    font-size: 14px;
+    padding-left: 20px;
+
+    h3 {
+        font-family: $font-family-dashboard;
+        font-weight: 700;
+        font-size: 20px;
+        margin-top: 0px;
+        margin-bottom: 12px;
+    }
+}
+
+.dash-stats {
+    float: left;
+    width: 60%;
+}
+
+.dash-stat {
+    width: 33%;
+    float: left;
+    border-left: 1px solid $ava-lighter-blue;
+    min-height: 145px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.dash-count {
+    display: block;
+    width: 100%;
+    font-size: 34px;
+    font-weight: 700;
+    font-family: $font-family-dashboard;
+}
+
+.dash-type {
+    display: block;
+    width: 100%;
+    font-family: $font-family-dashboard;
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+
+.row.dash-extra {
+    padding-top: 45px;
+}
+
+.dash-errors {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.dash-error {
+    background-color: #f2dede;
+    padding: 10px 0px 10px 15px;
+}
+
+.know {
+    .panel {
+        min-height: 100px;
+
+        &.dash-connected {
+            background: url(../images/network.png) #FFFFFF no-repeat 177px -100px;
+        }
+
+        &.dash-passwords {
+            background: url(../images/password.png) #FFFFFF no-repeat 209px 13px;
+        }
+
+         &.dash-logged {
+            background: url(../images/login.png) #FFFFFF no-repeat 243px -7px;
+        }
+    }
+}
+
+.filter {
+    padding: 10px;
+}
+
+// Buttons
+
+.btn {
+    color: $ava-pure-white !important;
+    padding: 9px 30px 8px 30px;
+    text-transform: uppercase;
+    transition: all .2s ease;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    text-rendering: optimizelegibility;
+    text-decoration: none;
+    line-height: 28px;
+    margin: 6px 0 20px;
+    font-size: 16px;
+    background-color: $ava-primary !important;
+    border-bottom: 2px solid $ava-blue-mid !important;
+    border: 1px solid $ava-blue-light;
+    text-shadow: 0px 2px 0px $ava-blue-mid;
+
+    &:hover {
+        background-color: $ava-blue-darker !important;
+        border-bottom: 2px solid $ava-blue-black !important;
+        border: 1px solid $ava-blue-black;
+        text-shadow: 0px 2px 0px $ava-blue-black;
+    }
+
+    &.btn-success {
+        background-color: $ava-green !important;
+        border-bottom: 2px solid $ava-green-darker !important;
+        border: 1px solid $ava-green-mid;
+        text-shadow: 0px 2px 0px $ava-green-darker;
+
+        &:hover {
+            background-color: $ava-green-darker !important;
+            border-bottom: 2px solid $ava-green-black !important;
+            border: 1px solid $ava-green-darker-mid;
+            text-shadow: 0px 2px 0px $ava-green-black;
+        }
+    }
+
+    &.btn-danger {
+        background-color: $ava-red !important;
+        border-bottom: 2px solid $ava-red-darker !important;
+        text-shadow: 0px 2px 0px $ava-red-darker;
+        border: 1px solid $ava-red-darker;
+
+        &:hover {
+            color: $ava-pure-white;
+            background-color: $ava-red-darker !important;
+            border-bottom: 2px solid $ava-red-darker !important;
+            border: 1px solid $ava-red-darker;
+            text-shadow: 0px 2px 0px $ava-red-darker;
+        }
+    }
+
+    &.btn-sm {
+        padding: 3px 18px;
+        font-size: 14px;
+        margin: 0px 5px;
+    }
+
+    &.btn-md {
+        padding: 5px 21px;
+        font-size: 14px;
+        margin: 0px 5px;
+    }
+}
+
+// Base Page Components
+
+// Navigation
+
+.user-welcome {
+    background-color: #FCFCFC;
+
+    .user {
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+        top: 27px;
+        display: inline-block;
+        background-color: #FCFCFC;
+        color: #333333 !important;
+    }
+}
+
+.user-image {
+    margin: 10px;
+    display: inline-block !important;
+    background-color: #FCFCFC !important;
+    padding: 0px !important 
+}
+
+// Auth
+
+.auth {
+    background-color: $ava-pure-white;
+    width: 30%;
+    min-height: 450px;
+    border: 1px solid $ava-light-blue;    
+    box-shadow: 0 2px 2px rgba(10,10,10,0.06);
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+
+    &.wizard-setup {
+        width: 400px;
+    }
+
+    h3 {
+        margin-top: 0px;
+        padding-bottom: 10px;
+    }
+
+    .logo {
+        padding-bottom: 30px;
+        padding-top: 15px;
+    }
+
+    .auth-inner {
+        display: block;
+        padding: 0px 0px 50px;
+
+        &.first-user {
+            padding: 0px 0px 0px;
+            width: 100%;
+
+            .has-error {
+                input {
+                    border-color: $ava-error-form;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0px;
+                    color: $ava-error-form;
+
+                    li {
+                        padding: 10px 0px 0px 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    .auth-bottom {
+        position: absolute;
+        bottom: 0px;
+        border-top: 1px solid $ava-light-blue;
+        background-color: $ava-light-blue;
+        padding: 11px;
+        width: 100%;
+        left: 0px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    .form-group {
+        width: 100%;
+        text-align: left;
+    }
+
+    .first-user-intro {
+        border-bottom: 1px solid $ava-light-grey;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+
+    .first-user-intro-alt {
+        padding-bottom: 15px;
+    }
+
+    .first-time {
+        width: 100%; 
+
+        input {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857;
+            color: $ava-input-text;
+            background-color: $ava-pure-white;
+            background-image: none;
+            border: 1px solid $ava-input-border;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+    }
+}
+
+.step-breadcrumb {
+    position: relative;
+
+    .active {
+        background-color: $ava-pure-white;
+        color: $ava-primary;
+    }
+
+    span {
+        border: 1px solid $ava-light-blue;
+        background-color: $ava-main-bg;
+        color: $ava-grey-blue;
+        position: absolute;
+
+        &.step-one {
+            padding: 8px 9px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            top: -39px;
+            left: -3px;
+        }
+
+        &.step-two {
+            padding: 8px 10px;
+            top: -39px;
+            left: 113px;
+        }
+
+        &.step-three {  
+            padding: 8px 9px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            top: -39px;
+            left: 234px;
+        }
+    }
+}
+
+// Page Specific
+
+.wrapper {
+    float: left;
+    width: 100%;
+    padding: 0px 0px 40px 0px;
+}
+
+.target-table {
+    float: left;
+    width: 100%;
+} 
+
+.search {
+    padding: 0px 0px 20px 0px;
+}
+
+// Spinner
+
+.spinner {
+  margin: 0 auto;
+  padding: 20px 0px 20px 0px;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: $ava-secondary;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+

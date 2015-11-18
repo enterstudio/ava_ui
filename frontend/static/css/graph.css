@@ -1,0 +1,85 @@
+/*
+ * Graph style
+ */
+.node {
+   stroke: white;
+   stroke-width: 1.5px;
+}
+
+.nodered {
+   fill: red;
+}
+
+.link {
+   stroke: #999;
+   stroke-opacity: .6;
+}
+
+.node text {
+   font-size: .8em;
+   stroke: none;
+   fill: rgb(168, 169, 171);
+   pointer-events: none;
+}
+
+/*
+ * UI Wrapper Style
+ */
+body {
+   background-color: rgb(57, 78, 89);
+}
+
+button.btn-default.active {
+   background-color: rgb(77, 90, 97);
+   color: white;
+}
+
+div.overlay_wrapper {
+   position: absolute;
+   z-index: 100;
+   /*width: 100%;
+   top: 0px;
+   left: 0px;*/
+   top: 50px;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: auto;
+   height: auto;
+}
+
+div.overlay {
+   background-color: rgba(255,255,255,.1);
+   margin: 6px;
+   padding: 6px;
+   position: relative;
+}
+
+div.controls {
+}
+
+div.filters {
+   padding: 1px 60px 1px 1px;
+}
+
+.filter-label {
+   color: white;
+}
+
+.filter-button {
+   margin-right: 4px;
+}
+
+#stats_meter {
+   position: absolute;
+   top: 6px;
+   right: 6px;
+}
+
+#logo {
+   width: 104px;
+   height: 62px;
+   bottom: 5px;
+   left: 5px;
+   position: absolute;
+}
