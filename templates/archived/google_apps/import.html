@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load staticfiles %}
+
+{% block mainpage %}
+
+<div class="page-header">
+  <h1>Import from Google</h1>
+</div>
+
+       <a href={% url 'google-auth-import' %} >Import</a>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+<h2>[people] .all</h2>
+
+{% if people_list %}
+    <table style="margin-left:auto;margin-right:auto">
+    {% for person in people_list %}
+    <tr>
+        <td class="left"><a href="/people/{{ person.id }}/view/">{{ person.first_name }} {{ person.surname }}</a></td>
+        <td><a href="/people/{{ person.id }}/update/">[update]</td>
+        <td><a href="/people/{{ person.id }}/delete/">[delete]</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No people profiles are available.</p>
+{% endif %}
+
+{% endblock %}

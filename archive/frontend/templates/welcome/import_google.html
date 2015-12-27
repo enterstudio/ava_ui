@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+{% block sidebar %}
+{% endblock %}
+
+<div class="row">
+    <div class="auth wizard-setup">
+    	<div class="step-breadcrumb">
+      		<span class="step-one complete">Create Account</span>
+      		<span class="step-two active">Import Directory</span>
+      		<span class="step-three">View Dashboard</span>
+      	</div>
+      	<img class="logo" src="{% static "images/ava-large.png" %}" alt="AVA - Protect Your People"/>
+      	<div class="auth-inner first-user">
+			<div class="first-user-intro">
+				<h3>Import your directory into AVA</h3>
+				<p>To begin mapping out your organisation, please import your LDAP or Google Account directory.</p>
+			</div>
+
+			<form method='post'>
+  			{% csrf_token %}
+
+  			<div class="form-group {% if form.user_dn.errors %}has-error{% endif %}">
+				<label for="{{ form.domain.id_for_label }}" class="control-label">Domain</label>
+				<div class="first-time">{{ form.domain }}</div>
+				{% if form.domain.errors %}
+			  	{{ form.domain.errors }}
+			  	{% endif %}  
+				<div class="help-block">{{ form.domain.help_text }}</div>
+          	</div>
+
+          	<button type="submit" class="btn btn-def btn-block btn-success">Submit</button>
+			
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

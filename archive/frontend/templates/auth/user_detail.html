@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+<div class="page-header">
+    <h2 class="sub-header">User: {{ view_user.username }}</h2>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+            {% if view_user.first_name or view_user.last_name %}
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ view_user.first_name }} {{ view_user.last_name }}</td>
+                </tr>
+            {% endif %}
+            {% if view_user.email %}
+                <tr>
+                    <td>Email:</td>
+                    <td>{{ view_user.email }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Is System Admin:</td>
+                <td>{% if view_user.rights.is_admin %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if view_user.teams.count %}
+        <h4>Teams</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in view_user.teams.all %}
+                    <tr>
+                        <td>{{ team.name }}</td>
+                        <td>
+                            <a href="{% url 'team-detail' team.id %}" class="btn btn-primary btn-sm">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+
+<p>
+    <a href="{% url 'user-update' view_user.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'user-delete' view_user.id %}" class="btn btn-danger">Delete</a>
+</p>
+
+{% endblock %}
