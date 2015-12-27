@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load identity_filters %}
+{% block title %}View Person{% endblock %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h1>View Person</h1>
+    </div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tbody>
+                <tr>
+                    <td>First Name:</td>
+                    <td>{{ person.name }}</td>
+                </tr>
+                 <tr>
+                    <td>Surname:</td>
+                    <td>{{ person.name }}</td>
+                </tr>
+                <tr>
+                    <td># Groups:</td>
+                    <td>{{ person.groups.count }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+</div>
+
+
+    <div class="page-header">
+        <h2>Associated Identifiers: </h2>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Identifier</th>
+                <th>Identifier Type</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for identifier in person.person_identifiers.all %}
+                <tr>
+                    <td>{{ person_identifier.identifier }}</td>
+                    <td>{{ person_identifier.identifier_type|identifier_type }}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="{% url 'person-identifier-ignore' person_identifier.id %}" class="btn btn-danger btn-sm">Ignore
+                                Identifier</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="button pull-right">
+        <a href="{% url 'person-delete' person.id %}" class="btn btn-danger btn-md">Delete Person</a>
+    </div>
+
+{% endblock %}
+

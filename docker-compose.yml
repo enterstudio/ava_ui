@@ -1,0 +1,26 @@
+
+##
+## IMPORTANT NOTE
+##
+## This compose file is configured for bootstrapping AVA developers
+## quickly. It is not appropriate for production or staging deployments
+## of AVA.
+##
+## This configuration uses hard-coded passwords, Django in DEBUG mode,
+## and the Django integrated development server, none of these things
+## are appropriate for a production environment.
+
+## Support Servers/Services
+
+## AVA Application Server
+ui:
+  build: .
+  command: bin/in-container/run-devserver.sh
+  volumes:
+    - .:/code
+  ports:
+    - "8888:8888"
+  environment:
+    - DJANGO_SETTINGS_MODULE=ava_ui.settings.base
+  env_file:
+    - secrets.env

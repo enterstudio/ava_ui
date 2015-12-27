@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+{% block sidebar %}
+{% endblock %}
+
+<div class="row">
+    <div class="auth wizard-setup">
+    	<div class="step-breadcrumb">
+      		<span class="step-one complete">Create Account</span>
+      		<span class="step-two complete">Import Directory</span>
+      		<span class="step-three active">View Dashboard</span>
+      	</div>
+      	<img class="logo" src="{% static "images/ava-large.png" %}" alt="AVA - Protect Your People"/>
+      	<div class="auth-inner first-user">
+			<div class="first-user-intro">
+				<h3>Successfully imported directory</h3>
+				<p>Your LDAP directory has been successfully imported.</p>
+			</div>
+		<a href="{% url 'know-dashboard' %}" class="btn btn-def btn-block btn-success">View Know Dashboard</a>
+	</div>
+</div>
+
+{% endblock %}

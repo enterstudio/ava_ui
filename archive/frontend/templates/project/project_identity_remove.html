@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+<div class="page-header">
+    <h2 class="sub-header">Remove identities from: {{ project.name }}</h2>
+</div>
+
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ confirm }}
+    
+    <p>Are you sure you want to remove the following identities from {{ project.name }}?</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th># Groups</th>
+                <th># Identifiers</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for identity in identity_list.all %}
+                <tr>
+                    <td>
+                        <input type="hidden" name="identity" value="{{ identity.id }}">
+                        {{ identity.name }}
+                    </td>
+                    <td>
+                        {{ identity.groups.count }}
+                    </td>
+                    <td>
+                        {{ identity.identifiers.count }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <button type="submit" class="btn btn-danger">Remove</button>
+    <a href="{% url 'project-detail' project.id %}" class="btn btn-default">Cancel</a>
+</form>
+
+{% endblock %}

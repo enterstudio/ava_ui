@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% if no_users_exist %}
+<div class="row">
+      <div class="auth wizard-setup">
+      	<div class="step-breadcrumb">
+      		<span class="step-one active">Create Account</span>
+      		<span class="step-two">Import Directory</span>
+      		<span class="step-three">View Dashboard</span>
+      	</div>
+      	<img class="logo" src="{% static "images/ava-large.png" %}" alt="AVA - Protect Your People"/>
+      		<div class="auth-inner first-user">
+			<div class="first-user-intro">
+				<h3>Welcome to AVA</h3>
+				<p>Please create an account for your first user.</p>
+			</div>
+
+			<form method='post'>
+			  {% csrf_token %}
+				<div class="form-group {% if form.username.errors %}has-error{% endif %}">
+					<label for="{{ form.username.id_for_label }}" class="control-label">Username</label>
+					<div class="first-time">{{ form.username }}</div>
+					{% if form.username.errors %}
+			  		{{ form.username.errors }}
+			  		{% endif %}  
+					<div class="help-block">{{ form.username.help_text }}</div>   
+          		</div>
+
+          		<div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+					<label for="{{ form.password1.id_for_label }}" class="control-label">Password</label>
+					<div class="first-time">{{ form.password1 }}</div>
+					{% if form.password1.errors %}
+			  		{{ form.password1.errors }}     
+			  		{% endif %}    
+					<div class="help-block">{{ form.password1.help_text }}</div>
+          		</div>
+
+          		<div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+					<label for="{{ form.password2.id_for_label }}" class="control-label">Password Confirmation</label>
+					<div class="first-time">{{ form.password2 }}</div>
+					{% if form.password2.errors %}
+			  		{{ form.password2.errors }}
+			  		{% endif %}    
+					<div class="help-block">{{ form.password2.help_text }}</div>
+          		</div> 
+
+          		<button type="submit" class="btn btn-def btn-block btn-success">Submit</button>
+			</div>
+			</form>
+		</div>
+	</div>
+{% else %}
+
+<div class="row">
+    <div class="auth wizard-setup">
+      	<img class="logo" src="{% static "images/ava-large.png" %}" alt="AVA - Protect Your People"/>
+      	<div class="auth-inner first-user">
+			<div class="first-user-intro-alt">
+				<p>A user has already been created.</p>
+			</div>
+			<a href="{% url 'welcome-import-selection' %}" class="btn btn-def btn-block btn-success">Proceed to the next step</a>
+		</div>
+	</div>
+</div>
+
+
+{% endif %}
+
+{% endblock %}

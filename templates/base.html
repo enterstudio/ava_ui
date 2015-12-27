@@ -1,0 +1,124 @@
+{% extends 'dh5bp/base.html' %}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+
+{% load staticfiles %} /* for the use of the static variable - see below */
+{% load bootstrap3 %} /* for the use of the static variable - see below */
+
+
+{% block title %}AVA- Protect Your People{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-glyphicons.css' %}" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="page-container" class="page-sidebar-fixed page-header-fixed">
+
+{% block topnavbar %}
+<!-- begin #header -->
+<div id="header" class="header navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">AVA - Protect Your People</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% else %}
+                    <li><a href="{% url 'person-index' %}">Change Password</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+{% endblock %}
+
+{% if not user.is_authenticated %}
+
+{% else %}
+
+{% block sidebar %}
+<!-- begin #sidebar -->
+<div id="sidebar" class="sidebar">
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar nav -->
+        <ul class="nav">
+        <!-- <li><a href="/">Dashboard</a></li> -->
+        <li class="user-welcome">
+            <div>
+                <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                <span class="user">Hi, {{ user }}</span>
+            </div>
+        </li>
+
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Know</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'person-index' %}">Know Dashboard</a></li>
+                <li><a href="{% url 'person-index' %}">Groups</a></li>
+                <li><a href="{% url 'person-index' %}">People</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Test</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'person-index' %}">Test Dashboard</a></li>
+                <li><a href="{% url 'person-index' %}">Email Tests</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Analyse</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'person-index' %}">Analyse</a></li>
+            </ul>
+        </li>
+
+        {% if user.rights.is_admin %}
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Settings</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'person-index' %}">Import from LDAP</a></li>
+                <li><a href="{% url '' %}">Import from Google</a></li>
+            </ul>
+        </li>
+        {% endif %}
+        </ul>
+        <!-- end sidebar nav -->    
+    </div>
+</div>
+<div class="sidebar-bg"></div>
+<!-- end #sidebar -->
+{% endblock %}
+
+{% endif %}
+
+<div id="content" class="content {% if not user.is_authenticated %}no-auth{% endif %}">
+    {% block mainpage %}
+    {% endblock %}
+</div>
+
+</div>
+</div> <!-- end of container-fluid -->
+
+{% endblock %}
