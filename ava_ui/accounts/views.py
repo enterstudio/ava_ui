@@ -12,40 +12,50 @@ log = logging.getLogger(__name__)
 
 
 def login(request):
+    context = {'user': None}
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
-        log.debug("Request user before :: " + str(request.user))
-        log.debug("Request user is authenticated?? :: " + str(request.user.is_authenticated()))
+        # log.debug("Request user before :: " + str(request.user))
+        # log.debug("Request user is authenticated?? :: " + str(request.user.is_authenticated()))
         log.debug("Attempting to authenticate :: " + username)
-        results = authenticate(username, password)
+        results = authenticate(request, username, password)
         log.debug("Authenticate returned :: " + str(results))
+
         if results is not None:
-            log.debug("Authenticate returned status code :: " + str(results.status_code))
-            log.debug("Authenticate returned content :: " + str(results.content))
+            # log.debug("Authenticate returned status code :: " + str(results.status_code))
+            # log.debug("Authenticate returned content :: " + str(results.content))
 
             if results.status_code == 200:
                 content = results.json()
+                # log.debug("Request user after :: " + str(request.user))
+                # log.debug("Request user is authenticated?? :: " + str(request.user.is_authenticated()))
                 request.session['token'] = content['token']
-                log.debug("Request user :: " + str(request.user))
-                log.debug("Request user is authenticated?? :: " + str(request.user.is_authenticated()))
+                request.session['user'] = username
+                context = {'user': username}
                 if request.POST["next"] is not "":
+                    log.debug("REDIRECTING TO NEXT " + str(request.POST["next"]))
                     return redirect(request.POST["next"])
                 else:
-                    return redirect(settings.LOGIN_REDIRECT_URL)
+                    log.debug("REDIRECTING TO :: " + str(settings.LOGIN_REDIRECT_URL))
+                    return redirect(settings.LOGIN_REDIRECT_URL, context=context)
             else:
                 return handle_error(request, results.status_code)
         else:
             return HttpResponseRedirect('login')
     else:
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/login.html', context=context)
 
 
-def authenticate(username, password):
+
+def authenticate(request, username, password):
     url = settings.API_BASE_URL + '/login/'
     login_data = {'username': username,
                   'password': password,
                   }
+    # csrf_headers = {'HTTP_X_CSRFTOKEN': request.COOKIES['csrftoken']}
+    # log.debug("Attempting login with :: " + str(csrf_headers))
+    # return requests.post(url, data=login_data, headers=csrf_headers)
     return requests.post(url, data=login_data)
 
 
@@ -54,11 +64,8 @@ def store_token(username, token):
 
 
 def logout(request):
-    url = settings.API_BASE_URL + '/logout/'
-    results = requests.post(url)
     request.session['token'] = None
-    request.user = None
-    log.debug("Attempted to logout :: " + str(results.status_code))
+    request.session['user'] = None
     return render(request, 'accounts/login.html')
 
 # class password_change():

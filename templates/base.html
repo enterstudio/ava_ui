@@ -38,7 +38,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                {% if not user.is_authenticated %}
+                {% if not user %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                 {% else %}
                     <li><a href="{% url 'person-index' %}">Change Password</a></li>
@@ -52,7 +52,7 @@
 
 {% endblock %}
 
-{% if not user.is_authenticated %}
+{% if not user %}
 
 {% else %}
 
@@ -94,7 +94,7 @@
             </ul>
         </li>
 
-        {% if user.rights.is_admin %}
+        {% if is_admin %}
         <li class="nav-header has-sub-menu">
             <span class="sidebar-header">Settings</span>
             <ul class="sub-menu">
@@ -113,7 +113,7 @@
 
 {% endif %}
 
-<div id="content" class="content {% if not user.is_authenticated %}no-auth{% endif %}">
+<div id="content" class="content {% if not user %}no-auth{% endif %}">
     {% block mainpage %}
     {% endblock %}
 </div>

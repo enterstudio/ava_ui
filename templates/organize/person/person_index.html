@@ -6,7 +6,7 @@
 </div>
 
     <div class="table-responsive">
-    {% if people %}
+    {% if object_list %}
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-    {% for person in people %}
+    {% for person in object_list %}
     <tr>
         <td>{{ person.first_name }}</td>
         <td>{{ person.surname }}</td>
