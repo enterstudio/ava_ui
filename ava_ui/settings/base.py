@@ -25,7 +25,8 @@ DATABASES = {
 }
 
 API_BASE_URL = 'http://192.168.59.103:8000'
-LOGIN_REDIRECT_URL = API_BASE_URL + '/organize/'
+PUBLIC_BASE_URL = 'http://avasecure.com:8888'
+LOGIN_REDIRECT_URL = PUBLIC_BASE_URL + '/organize/people/'
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'true').lower() == 'true'
 # TEMPLATE_DEBUG = DEBUG
@@ -248,7 +249,7 @@ if USE_REDIS_CACHE:
         },
     }
 
-LOGIN_REDIRECT_URL = "/"
+
 
 PUBLIC_SITE_URLS = [
     'http://localhost:8000/',
