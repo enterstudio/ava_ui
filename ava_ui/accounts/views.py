@@ -50,12 +50,12 @@ def authenticate(request, username, password):
 def logout(request):
     request.session['token'] = None
     request.session['user'] = None
-    return render(request, 'accounts/login.html')
+    return redirect('login')
 
 
 def password_reset(request):
     template_name = 'accounts/password-reset.html'
-    url = settings.API_BASE_URL + '/password/reset/'
+    url = settings.API_BASE_URL + '/accounts/password/reset/'
 
     if request.POST:
         email = request.POST.get('email')
