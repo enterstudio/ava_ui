@@ -1,18 +1,14 @@
-celery[redis]
+
 Django
-redis
+
 django_csp
 
-django-redis-sessions
-django-redis-cache
-hiredis
 flake8
 djangorestframework
 markdown
 django-cors-headers
 
 requests
-requests-jwt
 
 
 django-html5-boilerplate
