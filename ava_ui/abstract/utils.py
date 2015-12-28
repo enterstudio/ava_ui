@@ -1,5 +1,6 @@
 import logging
 
+import requests
 from django.shortcuts import render, redirect
 
 log = logging.getLogger(__name__)
@@ -11,3 +12,12 @@ def handle_error(request, status_code):
         return redirect('login')
     else:
         return render(request, 'error/generic_error.html')
+
+
+def csrf_post_request(request, url, api_data, headers):
+    # add csrf header to existing headers
+    headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
+    log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
+
+    log.debug("csrf_post_request :: making POST request to " + str(url))
+    return requests.post(url, data=api_data, headers=headers)
