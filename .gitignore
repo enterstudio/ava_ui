@@ -56,9 +56,6 @@ docs/_build/
 # PyBuilder
 target/
 
-<<<<<<< HEAD
-*.iml
 
-=======
->>>>>>> master
+*.iml
 *.xml
