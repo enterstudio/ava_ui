@@ -1,7 +1,6 @@
 from django.conf.urls import url
-from ava_ui.accounts import views
 
-# from ava_ui.accounts.decorators import system_admin_required
+from ava_ui.accounts import views
 
 urlpatterns = [
     # Standard authentication functions
@@ -9,42 +8,21 @@ urlpatterns = [
 
     url(r'^logout/$', views.logout, name='logout'),
 
-    url(
-        '^password_change/',
-        'django.contrib.auth.views.password_change',
-        {'template_name': 'accounts/password-change.html'},
-        name='password_change'
-    ),
+    url(r'^password/reset/$', views.password_reset, name='password-reset'),
 
-    url(
-        '^password_change/done/',
-        'django.contrib.auth.views.password_change_done',
-        {'template_name': 'accounts/password-change-done.html'},
-        name='password_change_done'
-    ),
-    url(
-        '^password_reset/$',
-        'django.contrib.auth.views.password_reset',
-        {'template_name': 'accounts/password-reset.html'},
-        name='password_reset'
-    ),
-    url(
-        '^password_reset/done/$',
-        'django.contrib.auth.views.password_reset_done',
-        {'template_name': 'accounts/password-reset-done.html', 'post_reset_redirect': '/'},
-        name='password_reset_done'
-    ),
-    url(
-        '^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        'django.contrib.auth.views.password_reset_confirm',
-        {'template_name': 'accounts/password-reset-confirm.html'},
-        name='password_reset_confirm'
-    ),
-    url(
-        '^reset/done/',
-        'django.contrib.auth.views.password_reset_complete',
-        {'template_name': 'accounts/password-reset-complete.html'},
-        name='password_reset_complete'
-    ),
+    url(r'^password/reset/confirm/$', views.password_reset_confirm, name='password-reset-confirm'),
+
+    url(r'^password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.password_reset_token, name='password-reset-token'),
+
+    url(r'^password/reset/done/$', views.password_reset_done, name='password-reset-done'),
+
+    url(r'^password/reset/complete/$', views.password_reset_complete, name='password-reset-complete'),
+
+    # TODO Authentication and permissions for this
+    url(r'^password/change/$', views.password_change, name='password-change'),
+
+    # TODO Authentication and permissions for this
+    url(r'^password/change/done/$', views.password_change_done, name='password-change-done'),
 
 ]
