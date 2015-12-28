@@ -1,7 +1,6 @@
 from django.conf.urls import url
-from ava_ui.accounts import views
 
-# from ava_ui.accounts.decorators import system_admin_required
+from ava_ui.accounts import views
 
 urlpatterns = [
     # Standard authentication functions
@@ -20,8 +19,10 @@ urlpatterns = [
 
     url(r'^password/reset/complete/$', views.password_reset_complete, name='password-reset-complete'),
 
+    # TODO Authentication and permissions for this
     url(r'^password/change/$', views.password_change, name='password-change'),
 
+    # TODO Authentication and permissions for this
     url(r'^password/change/done/$', views.password_change_done, name='password-change-done'),
 
 ]
