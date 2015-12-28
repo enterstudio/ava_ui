@@ -25,4 +25,6 @@ urlpatterns = [
     # TODO Authentication and permissions for this
     url(r'^password/change/done/$', views.password_change_done, name='password-change-done'),
 
+    url(r'^register/$', views.register, name='register'),
+
 ]
