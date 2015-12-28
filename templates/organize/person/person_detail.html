@@ -1,65 +1,61 @@
 {% extends 'base.html' %}
-{% load identity_filters %}
-{% block title %}View Person{% endblock %}
 {% block mainpage %}
 
     <div class="page-header">
-        <h1>View Person</h1>
+        <h2 class="sub-header">View Person</h2>
     </div>
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <tbody>
-                <tr>
-                    <td>First Name:</td>
-                    <td>{{ person.name }}</td>
-                </tr>
-                 <tr>
-                    <td>Surname:</td>
-                    <td>{{ person.name }}</td>
-                </tr>
-                <tr>
-                    <td># Groups:</td>
-                    <td>{{ person.groups.count }}</td>
-                </tr>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>First Name:</td>
+                <td>{{ object.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>{{ object.surname }}</td>
+            </tr>
+            <tr>
+                <td># Groups:</td>
+                <td>{{ object.groups|length }}</td>
+            </tr>
             </tbody>
         </table>
 
-</div>
+    </div>
 
 
     <div class="page-header">
-        <h2>Associated Identifiers: </h2>
-    </div>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Identifier</th>
-                <th>Identifier Type</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for identifier in person.person_identifiers.all %}
-                <tr>
-                    <td>{{ person_identifier.identifier }}</td>
-                    <td>{{ person_identifier.identifier_type|identifier_type }}</td>
-                    <td>
-                        <div class="pull-right">
-                            <a href="{% url 'person-identifier-ignore' person_identifier.id %}" class="btn btn-danger btn-sm">Ignore
-                                Identifier</a>
-                        </div>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <h2>Associated Groups: </h2>
     </div>
 
-    <div class="button pull-right">
-        <a href="{% url 'person-delete' person.id %}" class="btn btn-danger btn-md">Delete Person</a>
-    </div>
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Identifier</th>
+            <th>Identifier Type</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for group in object.groups.all %}
+            <tr>
+                <td>{{ group.url }}</td>
+                <td>{{ group.group_type }}</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="{% url 'person-detail' object_identifier.id %}" class="btn btn-danger btn-sm">Ignore
+                            Identifier</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
 
 {% endblock %}
 
