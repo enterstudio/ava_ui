@@ -17,7 +17,7 @@ def login(request):
         password = request.POST['password']
 
         log.debug("Attempting to authenticate :: " + username)
-        results = authenticate(request, username, password)
+        results = authenticate(username, password)
         log.debug("Authenticate returned :: " + str(results))
 
         if results is not None:
@@ -41,7 +41,7 @@ def login(request):
         return render(request, 'accounts/login.html', context=context)
 
 
-def authenticate(request, username, password):
+def authenticate(username, password):
     url = settings.API_BASE_URL + '/login/'
     login_data = {'username': username,
                   'password': password,
@@ -62,7 +62,6 @@ def logout(request):
 def password_reset(request):
     template_name = 'accounts/password-reset.html'
     url = settings.API_BASE_URL + '/password/reset/'
-    context = {'user': None}
 
     if request.POST:
         email = request.POST['email']
@@ -71,20 +70,42 @@ def password_reset(request):
 
         if results is not None:
             if results.status_code == 200:
-                return redirect(settings.LOGIN_REDIRECT_URL, context=context)
+                return redirect(settings.LOGIN_REDIRECT_URL, context=get_user_context())
             else:
                 return handle_error(request, results.status_code)
         else:
             return HttpResponseRedirect('login')
     else:
-        return render(request, template_name, context=context)
+        return render(request, template_name, context=get_user_context())
+
+
+def password_reset_token(request):
+    reset_template_name = 'accounts/password-reset.html'
+    url = settings.API_BASE_URL + '/accounts/password/reset/confirm/'
+
+    if request.GET:
+        token = request.POST['token']
+        uid = request.POST['uid']
+        api_data = {'token': token,
+                    'uid': uid, }
+        results = csrf_post_request(url, data=api_data, headers={})
+
+        if results is not None:
+            if results.status_code == 200:
+                return redirect('password-reset-confirm')
+            else:
+                return handle_error(request, results.status_code)
+        else:
+            # TODO is this the right template to send this to?
+            return render(request, reset_template_name, context=get_user_context())
+    else:
+        return redirect('password-reset')
 
 
 def password_reset_confirm(request):
     template_name = 'accounts/password-reset-confirm.html'
     reset_template_name = 'accounts/password-reset.html'
     url = settings.API_BASE_URL + '/accounts/password/reset/confirm/'
-    context = {'user': None}
 
     if request.POST:
         password1 = request.POST['password1']
@@ -100,9 +121,9 @@ def password_reset_confirm(request):
                 return handle_error(request, results.status_code)
         else:
             # TODO is this the right template to send this to?
-            return render(request, reset_template_name, context=context)
+            return render(request, reset_template_name, context=get_user_context())
     else:
-        return render(request, template_name, context=context)
+        return render(request, template_name, context=get_user_context())
 
 
 def password_reset_done(request):
