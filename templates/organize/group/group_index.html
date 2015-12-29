@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load group_filters %}
 {% block mainpage %}
 
 <div class="page-header">
@@ -17,11 +16,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for group in group_list.all %}
+            {% for group in object_list %}
                 <tr>
                     <td>{{ group.name }}</td>
-                    <td>{{ group.group_type|group_type }}</td>
-                    <td>{{ group.person_count }}</td>
+                    <td>{{ group.group_type}}</td>
+                    <td>{{ group.members|length }}</td>
                     <td>
                         <div class="pull-right">
                             <a href="{% url 'group-detail' group.id %}" class="btn btn-primary btn-sm">View</a>

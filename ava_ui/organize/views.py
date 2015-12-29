@@ -19,3 +19,19 @@ class PersonDetail(ObjectDetail):
 
     def get(self, request, **kwargs):
         return super(PersonDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+
+class GroupIndex(ObjectIndex):
+    url_suffix = '/organize/group/'
+    template_name = "organize/group/group_index.html"
+
+    def get(self, request):
+        return super(GroupIndex, self).get(request, self.template_name, self.url_suffix)
+
+
+class GroupDetail(ObjectDetail):
+    url_suffix = '/organize/group/'
+    template_name = "organize/group/group_detail.html"
+
+    def get(self, request, **kwargs):
+        return super(GroupDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
