@@ -61,14 +61,6 @@ class ScoreCardIndex(ObjectIndex):
         return super(ScoreCardIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class ProfileDetail(ObjectDetail):
-    url_suffix = '/my/profile/'
-    template_name = "my/profile/profile_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(ProfileDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-
 class LearningHistoryDetail(ObjectDetail):
     url_suffix = '/my/learn/history/'
     template_name = "my/learning/history/learning_history_detail.html"
@@ -85,19 +77,6 @@ class LearningQueueDetail(ObjectDetail):
         return super(LearningQueueDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class LearningProfileDetail(ObjectDetail):
-    url_suffix = '/my/learn/profile/'
-    template_name = "my/learning/profile/learning_profile_detail.html"
 
-    def get(self, request, **kwargs):
-        return super(LearningProfileDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-
-class ActivityLogDetail(ObjectDetail):
-    url_suffix = '/my/activity/'
-    template_name = "my/profile/history/profile_history_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(ActivityLogDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 

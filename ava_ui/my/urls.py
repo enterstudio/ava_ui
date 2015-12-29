@@ -5,16 +5,10 @@ from .views import *
 
 urlpatterns = [
     url(r'^profile/$', ProfileIndex.as_view(),
-        name="my-profile-index"),
-
-    url(r'^profile/(?P<pk>[0-9]+)/$', ProfileDetail.as_view(),
-        name="my-profile-detail"),
+        name="my-profile"),
 
     url(r'^profile/history/$', ActivityLogIndex.as_view(),
         name="my-profile-history-index"),
-
-    url(r'^profile/history/(?P<pk>[0-9]+)/$', ActivityLogDetail.as_view(),
-        name="my-profile-history-detail"),
 
     url(r'^friends/$', FriendsListIndex.as_view(),
         name="my-friends-index"),
@@ -35,10 +29,8 @@ urlpatterns = [
         name="my-learning-queue-detail"),
 
     url(r'^learning/profile/$', LearningProfileIndex.as_view(),
-        name="my-learning-profile-index"),
+        name="my-learning-profile"),
 
-    url(r'^learning/profile/(?P<pk>[0-9]+)/$', LearningProfileDetail.as_view(),
-        name="my-learning-profile-detail"),
 
 
     
