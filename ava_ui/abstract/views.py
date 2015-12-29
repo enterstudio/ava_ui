@@ -30,6 +30,7 @@ class ObjectIndex(generic.TemplateView):
         if results.status_code is 200:
 
             objects = results.json()
+            log.debug(str(self.__class__) + " returned objects = " + str(objects))
 
             self.context['object_list'] = objects['results']
 
