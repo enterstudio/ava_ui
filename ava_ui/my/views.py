@@ -14,24 +14,24 @@ class ProfileIndex(ObjectIndex):
 
 
 class LearningHistoryIndex(ObjectIndex):
-    url_suffix = '/my/learning/history/'
-    template_name = "my/learning/history_index.html"
+    url_suffix = '/my/learn/history/'
+    template_name = "my/learning/history/learning_history_index.html"
 
     def get(self, request):
         return super(LearningHistoryIndex, self).get(request, self.template_name, self.url_suffix)
 
 
 class LearningQueueIndex(ObjectIndex):
-    url_suffix = '/my/learning/queue/'
-    template_name = "my/learning/queue_index.html"
+    url_suffix = '/my/learn/queue/'
+    template_name = "my/learning/queue/learning_queue_index.html"
 
     def get(self, request):
         return super(LearningQueueIndex, self).get(request, self.template_name, self.url_suffix)
 
 
 class LearningProfileIndex(ObjectIndex):
-    url_suffix = '/my/learning/profile/'
-    template_name = "my/learning/profile_index.html"
+    url_suffix = '/my/learn/profile/'
+    template_name = "my/learning/profile/learning_profile_index.html"
 
     def get(self, request):
         return super(LearningProfileIndex, self).get(request, self.template_name, self.url_suffix)
@@ -46,8 +46,8 @@ class FriendsListIndex(ObjectIndex):
 
 
 class ActivityLogIndex(ObjectIndex):
-    url_suffix = '/my/profile/history/'
-    template_name = "my/profile/history_index.html"
+    url_suffix = '/my/activity/'
+    template_name = "my/profile/history/profile_history_index.html"
 
     def get(self, request):
         return super(ActivityLogIndex, self).get(request, self.template_name, self.url_suffix)
@@ -55,7 +55,7 @@ class ActivityLogIndex(ObjectIndex):
 
 class ScoreCardIndex(ObjectIndex):
     url_suffix = '/my/scorecard/'
-    template_name = "my/scorecard/achievements_index.html"
+    template_name = "my/scorecard/scorecard_index.html"
 
     def get(self, request):
         return super(ScoreCardIndex, self).get(request, self.template_name, self.url_suffix)
@@ -70,24 +70,24 @@ class ProfileDetail(ObjectDetail):
 
 
 class LearningHistoryDetail(ObjectDetail):
-    url_suffix = '/my/learning/history/'
-    template_name = "my/learning/history_detail.html"
+    url_suffix = '/my/learn/history/'
+    template_name = "my/learning/history/learning_history_detail.html"
 
     def get(self, request, **kwargs):
         return super(LearningHistoryDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
 class LearningQueueDetail(ObjectDetail):
-    url_suffix = '/my/learning/queue/'
-    template_name = "my/learning/queue_detail.html"
+    url_suffix = '/my/learn/queue/'
+    template_name = "my/learning/queue/learning_queue_detail.html"
 
     def get(self, request, **kwargs):
         return super(LearningQueueDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
 class LearningProfileDetail(ObjectDetail):
-    url_suffix = '/my/learning/profile/'
-    template_name = "my/learning/profile_detail.html"
+    url_suffix = '/my/learn/profile/'
+    template_name = "my/learning/profile/learning_profile_detail.html"
 
     def get(self, request, **kwargs):
         return super(LearningProfileDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -102,8 +102,8 @@ class FriendsListDetail(ObjectDetail):
 
 
 class ActivityLogDetail(ObjectDetail):
-    url_suffix = '/my/profile/history/'
-    template_name = "my/profile/history_detail.html"
+    url_suffix = '/my/activity/'
+    template_name = "my/profile/history/profile_history_detail.html"
 
     def get(self, request, **kwargs):
         return super(ActivityLogDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -111,7 +111,7 @@ class ActivityLogDetail(ObjectDetail):
 
 class ScoreCardDetail(ObjectDetail):
     url_suffix = '/my/scorecard/'
-    template_name = "my/scorecard/achievements_detail.html"
+    template_name = "my/scorecard/scorecard_detail.html"
 
     def get(self, request, **kwargs):
         return super(ScoreCardDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
