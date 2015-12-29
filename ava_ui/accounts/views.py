@@ -131,6 +131,8 @@ def password_reset_complete(request):
 
 
 # TODO sort out authentication for this
+# TODO I hate this workflow. This doesn't ask for the old password and is pretty nasty. Could do with replacing this
+# TODO with an email verification thing like used for password reset
 def password_change(request):
     template_name = 'accounts/password-change.html'
     url = settings.API_BASE_URL + '/accounts/password/change/'
@@ -158,3 +160,52 @@ def password_change(request):
 def password_change_done(request):
     template_name = 'accounts/password-change-done.html'
     return render(request, template_name, context=get_user_context(request))
+
+
+def register(request):
+    template_name = 'accounts/register.html'
+    url = settings.API_BASE_URL + '/accounts/register/'
+
+    if request.POST:
+        log.debug("POST dictionary contains :: " + str(request.POST))
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        api_data = {'username': email,
+                    'email': email,
+                    'password' : password}
+
+        results = csrf_post_request(request=request, url=url, api_data=api_data, is_authenticated=False)
+        log.debug("register returned :: " + str(results))
+        if results is not None:
+            if results.status_code == 200:
+                return redirect('login')
+            else:
+                return handle_error(request, results.status_code)
+        else:
+            # TODO is this the right template to send this to?
+            return handle_error(request, results.status_code)
+    else:
+        return render(request, template_name, context=get_user_context(request))
+
+def verify_email(request):
+    template_name = 'accounts/verify.html'
+    url = settings.API_BASE_URL + '/accounts/verify-email/'
+
+    if request.GET:
+        key = request.GET.get('key')
+
+        api_data = {'key': key,}
+        results = csrf_post_request(request=request, url=url, api_data=api_data)
+
+        if results is not None:
+            if results.status_code == 200:
+                return render(request, template_name, context=get_user_context(request))
+            else:
+                return handle_error(request, results.status_code)
+        else:
+            # TODO is this the right template to send this to?
+            return handle_error(request, results.status_code)
+    else:
+        return redirect('login')
