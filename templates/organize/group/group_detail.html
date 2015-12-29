@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% load group_filters %}
 {% block mainpage %}
 
 <div class="page-header">
-    <h2>Group: {{ group.name }}</h2>
+    <h2>Group: {{ object.name }}</h2>
 </div>
 
 <div class="table-responsive">
@@ -12,21 +11,21 @@
         <tbody>
                 <tr>
                     <td>Name:</td>
-                    <td>{{ group.name }}</td>
+                    <td>{{ object.name }}</td>
                 </tr>
                 <tr>
                     <td>Group Type:</td>
-                    <td>{{ group.group_type|group_type }}</td>
+                    <td>{{ object.group_type }}</td>
                 </tr>
-                {% if group.parent %}
+                {% if object.parent %}
                     <tr>
                         <td>Parent Group:</td>
-                        <td><a href="{% url "group-detail" group.parent.id %}">{{ group.parent.name }}</a></td>
+                        <td><a href="{% url "group-detail" object.parent.id %}">{{ object.parent.name }}</a></td>
                     </tr>
                 {% endif %}
                 <tr>
                     <td># Members:</td>
-                    <td>{{ group.persons.count }}</td>
+                    <td>{{ object.people|length }}</td>
                 </tr>
             </tbody>
         </table>
@@ -42,16 +41,16 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th></th>
+                <th>Firstname</th>
+                <th>Surname</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            {% for person in group.identities.all %}
+            {% for person in object.people.all %}
                 <tr>
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.person_type }}</td>
+                    <td>{{ person.first_name }}</td>
+                    <td>{{ person.surname }}</td>
                     <td>
                         <div class="pull-right">
                             <a href="{% url 'person-detail' person.id  %}" class="btn btn-primary btn-sm">View</a>
