@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">View Learning History</h2>
+        <h2 class="sub-header">My Learning History</h2>
     </div>
 
        <div class="table-responsive">
@@ -10,24 +10,19 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Completed</th>
             </tr>
             </thead>
             <tbody>
             {% for item in object_list %}
                 <tr>
-                    <td>{{ item.1 }}</td>
-                    <td>{{ item.2 }}</td>
-                    <td>{{ item.3 }}</td>
-                    <td>
-                        <div class="pull-right">
-                            <a href="{% url 'person-detail' item.id %}">
-                                <button type="button" class="btn btn-primary btn-sm">View</button>
-                            </a>
-                        </div>
+                    <td>{{ item.modified }}</td>
+                    <td>{{ item.module.name }}</td>
+                    <td>{{ item.score }}</td>
+                    <td>{{ item.completed }}</td>
                 </tr>
             {% endfor %}
             </tbody>

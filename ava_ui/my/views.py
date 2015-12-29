@@ -61,22 +61,3 @@ class ScoreCardIndex(ObjectIndex):
         return super(ScoreCardIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class LearningHistoryDetail(ObjectDetail):
-    url_suffix = '/my/learn/history/'
-    template_name = "my/learning/history/learning_history_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(LearningHistoryDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-
-class LearningQueueDetail(ObjectDetail):
-    url_suffix = '/my/learn/queue/'
-    template_name = "my/learning/queue/learning_queue_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(LearningQueueDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-
-
-
-

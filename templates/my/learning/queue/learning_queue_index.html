@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">View Learning Queue</h2>
+        <h2 class="sub-header">My learning queue</h2>
     </div>
 
     <div class="table-responsive">
@@ -10,15 +10,15 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Username</th>
-                <th>Friend Since</th>
+                <th>Name</th>
+                <th>Description</th>
             </tr>
             </thead>
             <tbody>
             {% for item in object_list %}
                 <tr>
-                    <td>{{ item.friend.username }}</td>
-                    <td>{{ item.created }}</td>
+                    <td>{{ item.module.name }}</td>
+                    <td>{{ item.module.description }}</td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -19,14 +19,8 @@ urlpatterns = [
     url(r'^learning/history/$', LearningHistoryIndex.as_view(),
         name="my-learning-history-index"),
 
-    url(r'^learning/history/(?P<pk>[0-9]+)/$', LearningHistoryDetail.as_view(),
-        name="my-learning-history-detail"),
-
     url(r'^learning/queue/$', LearningQueueIndex.as_view(),
         name="my-learning-queue-index"),
-
-    url(r'^learning/queue/(?P<pk>[0-9]+)/$', LearningQueueDetail.as_view(),
-        name="my-learning-queue-detail"),
 
     url(r'^learning/profile/$', LearningProfileIndex.as_view(),
         name="my-learning-profile"),
