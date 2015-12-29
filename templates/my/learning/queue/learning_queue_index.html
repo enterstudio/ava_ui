@@ -5,4 +5,27 @@
         <h2 class="sub-header">View Learning Queue</h2>
     </div>
 
+    <div class="table-responsive">
+    {% if object_list %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Friend Since</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.friend.username }}</td>
+                    <td>{{ item.created }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>Nothing to see here.</p>
+    {% endif %}
+
 {% endblock %}

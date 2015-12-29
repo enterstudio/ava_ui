@@ -93,14 +93,6 @@ class LearningProfileDetail(ObjectDetail):
         return super(LearningProfileDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class FriendsListDetail(ObjectDetail):
-    url_suffix = '/my/friends/'
-    template_name = "my/friends/friends_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(FriendsListDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-
 class ActivityLogDetail(ObjectDetail):
     url_suffix = '/my/activity/'
     template_name = "my/profile/history/profile_history_detail.html"
@@ -109,9 +101,3 @@ class ActivityLogDetail(ObjectDetail):
         return super(ActivityLogDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class ScoreCardDetail(ObjectDetail):
-    url_suffix = '/my/scorecard/'
-    template_name = "my/scorecard/scorecard_detail.html"
-
-    def get(self, request, **kwargs):
-        return super(ScoreCardDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)

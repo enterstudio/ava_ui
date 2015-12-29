@@ -18,15 +18,9 @@ urlpatterns = [
 
     url(r'^friends/$', FriendsListIndex.as_view(),
         name="my-friends-index"),
-
-    url(r'^friends/(?P<pk>[0-9]+)/$', FriendsListDetail.as_view(),
-        name="my-friends-detail"),
     
     url(r'^scorecard/$', ScoreCardIndex.as_view(),
         name="my-scorecard-index"),
-
-    url(r'^scorecard/(?P<pk>[0-9]+)/$', ScoreCardDetail.as_view(),
-        name="my-scorecard-detail"),
 
     url(r'^learning/history/$', LearningHistoryIndex.as_view(),
         name="my-learning-history-index"),
