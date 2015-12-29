@@ -7,7 +7,7 @@ log = logging.getLogger(__name__)
 
 class ProfileIndex(ObjectIndex):
     url_suffix = '/my/profile/'
-    template_name = "my/profile/profile_index.html"
+    template_name = "my/profile/profile.html"
 
     def get(self, request):
         return super(ProfileIndex, self).get(request, self.template_name, self.url_suffix)
@@ -31,7 +31,7 @@ class LearningQueueIndex(ObjectIndex):
 
 class LearningProfileIndex(ObjectIndex):
     url_suffix = '/my/learn/profile/'
-    template_name = "my/learning/profile/learning_profile_index.html"
+    template_name = "my/learning/profile/learning_profile.html"
 
     def get(self, request):
         return super(LearningProfileIndex, self).get(request, self.template_name, self.url_suffix)

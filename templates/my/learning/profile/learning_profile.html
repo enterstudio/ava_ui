@@ -8,29 +8,23 @@
     <div class="table-responsive">
     {% if object_list %}
         <table class="table table-striped">
-            <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Role</th>
+                <td>{{ item.role.name }}</td>
+                <td></td>
             </tr>
-            </thead>
-            <tbody>
-            {% for item in object_list %}
-                <tr>
-                    <td>{{ item.1 }}</td>
-                    <td>{{ item.2 }}</td>
-                    <td>{{ item.3 }}</td>
-                    <td>
-                        <div class="pull-right">
-                            <a href="{% url 'person-detail' item.id %}">
-                                <button type="button" class="btn btn-primary btn-sm">View</button>
-                            </a>
-                        </div>
-                </tr>
-            {% endfor %}
-            </tbody>
+            <tr>
+                <th>Modules Completed</th>
+                <td>{{ item.profile_history|length }}</td>
+                <td><a href="{% url 'my-learning-history-index' %}" class="btn btn-primary btn-sm">View learning history</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Modules in Queue</th>
+                <td>{{ item.profile_queue|length }}</td>
+                <td><a href="{% url 'my-learning-queue-index' %}" class="btn btn-primary btn-sm">View learning queue</a>
+                </td>
+            </tr>
         </table>
 
     {% else %}
