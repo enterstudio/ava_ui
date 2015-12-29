@@ -25,13 +25,45 @@
                 {% endif %}
                 <tr>
                     <td># Members:</td>
-                    <td>{{ object.people|length }}</td>
+                    <td>{{ object.members|length }}</td>
+                </tr>
+                <tr>
+                    <td># Identifiers:</td>
+                    <td>{{ object.group_ids|length }}</td>
                 </tr>
             </tbody>
         </table>
         
 </div> <!-- end of column -->
 
+<div class="page-header">
+    <h2>Identifiers: </h2>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Identifier</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for identifier in object.group_ids %}
+                <tr>
+                    <td>{{ identifier.identifier }}</td>
+                    <td>{{ identifier.identifier_type }}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="{% url 'person-detail' identifier.id  %}" class="btn btn-primary btn-sm">Ignore Identifier</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 <div class="page-header">
     <h2>Members: </h2>
@@ -47,7 +79,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for person in object.people.all %}
+            {% for person in object.members %}
                 <tr>
                     <td>{{ person.first_name }}</td>
                     <td>{{ person.surname }}</td>
@@ -60,7 +92,6 @@
             {% endfor %}
         </tbody>
     </table>
-
 </div>
 
 {% endblock %}

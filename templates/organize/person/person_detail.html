@@ -20,11 +20,44 @@
                 <td># Groups:</td>
                 <td>{{ object.groups|length }}</td>
             </tr>
+            <tr>
+                <td># Identifiers:</td>
+                <td>{{ object.person_ids|length }}</td>
+            </tr>
             </tbody>
         </table>
 
     </div>
 
+    <div class="page-header">
+        <h2>Identifiers: </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Identifier</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for identifier in object.person_ids %}
+                <tr>
+                    <td>{{ identifier.identifier }}</td>
+                    <td>{{ identifier.identifier_type }}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="{% url 'person-detail' identifier.id %}" class="btn btn-primary btn-sm">Ignore
+                                Identifier</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <div class="page-header">
         <h2>Associated Groups: </h2>
@@ -34,20 +67,19 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Identifier</th>
-            <th>Identifier Type</th>
-            <th></th>
+            <th>Name</th>
+            <th>Type</th>
+             <th></th>
         </tr>
         </thead>
         <tbody>
-        {% for group in object.groups.all %}
+        {% for group in object.groups %}
             <tr>
-                <td>{{ group.url }}</td>
+                <td>{{ group.name }}</td>
                 <td>{{ group.group_type }}</td>
                 <td>
                     <div class="pull-right">
-                        <a href="{% url 'person-detail' object_identifier.id %}" class="btn btn-danger btn-sm">Ignore
-                            Identifier</a>
+                        <a href="{% url 'group-detail' group.id %}" class="btn btn-danger btn-sm">View</a>
                     </div>
                 </td>
             </tr>
