@@ -85,20 +85,20 @@ class PathDetail(ObjectDetail):
 
 
 # TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
-class PathCreate(ObjectCreate):
-    url_suffix = '/learn/path/'
-    template_name = "learn/path/path_form.html"
-
-    def get(self, request):
-        return super(PathIndex, self).get(request, self.template_name, self.url_suffix)
-
-    def post(self, request, **kwargs):
-        expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
-        redirect_url = 'learn-path-list'
-        return super(PathCreate, self).post(request=request, template_name=self.template_name,
-                                              url_suffix=self.url_suffix,
-                                              expected_fields=expected_fields,
-                                              redirect_url=redirect_url,
-                                              **kwargs)
+# class PathCreate(ObjectCreate):
+#     url_suffix = '/learn/path/'
+#     template_name = "learn/path/path_form.html"
+#
+#     def get(self, request):
+#         return super(PathIndex, self).get(request, self.template_name, self.url_suffix)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
+#         redirect_url = 'learn-path-list'
+#         return super(PathCreate, self).post(request=request, template_name=self.template_name,
+#                                               url_suffix=self.url_suffix,
+#                                               expected_fields=expected_fields,
+#                                               redirect_url=redirect_url,
+#                                               **kwargs)
 
 

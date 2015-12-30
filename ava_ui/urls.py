@@ -6,7 +6,7 @@ urlpatterns = [
     url(r'^organize/', include('ava_ui.organize.urls')),
     url(r'^my/', include('ava_ui.my.urls')),
     # url(r'^game/', include('ava_ui.game.urls')),
-    # url(r'^learn/', include('ava_ui.learn.urls')),
+    url(r'^learn/', include('ava_ui.learn.urls')),
     url(r'^evaluate/', include('ava_ui.evaluate.urls')),
     #
     # url(r'^notify/', include('ava_ui.notify.urls')),

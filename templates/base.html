@@ -77,25 +77,27 @@
                 <li><a href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
                 <li><a href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
                 <li><a href="{% url 'my-profile-history-index' %}">Activity</a></li>
-                <!-- <li><a href="#">Support Requests (coming soon)</a></li> -->
-                
             </ul>
         </li>
-
         <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Know</span>
+            <span class="sidebar-header">Learn</span>
             <ul class="sub-menu">
-                <li><a href="{% url 'person-index' %}">Know Dashboard</a></li>
+                <li><a href="{% url 'learn-path-index' %}">Pathways</a></li>
+                <li><a href="{% url 'learn-module-index' %}">Modules</a></li>
+                <li><a href="{% url 'learn-role-index' %}">Roles</a></li>
+            </ul>
+        </li>
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Organize</span>
+            <ul class="sub-menu">
                 <li><a href="{% url 'group-index' %}">Groups</a></li>
                 <li><a href="{% url 'person-index' %}">People</a></li>
             </ul>
         </li>
 
         <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Test</span>
+            <span class="sidebar-header">Evaluate</span>
             <ul class="sub-menu">
-                <li><a href="{% url 'person-index' %}">Test Dashboard</a></li>
-                <li><a href="{% url 'person-index' %}">Email Tests</a></li>
                 <li><a href="{% url 'evaluate-template-email-index' %}">Templates: Email Tests</a></li>
                 <li><a href="{% url 'evaluate-template-slack-index' %}">Templates: Slack Tests</a></li>
             </ul>
