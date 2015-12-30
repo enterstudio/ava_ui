@@ -5,12 +5,12 @@ from ava_ui.abstract.views import ObjectIndex, ObjectDetail
 log = logging.getLogger(__name__)
 
 
-class ProfileIndex(ObjectIndex):
-    url_suffix = '/my/profile/'
-    template_name = "my/profile/profile.html"
-
-    def get(self, request):
-        return super(ProfileIndex, self).get(request, self.template_name, self.url_suffix)
+# class ProfileIndex(ObjectIndex):
+#     url_suffix = '/my/profile/'
+#     template_name = "my/profile/profile.html"
+#
+#     def get(self, request):
+#         return super(ProfileIndex, self).get(request, self.template_name, self.url_suffix)
 
 
 class LearningHistoryIndex(ObjectIndex):
