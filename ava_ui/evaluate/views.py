@@ -71,15 +71,16 @@ class EvaluateTemplateSlackCreate(ObjectCreate):
                                                              **kwargs)
 
 class EvaluateResultIndex(ObjectIndex):
-    url_suffix = '/evaluate/return/'
+    url_suffix = '/evaluate/result/'
     template_name = "evaluate/results/evaluate_result_index.html"
 
     def get(self, request):
         return super(EvaluateResultIndex, self).get(request, self.template_name, self.url_suffix)
 
+
 # TODO REMOVED DUE TO TIME CONSTRAINTS - WORKS BUT TEMPLATE.HTML NEEDS LOVE
 # class EvaluateResultDetail(ObjectDetail):
-#     url_suffix = '/evaluate/return/'
+#     url_suffix = '/evaluate/result/'
 #     template_name = "evaluate/results/evaluate_result_detail.html"
 #
 #     def get(self, request, **kwargs):
