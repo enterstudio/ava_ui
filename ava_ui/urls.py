@@ -7,11 +7,10 @@ urlpatterns = [
     url(r'^my/', include('ava_ui.my.urls')),
     # url(r'^game/', include('ava_ui.game.urls')),
     # url(r'^learn/', include('ava_ui.learn.urls')),
-    # url(r'^evaluate/', include('ava_ui.evaluate.urls')),
+    url(r'^evaluate/', include('ava_ui.evaluate.urls')),
     #
     # url(r'^notify/', include('ava_ui.notify.urls')),
     #
-    # # url(r'^eval/', include('ava_ui.evaluate.urls')),
     # url(r'^gather/google/', include('ava_ui.gather.gather_google.urls')),
     # url(r'^gather/ldap/', include('ava_ui.gather.gather_ldap.urls')),
     # url(r'^integration/google/', include('ava_ui.integration.integration_google.urls')),

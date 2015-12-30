@@ -14,7 +14,7 @@ def handle_error(request, status_code):
         return render(request, 'error/generic_error.html')
 
 
-def csrf_post_request(request, url, api_data={}, headers={}, is_authenticated=False):
+def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
     # add authorization header to existing headers if is_authenticated == True
     if is_authenticated is True:
         if 'token' in request.session:
@@ -27,8 +27,14 @@ def csrf_post_request(request, url, api_data={}, headers={}, is_authenticated=Fa
     headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
     log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
 
-    log.debug("csrf_post_request :: making POST request to " + str(url) +" with " + str(api_data))
-    return requests.post(url, data=api_data, headers=headers)
+    log.debug("csrf_request :: making " + request_type + " request to " + str(url) +" with " + str(api_data))
+
+    if request_type is 'POST':
+        return requests.post(url, data=api_data, headers=headers)
+    else:
+        if request_type is 'GET':
+            return requests.get(url, headers=headers)
+
 
 
 def get_user_context(request):

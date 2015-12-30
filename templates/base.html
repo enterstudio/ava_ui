@@ -67,7 +67,7 @@
         <li class="user-welcome">
             <div>
                 <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
-                <span class="user">Hi, {{ user }}</span>
+                <span class="user">Hi, {{ user.user }}</span>
             </div>
         </li>
         <li class="nav-header has-sub-menu">
@@ -96,6 +96,8 @@
             <ul class="sub-menu">
                 <li><a href="{% url 'person-index' %}">Test Dashboard</a></li>
                 <li><a href="{% url 'person-index' %}">Email Tests</a></li>
+                <li><a href="{% url 'evaluate-template-email-index' %}">Templates: Email Tests</a></li>
+                <li><a href="{% url 'evaluate-template-slack-index' %}">Templates: Slack Tests</a></li>
             </ul>
         </li>
 

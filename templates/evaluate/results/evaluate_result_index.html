@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">Evaluate: Results</h2>
+    </div>
+
+    <div class="table-responsive">
+        {% if object_list %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Time/Date</th>
+                    <th>Controller Name</th>
+                    <th>Token</th>
+                    <th>Result</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in object_list %}
+                    <tr>
+                        <td>{{ item.timestamp }}</td>
+                        <td>{{ item.target_controller.name }}</td>
+                        <td>{{ item.target.token }}</td>
+                        <td>{{ item.result }}</td>
+                        <td><a href="{% url 'evaluate-result-detail' item.id %}">
+                            <button type="button" class="btn btn-primary btn-sm">View</button>
+                        </a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% else %}
+            <p>No results found </p>
+        {% endif %}
+{% endblock %}

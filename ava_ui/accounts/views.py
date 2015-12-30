@@ -4,7 +4,7 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from ava_ui.abstract.utils import handle_error, csrf_post_request, get_user_context
+from ava_ui.abstract.utils import handle_error, csrf_request, get_user_context
 
 log = logging.getLogger(__name__)
 
@@ -44,7 +44,7 @@ def authenticate(request, username, password):
     login_data = {'username': username,
                   'password': password,
                   }
-    return csrf_post_request(request=request, url=url, api_data=login_data)
+    return csrf_request(request=request, request_type='POST', url=url, api_data=login_data)
 
 
 def logout(request):
@@ -60,7 +60,7 @@ def password_reset(request):
     if request.POST:
         email = request.POST.get('email')
         api_data = {'email': email}
-        results = csrf_post_request(request=request, url=url, api_data=api_data)
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data)
 
         if results is not None:
             if results.status_code == 200:
@@ -82,7 +82,7 @@ def password_reset_token(request):
         uid = request.GET.get('uid')
         api_data = {'token': token,
                     'uid': uid, }
-        results = csrf_post_request(request=request, url=url, api_data=api_data)
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data)
 
         if results is not None:
             if results.status_code == 200:
@@ -106,7 +106,7 @@ def password_reset_confirm(request):
         password2 = request.POST.get('password2')
         api_data = {'new_password1': password1,
                     'new_password2': password2, }
-        results = csrf_post_request(request=request, url=url, api_data=api_data)
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data)
 
         if results is not None:
             if results.status_code == 200:
@@ -143,7 +143,7 @@ def password_change(request):
         password2 = request.POST.get('password2')
         api_data = {'new_password1': password1,
                     'new_password2': password2, }
-        results = csrf_post_request(request=request, url=url, api_data=api_data, is_authenticated=True)
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data, is_authenticated=True)
         log.debug("password change returned :: " + str(results))
         if results is not None:
             if results.status_code == 200:
@@ -174,9 +174,9 @@ def register(request):
 
         api_data = {'username': email,
                     'email': email,
-                    'password' : password}
+                    'password': password}
 
-        results = csrf_post_request(request=request, url=url, api_data=api_data, is_authenticated=False)
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data, is_authenticated=False)
         log.debug("register returned :: " + str(results))
         if results is not None:
             if results.status_code == 200:
@@ -189,6 +189,7 @@ def register(request):
     else:
         return render(request, template_name, context=get_user_context(request))
 
+
 def verify_email(request):
     template_name = 'accounts/verify.html'
     url = settings.API_BASE_URL + '/accounts/verify-email/'
@@ -196,8 +197,8 @@ def verify_email(request):
     if request.GET:
         key = request.GET.get('key')
 
-        api_data = {'key': key,}
-        results = csrf_post_request(request=request, url=url, api_data=api_data)
+        api_data = {'key': key, }
+        results = csrf_request(request=request, request_type='POST', url=url, api_data=api_data)
 
         if results is not None:
             if results.status_code == 200:
