@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">My Account Activity</h2>
+    </div>
+
+    <div class="table-responsive">
+    {% if object_list %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.created }}</td>
+                    <td>{{ item.log_entry }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>Nothing to see here.</p>
+    {% endif %}
+
+{% endblock %}
+

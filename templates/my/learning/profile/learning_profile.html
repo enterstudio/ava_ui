@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">View Learning Profile</h2>
+    </div>
+
+    <div class="table-responsive">
+    {% if object_list %}
+        <table class="table table-striped">
+            <tr>
+                <th>Role</th>
+                <td>{{ item.role.name }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Modules Completed</th>
+                <td>{{ item.profile_history|length }}</td>
+                <td><a href="{% url 'my-learning-history-index' %}" class="btn btn-primary btn-sm">View learning history</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Modules in Queue</th>
+                <td>{{ item.profile_queue|length }}</td>
+                <td><a href="{% url 'my-learning-queue-index' %}" class="btn btn-primary btn-sm">View learning queue</a>
+                </td>
+            </tr>
+        </table>
+
+    {% else %}
+        <p>Nothing to see here.</p>
+    {% endif %}
+
+{% endblock %}
