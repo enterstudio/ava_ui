@@ -12,7 +12,7 @@
                     </div>
                 {% endif %}
 
-                <form action="{% url 'evaluate-template-slack-create' %}" method='POST'> {% csrf_token %}
+                <form action="{% url 'evaluate-template-email-create' %}" method='POST'> {% csrf_token %}
                     <div class="form-group input-group">
                         <label for="name">Template Name</label>
                         <input class="form-control" id="name" type="text" name='name' placeholder=""/>
@@ -21,6 +21,15 @@
                         <label for="name">Template Description</label>
                         <input class="form-control" id="description" type="text" name='description' placeholder=""/>
                     </div>
+                    <div class="form-group input-group">
+                        <label for="name">Template Subject</label>
+                        <input class="form-control" id="subject" type="text" name='subject' placeholder=""/>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="name">Template Message Body</label>
+                        <input class="form-control" id="body" type="text" name='body' placeholder=""/>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-def btn-block btn-success">Login</button>
                         <input type="hidden" name="next" value="{{ next }}"/>
