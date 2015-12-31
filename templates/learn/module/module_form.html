@@ -12,7 +12,7 @@
                     </div>
                 {% endif %}
 
-                <form action="{% url 'learn-role-create' %}" method='POST'> {% csrf_token %}
+                <form action="{% url 'learn-module-create' %}" method='POST'> {% csrf_token %}
                     <div class="form-group input-group">
                         <label for="name">Name</label>
                         <input class="form-control" id="name" type="text" name='name' placeholder=""/>
