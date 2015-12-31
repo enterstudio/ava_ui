@@ -26,11 +26,11 @@ class ModuleCreate(ObjectCreate):
     template_name = "learn/module/module_form.html"
 
     def get(self, request):
-        return super(ModuleIndex, self).get(request, self.template_name, self.url_suffix)
+        return super(ModuleCreate, self).get(request, self.template_name, self.url_suffix)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description', 'module_url']
-        redirect_url = 'learn-module-list'
+        redirect_url = 'learn-module-index'
         return super(ModuleCreate, self).post(request=request, template_name=self.template_name,
                                               url_suffix=self.url_suffix,
                                               expected_fields=expected_fields,
@@ -58,11 +58,11 @@ class RoleCreate(ObjectCreate):
     template_name = "learn/role/role_form.html"
 
     def get(self, request):
-        return super(RoleIndex, self).get(request, self.template_name, self.url_suffix)
+        return super(RoleCreate, self).get(request, self.template_name, self.url_suffix)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description']
-        redirect_url = 'learn-role-list'
+        redirect_url = 'learn-role-index'
         return super(RoleCreate, self).post(request=request, template_name=self.template_name,
                                               url_suffix=self.url_suffix,
                                               expected_fields=expected_fields,
@@ -90,11 +90,11 @@ class PathDetail(ObjectDetail):
 #     template_name = "learn/path/path_form.html"
 #
 #     def get(self, request):
-#         return super(PathIndex, self).get(request, self.template_name, self.url_suffix)
+#         return super(PathCreate, self).get(request, self.template_name, self.url_suffix)
 #
 #     def post(self, request, **kwargs):
 #         expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
-#         redirect_url = 'learn-path-list'
+#         redirect_url = 'learn-path-index'
 #         return super(PathCreate, self).post(request=request, template_name=self.template_name,
 #                                               url_suffix=self.url_suffix,
 #                                               expected_fields=expected_fields,

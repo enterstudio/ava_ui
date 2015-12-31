@@ -5,6 +5,10 @@
         <h2 class="sub-header">Learning Modules</h2>
     </div>
 
+     <div class="button pull-right">
+        <a href="{% url 'learn-module-create' %}" class="btn btn-success btn-md">Add New Module</a>
+    </div>
+
     <div class="table-responsive">
         {% if object_list %}
             <table class="table table-striped">
@@ -33,4 +37,5 @@
         {% else %}
             <p>No results found </p>
         {% endif %}
+    </div>
 {% endblock %}
