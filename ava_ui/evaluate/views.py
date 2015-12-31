@@ -120,3 +120,35 @@ class EvaluateControllerDetail(ObjectDetail):
 #                                                           expected_fields=expected_fields,
 #                                                           redirect_url=redirect_url,
 #                                                           **kwargs)
+
+class EvaluateTargetProfileIndex(ObjectIndex):
+    url_suffix = '/evaluate/target/'
+    target_name = "evaluate/target/target_index.html"
+
+    def get(self, request):
+        return super(EvaluateTargetProfileIndex, self).get(request, self.target_name, self.url_suffix)
+
+
+class EvaluateTargetProfileDetail(ObjectDetail):
+    url_suffix = '/evaluate/target/'
+    target_name = "evaluate/target/target_detail.html"
+
+    def get(self, request, **kwargs):
+        return super(EvaluateTargetProfileDetail, self).get(request, self.target_name, self.url_suffix, **kwargs)
+
+# TODO RELATIONSHIPS WTF HELP
+# class EvaluateTargetProfileCreate(ObjectCreate):
+#     url_suffix = '/evaluate/target/'
+#     target_name = "evaluate/target/target_form.html"
+#
+#     def get(self, request):
+#         return super(EvaluateTargetProfileIndex, self).get(request, self.target_name, self.url_suffix)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['target_controller', 'target', 'token', 'delivery_status']
+#         redirect_url = 'evaluate-target-list'
+#         return super(EvaluateTargetProfileCreate, self).post(request=request, target_name=self.target_name,
+#                                                       url_suffix=self.url_suffix,
+#                                                       expected_fields=expected_fields,
+#                                                       redirect_url=redirect_url,
+#                                                       **kwargs)

@@ -37,4 +37,14 @@ urlpatterns = [
 
     url(r'^controller/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
         name="evaluate-controller-detail"),
+    
+    url(r'^target/$', EvaluateTargetProfileIndex.as_view(),
+        name="evaluate-target-index"),
+
+    # TODO relationships during creation
+    # url(r'^target/new/$', EvaluateTargetProfileCreate.as_view(),
+    #     name="evaluate-target-create"),
+
+    url(r'^target/(?P<pk>[0-9]+)/$', EvaluateTargetProfileDetail.as_view(),
+        name="evaluate-target-detail"),
 ]
