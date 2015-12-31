@@ -4,6 +4,9 @@
     <div class="page-header">
         <h2 class="sub-header">Evaluate: Senders</h2>
     </div>
+    <div class="button pull-right">
+        <a href="{% url 'evaluate-sender-create' %}" class="btn btn-success btn-md">Add New Sender</a>
+    </div>
 
     <div class="table-responsive">
         {% if object_list %}
@@ -31,4 +34,6 @@
         {% else %}
             <p>No senders found </p>
         {% endif %}
+    </div>
+
 {% endblock %}
