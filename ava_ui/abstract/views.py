@@ -82,7 +82,7 @@ class ObjectCreate(AbstractObjectInterface):
 
     def get(self, request, template_name, url_suffix):
         super(ObjectCreate, self).get(request)
-        render(request, self.template_name, context=self.context)
+        return render(request, self.template_name, context=self.context)
 
     def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):
         super(ObjectCreate, self).post(request, **kwargs)
@@ -101,7 +101,9 @@ class ObjectCreate(AbstractObjectInterface):
         log.debug(str(self.__class__) + " POST attempting to get data from url " + self.url)
         log.debug(str(self.__class__) + " POST using the following api_data " + str(api_data))
 
-        results = csrf_request(request=request, url=self.url, request_type='POST', api_data=api_data,
+        headers = {'Content-Type': 'application/json'}
+
+        results = csrf_request(request=request, url=self.url, request_type='POST', api_data=api_data, headers=headers,
                                is_authenticated=True)
 
         log.debug(str(self.__class__) + " POST returned with status_code " + str(results.status_code))

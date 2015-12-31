@@ -26,11 +26,11 @@ class EvaluateTemplateCreate(ObjectCreate):
     template_name = "evaluate/template/template_form.html"
 
     def get(self, request):
-        return super(EvaluateTemplateIndex, self).get(request, self.template_name, self.url_suffix)
+        return super(EvaluateTemplateCreate, self).get(request, self.template_name, self.url_suffix)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description', 'template_type', 'email_subject', 'email_body']
-        redirect_url = 'evaluate-template-list'
+        redirect_url = 'evaluate-template-index'
         return super(EvaluateTemplateCreate, self).post(request=request, template_name=self.template_name,
                                                         url_suffix=self.url_suffix,
                                                         expected_fields=expected_fields,
@@ -75,11 +75,11 @@ class EvaluateSenderCreate(ObjectCreate):
     template_name = "evaluate/sender/sender_form.html"
 
     def get(self, request):
-        return super(EvaluateSenderIndex, self).get(request, self.template_name, self.url_suffix)
+        return super(EvaluateSenderCreate, self).get(request, self.template_name, self.url_suffix)
 
     def post(self, request, **kwargs):
         expected_fields = ['first_name', 'last_name', 'email_address', 'slack_name']
-        redirect_url = 'evaluate-sender-list'
+        redirect_url = 'evaluate-sender-index'
         return super(EvaluateSenderCreate, self).post(request=request, template_name=self.template_name,
                                                       url_suffix=self.url_suffix,
                                                       expected_fields=expected_fields,
@@ -108,13 +108,13 @@ class EvaluateControllerDetail(ObjectDetail):
 #     template_name = "evaluate/controller/controller_form.html"
 #
 #     def get(self, request):
-#         return super(EvaluateControllerIndex, self).get(request, self.template_name, self.url_suffix)
+#         return super(EvaluateControllerCreate, self).get(request, self.template_name, self.url_suffix)
 #
 #     def post(self, request, **kwargs):
 #         expected_fields = ['scheduled_type', 'scheduled_time', 'expiry_type', 'expiry_time', 'sender', 'template',
 #                            'targets',
 #                            'status']
-#         redirect_url = 'evaluate-controller-list'
+#         redirect_url = 'evaluate-controller-index'
 #         return super(EvaluateControllerCreate, self).post(request=request, template_name=self.template_name,
 #                                                           url_suffix=self.url_suffix,
 #                                                           expected_fields=expected_fields,
@@ -142,11 +142,11 @@ class EvaluateTargetProfileDetail(ObjectDetail):
 #     template_name = "evaluate/target/target_form.html"
 #
 #     def get(self, request):
-#         return super(EvaluateTargetProfileIndex, self).get(request, self.template_name, self.url_suffix)
+#         return super(EvaluateTargetProfileCreate, self).get(request, self.template_name, self.url_suffix)
 #
 #     def post(self, request, **kwargs):
 #         expected_fields = ['target_controller', 'target', 'token', 'delivery_status']
-#         redirect_url = 'evaluate-target-list'
+#         redirect_url = 'evaluate-target-index'
 #         return super(EvaluateTargetProfileCreate, self).post(request=request, template_name=self.template_name,
 #                                                       url_suffix=self.url_suffix,
 #                                                       expected_fields=expected_fields,

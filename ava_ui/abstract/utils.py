@@ -46,17 +46,17 @@ def refresh_jwt_token(request):
     data = {'token': request.session['token']}
     data = json.dumps(data)
 
-    log.debug("refresh_jwt_token :: Adding current token to headers :: " + str(data))
+    log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
 
     results = requests.post(url, data=data, headers=headers)
-    log.debug("refresh_jwt_token :: Results :: " + str(results.content))
 
     if results.status_code is 200:
         objects = results.json()
         request.session['token'] = objects['token']
         log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
     else:
-        log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code))
+        log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
+            results.content) + ")")
 
 
 def get_user_context(request):

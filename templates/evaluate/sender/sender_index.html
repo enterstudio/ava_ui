@@ -22,7 +22,7 @@
                 {% for item in object_list %}
                     <tr>
                         <td>{{ item.first_name }}</td>
-                        <td>{{ item.surname }}</td>
+                        <td>{{ item.last_name }}</td>
                         <td><a href="{% url 'evaluate-sender-detail' item.id %}">
                             <button type="button" class="btn btn-primary btn-sm">View</button>
                         </a></td>
