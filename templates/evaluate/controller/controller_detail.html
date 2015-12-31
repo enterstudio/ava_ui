@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">View Evaluate Email Template</h2>
+        <h2 class="sub-header">View Evaluate Controller Details</h2>
     </div>
 
     <div class="table-responsive">
@@ -14,15 +14,39 @@
             </tr>
             <tr>
                 <td>Description:</td>
-                <td>{{ object.surname }}</td>
+                <td>{{ object.description }}</td>
             </tr>
             <tr>
-                <td>Subject:</td>
-                <td>{{ object.subject }}</td>
+                <td>Status:</td>
+                <td>{{ object.status }}</td>
             </tr>
             <tr>
-                <td>Body:</td>
-                <td>{{ object.body }}</td>
+                <td>Schedule Type:</td>
+                <td>{{ object.scheduled_type }}</td>
+            </tr>
+            <tr>
+                <td>Schedule Time:</td>
+                <td>{{ object.scheduled_time }}</td>
+            </tr>
+            <tr>
+                <td>Expiry Time:</td>
+                <td>{{ object.expiry_time }}</td>
+            </tr>
+            <tr>
+                <td>Expiry Type:</td>
+                <td>{{ object.expiry_type }}</td>
+            </tr>
+            <tr>
+                <td>Sender:</td>
+                <td>{{ object.sender }}</td>
+            </tr>
+            <tr>
+                <td>Template:</td>
+                <td>{{ object.template.subject }}</td>
+            </tr>
+            <tr>
+                <td>Target(s):</td>
+                <td>{{ object.targets }}</td>
             </tr>
             </tbody>
         </table>

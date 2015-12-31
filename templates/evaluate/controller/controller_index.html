@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">Evaluate: Email Templates</h2>
+        <h2 class="sub-header">Evaluate: Controllers</h2>
     </div>
 
     <div class="table-responsive">
@@ -11,7 +11,9 @@
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Subject</th>
+                    <th>Description</th>
+                    <th># Targets</th>
+                    <th>Status</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -19,8 +21,10 @@
                 {% for item in object_list %}
                     <tr>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.subject }}</td>
-                        <td><a href="{% url 'evaluate-template-email-detail' item.id %}">
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.controller_targets|length }}</td>
+                        <td>{{ item.status }}</td>
+                        <td><a href="{% url 'evaluate-controller-detail' item.id %}">
                             <button type="button" class="btn btn-primary btn-sm">View</button>
                         </a></td>
                     </tr>
@@ -29,6 +33,6 @@
             </table>
 
         {% else %}
-            <p>No templates found </p>
+            <p>No controllers found </p>
         {% endif %}
 {% endblock %}
