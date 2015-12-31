@@ -23,15 +23,18 @@
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Type</label>
-                        <input class="form-control" id="template_type" type="text" name='template_type' placeholder=""/>
+                        <select class="form-control" name="template_type" id="template_type">
+                            <option value="0">Email</option>
+                            <option value="1">Slack</option>
+                        </select>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Subject</label>
-                        <input class="form-control" id="subject" type="text" name='subject' placeholder=""/>
+                        <input class="form-control" id="email_subject" type="text" name='email_subject' placeholder=""/>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Message Body</label>
-                        <input class="form-control" id="body" type="text" name='body' placeholder=""/>
+                        <input class="form-control" id="email_body" type="text" name='email_body' placeholder=""/>
                     </div>
 
                     <div class="form-group">

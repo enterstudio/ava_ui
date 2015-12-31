@@ -10,19 +10,23 @@
             <tbody>
             <tr>
                 <td>Name:</td>
-                <td>{{ object.first_name }}</td>
+                <td>{{ object.name }}</td>
             </tr>
             <tr>
                 <td>Description:</td>
-                <td>{{ object.surname }}</td>
+                <td>{{ object.description }}</td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>{{ object.template_type }}</td>
             </tr>
             <tr>
                 <td>Subject:</td>
-                <td>{{ object.subject }}</td>
+                <td>{{ object.email_subject }}</td>
             </tr>
             <tr>
                 <td>Body:</td>
-                <td>{{ object.body }}</td>
+                <td>{{ object.email_body }}</td>
             </tr>
             </tbody>
         </table>
