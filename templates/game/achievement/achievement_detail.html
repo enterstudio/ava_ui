@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">Achievements - Detail</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ object.description }}</td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td>{{ object.icon_url}}</td>
+            </tr>
+            <tr>
+                <td>Score:</td>
+                <td>{{ object.score}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="page-header">
+        <h2>Achieved by: </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in object.user_achievements %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

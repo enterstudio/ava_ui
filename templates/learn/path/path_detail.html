@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">View Learning Pathway</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ object.description }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="page-header">
+        <h2>Modules: </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for module in object.path_module %}
+                <tr>
+                    <td>{{ module.name }}</td>
+                    <td>{{ module.description }}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="{% url 'learn-module-detail' module.id %}" class="btn btn-primary btn-sm">View</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="page-header">
+        <h2>Roles: </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for role in object.path_role %}
+                <tr>
+                    <td>{{ role.name }}</td>
+                    <td>{{ role.description }}</td>
+                    <td>
+                        <div class="pull-right">
+                            <a href="{% url 'learn-role-detail' role.id %}" class="btn btn-primary btn-sm">View</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

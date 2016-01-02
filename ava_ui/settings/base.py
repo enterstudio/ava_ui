@@ -129,14 +129,8 @@ THIRD_PARTY_APPS = (
     # The Django sites framework is required
     'django.contrib.sites',
     'rest_framework',
-    # 'rest_framework.authtoken',
-    'corsheaders',
 
-    # 'rest_auth',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'rest_auth.registration',
+    'corsheaders',
 
     'dh5bp',
     'bootstrap3',

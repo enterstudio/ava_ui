@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">View Evaluate Email Template</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ object.description }}</td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>{{ object.template_type }}</td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td>{{ object.email_subject }}</td>
+            </tr>
+            <tr>
+                <td>Body:</td>
+                <td>{{ object.email_body }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}
