@@ -1,8 +1,18 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 
 from .views import *
 
-
 urlpatterns = [
-    # url(r'^', ''),
+    url(r'^achievement/$', AchievementIndex.as_view(),
+        name="game-achievement-index"),
+
+    url(r'^achievement/new/$', AchievementCreate.as_view(),
+        name="game-achievement-create"),
+
+    url(r'^achievement/(?P<pk>[0-9]+)/$', AchievementDetail.as_view(),
+        name="game-achievement-detail"),
+
+    # url(r'^achievement/delete/$', AchievementDelete.as_view(),
+    #     name="game-achievement-delete"),
+   
 ]

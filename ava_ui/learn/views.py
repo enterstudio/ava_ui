@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete
 
 log = logging.getLogger(__name__)
 
@@ -37,6 +37,22 @@ class ModuleCreate(ObjectCreate):
                                               redirect_url=redirect_url,
                                               **kwargs)
 
+
+class ModuleDelete(ObjectDelete):
+    url_suffix = '/learn/module/'
+    template_name = "confirm_delete.html"
+
+    def get(self, request):
+        return super(ModuleDelete, self).get(request, self.template_name, self.url_suffix)
+
+    def post(self, request, **kwargs):
+        redirect_url = 'learn-module-index'
+        return super(ModuleDelete, self).post(request=request,
+                                              url_suffix=self.url_suffix,
+                                              redirect_url=redirect_url,
+                                              **kwargs)
+
+
 class RoleIndex(ObjectIndex):
     url_suffix = '/learn/role/'
     template_name = "learn/role/role_index.html"
@@ -64,10 +80,12 @@ class RoleCreate(ObjectCreate):
         expected_fields = ['name', 'description']
         redirect_url = 'learn-role-index'
         return super(RoleCreate, self).post(request=request, template_name=self.template_name,
-                                              url_suffix=self.url_suffix,
-                                              expected_fields=expected_fields,
-                                              redirect_url=redirect_url,
-                                              **kwargs)
+                                            url_suffix=self.url_suffix,
+                                            expected_fields=expected_fields,
+                                            redirect_url=redirect_url,
+                                            **kwargs)
+
+
 class PathIndex(ObjectIndex):
     url_suffix = '/learn/path/'
     template_name = "learn/path/path_index.html"
@@ -82,7 +100,6 @@ class PathDetail(ObjectDetail):
 
     def get(self, request, **kwargs):
         return super(PathDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
 
 # TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
 # class PathCreate(ObjectCreate):
@@ -100,5 +117,3 @@ class PathDetail(ObjectDetail):
 #                                               expected_fields=expected_fields,
 #                                               redirect_url=redirect_url,
 #                                               **kwargs)
-
-
