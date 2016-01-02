@@ -29,7 +29,7 @@ class AchievementCreate(ObjectCreate):
         return super(AchievementCreate, self).get(request, self.template_name, self.url_suffix)
 
     def post(self, request, **kwargs):
-        expected_fields = ['name', 'description', 'achievement_url']
+        expected_fields = ['name', 'description', 'icon_url', 'score']
         redirect_url = 'game-achievement-index'
         return super(AchievementCreate, self).post(request=request, template_name=self.template_name,
                                                    url_suffix=self.url_suffix,
