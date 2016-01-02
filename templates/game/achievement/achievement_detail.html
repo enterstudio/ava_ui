@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">Evaluate Result - Detail</h2>
+        <h2 class="sub-header">Achievements - Detail</h2>
     </div>
 
     <div class="table-responsive">
@@ -18,7 +18,11 @@
             </tr>
             <tr>
                 <td>URL:</td>
-                <td>{{ object.module_url }}</td>
+                <td>{{ object.icon_url}}</td>
+            </tr>
+            <tr>
+                <td>ScoreL:</td>
+                <td>{{ object.score}}</td>
             </tr>
 
             </tbody>
@@ -27,7 +31,7 @@
     </div>
 
     <div class="page-header">
-        <h2>Pathways: </h2>
+        <h2>Achieved by: </h2>
     </div>
 
     <div class="table-responsive">
@@ -35,18 +39,12 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
-            {% for path in object.path_module %}
+            {% for user in object.user-achievement %}
                 <tr>
-                    <td>{{ path.name }}</td>
-                    <td>
-                        <div class="pull-right">
-                            <a href="{% url 'learn-path-detail' path.id %}" class="btn btn-primary btn-sm">View</a>
-                        </div>
-                    </td>
+                    <td>{{ user.username }}</td>
                 </tr>
             {% endfor %}
             </tbody>
