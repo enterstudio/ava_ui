@@ -41,16 +41,13 @@ class ModuleCreate(ObjectCreate):
 class ModuleDelete(ObjectDelete):
     url_suffix = '/learn/module/'
     template_name = "confirm_delete.html"
+    redirect_url = 'learn-module-index'
 
-    def get(self, request):
-        return super(ModuleDelete, self).get(request, self.template_name, self.url_suffix)
-
-    def post(self, request, **kwargs):
-        redirect_url = 'learn-module-index'
-        return super(ModuleDelete, self).post(request=request,
-                                              url_suffix=self.url_suffix,
-                                              redirect_url=redirect_url,
-                                              **kwargs)
+    def get(self, request, **kwargs):
+        return super(ModuleDelete, self).get(request=request,
+                                             url_suffix=self.url_suffix,
+                                             redirect_url=self.redirect_url,
+                                             **kwargs)
 
 
 class RoleIndex(ObjectIndex):

@@ -9,6 +9,9 @@ urlpatterns = [
     url(r'^module/new/$', ModuleCreate.as_view(),
         name="learn-module-create"),
 
+    url(r'^module/delete/(?P<pk>[0-9]+)/$', ModuleDelete.as_view(),
+        name="learn-module-delete"),
+
     url(r'^module/(?P<pk>[0-9]+)/$', ModuleDetail.as_view(),
         name="learn-module-detail"),
     
