@@ -27,7 +27,7 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
 
     # add csrf header to existing headers
     headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
-    log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
+    # log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
 
     log.debug("csrf_request :: making " + request_type + " request to " + str(url) + " with " + str(api_data))
 
@@ -47,14 +47,14 @@ def refresh_jwt_token(request):
     data = {'token': request.session['token']}
     data = json.dumps(data)
 
-    log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
+    # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
 
     results = requests.post(url, data=data, headers=headers)
 
     if results.status_code is 200:
         objects = results.json()
         request.session['token'] = objects['token']
-        log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
+        # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
     else:
         log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
             results.content) + ")")

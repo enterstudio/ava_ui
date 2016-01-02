@@ -120,23 +120,23 @@ class ObjectCreate(AbstractObjectInterface):
 
 
 class ObjectDelete(AbstractObjectInterface):
-    def post(self, request, redirect_url, url_suffix, **kwargs):
+    def get(self, request, redirect_url, url_suffix, **kwargs):
         super(ObjectDelete, self).get(request)
         log.debug(str(self.__class__) + " POST called")
 
-        self.url = self.url + url_suffix
+        self.url = self.url + url_suffix + '{}/'
+
+        log.debug(str(self.__class__) + " Pre formatted url " + self.url)
 
         pk = self.kwargs.get('pk')
-
-        data = {'id': pk}
+        self.url = self.url.format(pk)
 
         log.debug(str(self.__class__) + " POST attempting to delete object using url " + self.url)
 
-        results = csrf_request(request=request, url=self.url, api_data=data, request_type='DELETE', is_authenticated=True)
+        results = csrf_request(request=request, url=self.url, request_type='DELETE', is_authenticated=True)
 
         if results.status_code is 204:
             log.debug(str(self.__class__) + " POST results = " + str(results))
-
             return redirect(to=redirect_url)
         else:
             return handle_error(request, results.status_code)
