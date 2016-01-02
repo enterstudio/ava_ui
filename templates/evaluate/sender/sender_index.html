@@ -23,9 +23,14 @@
                     <tr>
                         <td>{{ item.first_name }}</td>
                         <td>{{ item.last_name }}</td>
-                        <td><a href="{% url 'evaluate-sender-detail' item.id %}">
-                            <button type="button" class="btn btn-primary btn-sm">View</button>
-                        </a></td>
+                        <td>
+                            <a href="{% url 'evaluate-sender-detail' item.id %}">
+                                <button type="button" class="btn btn-primary btn-sm">View</button>
+                            </a>
+                            <a href="{% url 'evaluate-sender-delete' item.id %}">
+                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            </a>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

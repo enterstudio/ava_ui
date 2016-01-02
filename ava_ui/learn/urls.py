@@ -23,7 +23,10 @@ urlpatterns = [
 
     url(r'^role/(?P<pk>[0-9]+)/$', RoleDetail.as_view(),
         name="learn-role-detail"),
-    
+
+    url(r'^role/delete/(?P<pk>[0-9]+)/$', RoleDelete.as_view(),
+        name="learn-role-delete"),
+
     url(r'^path/$', PathIndex.as_view(),
         name="learn-path-index"),
 
@@ -32,4 +35,7 @@ urlpatterns = [
 
     url(r'^path/(?P<pk>[0-9]+)/$', PathDetail.as_view(),
         name="learn-path-detail"),
+
+    url(r'^path/delete/(?P<pk>[0-9]+)/$', PathDelete.as_view(),
+        name="learn-path-delete"),
 ]

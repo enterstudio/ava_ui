@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex
+from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex, ObjectDelete
 
 log = logging.getLogger(__name__)
 
@@ -36,6 +36,17 @@ class EvaluateTemplateCreate(ObjectCreate):
                                                         expected_fields=expected_fields,
                                                         redirect_url=redirect_url,
                                                         **kwargs)
+
+
+class EvaluateTemplateDelete(ObjectDelete):
+    url_suffix = '/evaluate/template/'
+    redirect_url = 'evaluate-template-index'
+
+    def get(self, request, **kwargs):
+        return super(EvaluateTemplateDelete, self).get(request=request,
+                                                       url_suffix=self.url_suffix,
+                                                       redirect_url=self.redirect_url,
+                                                       **kwargs)
 
 
 class EvaluateResultIndex(ObjectIndex):
@@ -87,6 +98,17 @@ class EvaluateSenderCreate(ObjectCreate):
                                                       **kwargs)
 
 
+class EvaluateSenderDelete(ObjectDelete):
+    url_suffix = '/evaluate/sender/'
+    redirect_url = 'evaluate-sender-index'
+
+    def get(self, request, **kwargs):
+        return super(EvaluateSenderDelete, self).get(request=request,
+                                                     url_suffix=self.url_suffix,
+                                                     redirect_url=self.redirect_url,
+                                                     **kwargs)
+
+
 class EvaluateControllerIndex(ObjectIndex):
     url_suffix = '/evaluate/controller/'
     template_name = "evaluate/controller/controller_index.html"
@@ -101,6 +123,7 @@ class EvaluateControllerDetail(ObjectDetail):
 
     def get(self, request, **kwargs):
         return super(EvaluateControllerDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
 
 # TODO RELATIONSHIPS WTF HELP
 # class EvaluateControllerCreate(ObjectCreate):
@@ -120,6 +143,17 @@ class EvaluateControllerDetail(ObjectDetail):
 #                                                           expected_fields=expected_fields,
 #                                                           redirect_url=redirect_url,
 #                                                           **kwargs)
+
+class EvaluateControllerDelete(ObjectDelete):
+    url_suffix = '/evaluate/controller/'
+    redirect_url = 'evaluate-controller-index'
+
+    def get(self, request, **kwargs):
+        return super(EvaluateControllerDelete, self).get(request=request,
+                                                         url_suffix=self.url_suffix,
+                                                         redirect_url=self.redirect_url,
+                                                         **kwargs)
+
 
 class EvaluateTargetProfileIndex(ObjectIndex):
     url_suffix = '/evaluate/target/'
@@ -152,3 +186,14 @@ class EvaluateTargetProfileDetail(ObjectDetail):
 #                                                       expected_fields=expected_fields,
 #                                                       redirect_url=redirect_url,
 #                                                       **kwargs)
+
+
+class EvaluateTargetProfileDelete(ObjectDelete):
+    url_suffix = '/evaluate/target/'
+    redirect_url = 'evaluate-target-index'
+
+    def get(self, request, **kwargs):
+        return super(EvaluateTargetProfileDelete, self).get(request=request,
+                                                            url_suffix=self.url_suffix,
+                                                            redirect_url=self.redirect_url,
+                                                            **kwargs)

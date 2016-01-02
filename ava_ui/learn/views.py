@@ -40,7 +40,6 @@ class ModuleCreate(ObjectCreate):
 
 class ModuleDelete(ObjectDelete):
     url_suffix = '/learn/module/'
-    template_name = "confirm_delete.html"
     redirect_url = 'learn-module-index'
 
     def get(self, request, **kwargs):
@@ -83,6 +82,17 @@ class RoleCreate(ObjectCreate):
                                             **kwargs)
 
 
+class RoleDelete(ObjectDelete):
+    url_suffix = '/learn/role/'
+    redirect_url = 'learn-role-index'
+
+    def get(self, request, **kwargs):
+        return super(RoleDelete, self).get(request=request,
+                                           url_suffix=self.url_suffix,
+                                           redirect_url=self.redirect_url,
+                                           **kwargs)
+
+
 class PathIndex(ObjectIndex):
     url_suffix = '/learn/path/'
     template_name = "learn/path/path_index.html"
@@ -97,6 +107,17 @@ class PathDetail(ObjectDetail):
 
     def get(self, request, **kwargs):
         return super(PathDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+
+class PathDelete(ObjectDelete):
+    url_suffix = '/learn/path/'
+    redirect_url = 'learn-path-index'
+
+    def get(self, request, **kwargs):
+        return super(PathDelete, self).get(request=request,
+                                           url_suffix=self.url_suffix,
+                                           redirect_url=self.redirect_url,
+                                           **kwargs)
 
 # TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
 # class PathCreate(ObjectCreate):

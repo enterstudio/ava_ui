@@ -37,17 +37,12 @@ class AchievementCreate(ObjectCreate):
                                                    redirect_url=redirect_url,
                                                    **kwargs)
 
+class AchievementDelete(ObjectDelete):
+    url_suffix = '/game/achievement/'
+    redirect_url = 'game-achievement-index'
 
-# class AchievementDelete(ObjectDelete):
-#     url_suffix = '/game/achievement/'
-#     template_name = "confirm_delete.html"
-#
-#     def get(self, request):
-#         return super(AchievementDelete, self).get(request, self.template_name, self.url_suffix)
-#
-#     def post(self, request, **kwargs):
-#         redirect_url = 'game-achievement-index'
-#         return super(AchievementDelete, self).post(request=request,
-#                                                    url_suffix=self.url_suffix,
-#                                                    redirect_url=redirect_url,
-#                                                    **kwargs)
+    def get(self, request, **kwargs):
+        return super(AchievementDelete, self).get(request=request,
+                                             url_suffix=self.url_suffix,
+                                             redirect_url=self.redirect_url,
+                                             **kwargs)
