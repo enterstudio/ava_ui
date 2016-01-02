@@ -33,9 +33,10 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
 
     if request_type is 'POST':
         return requests.post(url, data=api_data, headers=headers)
-    else:
-        if request_type is 'GET':
-            return requests.get(url, headers=headers)
+    elif request_type is 'GET':
+        return requests.get(url, headers=headers)
+    elif request_type is 'DELETE':
+        return requests.delete(url, headers=headers)
 
 
 def refresh_jwt_token(request):

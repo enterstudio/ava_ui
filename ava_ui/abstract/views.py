@@ -24,7 +24,6 @@ class AbstractObjectInterface(generic.TemplateView):
 
 
 class ObjectIndex(AbstractObjectInterface):
-
     def get(self, request, template_name, url_suffix):
         super(ObjectIndex, self).get(request)
         log.debug(str(self.__class__) + " GET called")
@@ -48,7 +47,6 @@ class ObjectIndex(AbstractObjectInterface):
 
 
 class ObjectDetail(AbstractObjectInterface):
-
     def get(self, request, template_name, url_suffix, **kwargs):
         super(ObjectDetail, self).get(request)
         log.debug(str(self.__class__) + " GET called")
@@ -79,7 +77,6 @@ class ObjectDetail(AbstractObjectInterface):
 
 
 class ObjectCreate(AbstractObjectInterface):
-
     def get(self, request, template_name, url_suffix):
         super(ObjectCreate, self).get(request)
         return render(request, self.template_name, context=self.context)
@@ -118,5 +115,28 @@ class ObjectCreate(AbstractObjectInterface):
             self.context['object'] = objects
 
             return redirect(redirect_url)
+        else:
+            return handle_error(request, results.status_code)
+
+
+class ObjectDelete(AbstractObjectInterface):
+    def post(self, request, redirect_url, url_suffix, **kwargs):
+        super(ObjectDelete, self).get(request)
+        log.debug(str(self.__class__) + " POST called")
+
+        self.url = self.url + url_suffix
+
+        pk = self.kwargs.get('pk')
+
+        data = {'id': pk}
+
+        log.debug(str(self.__class__) + " POST attempting to delete object using url " + self.url)
+
+        results = csrf_request(request=request, url=self.url, api_data=data, request_type='DELETE', is_authenticated=True)
+
+        if results.status_code is 204:
+            log.debug(str(self.__class__) + " POST results = " + str(results))
+
+            return redirect(to=redirect_url)
         else:
             return handle_error(request, results.status_code)
