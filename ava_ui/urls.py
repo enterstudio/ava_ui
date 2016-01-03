@@ -13,8 +13,8 @@ urlpatterns = [
     #
     # url(r'^gather/google/', include('ava_ui.gather.gather_google.urls')),
     # url(r'^gather/ldap/', include('ava_ui.gather.gather_ldap.urls')),
-    # url(r'^integration/google/', include('ava_ui.integration.integration_google.urls')),
-    # url(r'^integration/ldap/', include('ava_ui.integration.integration_ldap.urls')),
+    url(r'^integration/', include('ava_ui.integration.integration_google.urls')),
+    url(r'^integration/', include('ava_ui.integration.integration_ldap.urls')),
 
     url(r'^accounts/', include('ava_ui.accounts.urls')),
 
