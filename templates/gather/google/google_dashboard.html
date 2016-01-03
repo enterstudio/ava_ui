@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">Gather Dashboard - Google Imports</h2>
+    </div>
+
+    <div class="button pull-right">
+        <a href="{% url 'integration-google-create' %}" class="btn btn-success btn-md">Add New Integration</a>
+    </div>
+
+    <div class="table-responsive">
+        {% if object_list %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last Import</th>
+                    <th>Import Status</th>
+                    <th># People</th>
+                    <th># Groups</th>
+                    <th># Identifiers</th>
+                    <th>Scheduled</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in object_list %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.created }}</td>
+                        <td>{{ item.status }}</td>
+                        <td>{{ item.no_people }}</td>
+                        <td>{{ item.no_groups }}</td>
+                        <td>{{ item.identifiers }}</td>
+                        <td>{{ item.next_scheduled }}</td>
+                        <td><a href="{% url 'gather-google-import' item.integration.id %}" class="btn btn-success btn-md">Manual Import</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        {% else %}
+            <p>No ldap integrations found </p>
+        {% endif %}
+    </div>
+{% endblock %}
