@@ -1,6 +1,7 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectAuthorize
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectAuthorize, \
+    ObjectAuthorizeCallback
 
 log = logging.getLogger(__name__)
 
@@ -55,3 +56,11 @@ class GoogleIntegrationAuthorize(ObjectAuthorize):
 
     def get(self, request, **kwargs):
         return super(GoogleIntegrationAuthorize, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+
+class GoogleIntegrationAuthorizeCallback(ObjectAuthorizeCallback):
+    url_suffix = '/integration/google/callback/?code='
+    template_name = "integration/google/google_index.html"
+
+    def get(self, request, **kwargs):
+        return super(GoogleIntegrationAuthorizeCallback, self).get(request, self.template_name, self.url_suffix, **kwargs)

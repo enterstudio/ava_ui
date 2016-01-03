@@ -169,3 +169,28 @@ class ObjectAuthorize(AbstractObjectInterface):
             return redirect(authorize_url)
         else:
             return handle_error(request, results.status_code)
+
+class ObjectAuthorizeCallback(AbstractObjectInterface):
+
+    def get(self, request, template_name, url_suffix, **kwargs):
+        super(ObjectAuthorizeCallback, self).get(request)
+        log.debug(str(self.__class__) + " GET called")
+
+        self.url = self.url + url_suffix + '{}/'
+
+        log.debug(str(self.__class__) + " Pre formatted url " + self.url)
+        log.debug(str(self.__class__) + " kwargs " + str(self.kwargs))
+
+        code = request.GET.get('code')
+        self.url = self.url.format(code)
+
+        log.debug(str(self.__class__) + " GET attempting to get data from url " + self.url)
+
+        results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
+
+        if results.status_code is 200:
+            log.debug(str(self.__class__) + " GET results = " + str(results))
+
+            return render(request, self.template_name, context=self.context)
+        else:
+            return handle_error(request, results.status_code)

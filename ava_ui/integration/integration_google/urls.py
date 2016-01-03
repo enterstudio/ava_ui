@@ -17,5 +17,7 @@ urlpatterns = [
 
     url(r'^google/auth/(?P<pk>[0-9]+)/$',  GoogleIntegrationAuthorize.as_view(),
         name="integration-google-auth"),
-   
+
+   url(r'^google/callback/',  GoogleIntegrationAuthorizeCallback.as_view(),
+        name="integration-google-callback"),
 ]
