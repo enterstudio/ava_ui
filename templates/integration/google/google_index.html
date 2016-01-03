@@ -16,6 +16,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Primary Domain</th>
+                    <th>Authorised</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -24,12 +25,16 @@
                     <tr>
                         <td>{{ item.name }}</td>
                         <td>{{ item.domain }}</td>
+                        <td>{% if item.credential %} True {% else %} False {% endif %}</td>
                         <td>
                             <a href="{% url 'integration-google-detail' item.id %}">
                                 <button type="button" class="btn btn-primary btn-sm">View</button>
                             </a>
                             <a href="{% url 'integration-google-delete' item.id %}">
                                 <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            </a>
+                            <a href="{% url 'integration-google-auth' item.id %}">
+                                <button type="button" class="btn btn-danger btn-sm">Authorise</button>
                             </a>
                         </td>
                     </tr>

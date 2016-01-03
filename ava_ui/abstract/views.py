@@ -140,3 +140,32 @@ class ObjectDelete(AbstractObjectInterface):
             return redirect(to=redirect_url)
         else:
             return handle_error(request, results.status_code)
+
+class ObjectAuthorize(AbstractObjectInterface):
+
+    def get(self, request, template_name, url_suffix, **kwargs):
+        super(ObjectAuthorize, self).get(request)
+        log.debug(str(self.__class__) + " GET called")
+
+        self.url = self.url + url_suffix + '{}/'
+
+        log.debug(str(self.__class__) + " Pre formatted url " + self.url)
+        log.debug(str(self.__class__) + " kwargs " + str(self.kwargs))
+
+        pk = self.kwargs.get('pk')
+        self.url = self.url.format(pk)
+
+        log.debug(str(self.__class__) + " GET attempting to get data from url " + self.url)
+
+        results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
+
+        if results.status_code is 200:
+            log.debug(str(self.__class__) + " GET results = " + str(results))
+
+            authorize_url = results.json()['authorize_url']
+
+            log.debug(str(self.__class__) + " returned url = " + str(authorize_url))
+
+            return redirect(authorize_url)
+        else:
+            return handle_error(request, results.status_code)

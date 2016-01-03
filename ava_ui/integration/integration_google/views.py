@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectAuthorize
 
 log = logging.getLogger(__name__)
 
@@ -32,10 +32,10 @@ class GoogleIntegrationCreate(ObjectCreate):
         expected_fields = ['name', 'description', 'domain']
         redirect_url = 'integration-google-index'
         return super(GoogleIntegrationCreate, self).post(request=request, template_name=self.template_name,
-                                                   url_suffix=self.url_suffix,
-                                                   expected_fields=expected_fields,
-                                                   redirect_url=redirect_url,
-                                                   **kwargs)
+                                                         url_suffix=self.url_suffix,
+                                                         expected_fields=expected_fields,
+                                                         redirect_url=redirect_url,
+                                                         **kwargs)
 
 
 class GoogleIntegrationDelete(ObjectDelete):
@@ -44,6 +44,14 @@ class GoogleIntegrationDelete(ObjectDelete):
 
     def get(self, request, **kwargs):
         return super(GoogleIntegrationDelete, self).get(request=request,
-                                                  url_suffix=self.url_suffix,
-                                                  redirect_url=self.redirect_url,
-                                                  **kwargs)
+                                                        url_suffix=self.url_suffix,
+                                                        redirect_url=self.redirect_url,
+                                                        **kwargs)
+
+
+class GoogleIntegrationAuthorize(ObjectAuthorize):
+    url_suffix = '/integration/google/redirect/'
+    template_name = "integration/google/google_index.html"
+
+    def get(self, request, **kwargs):
+        return super(GoogleIntegrationAuthorize, self).get(request, self.template_name, self.url_suffix, **kwargs)
