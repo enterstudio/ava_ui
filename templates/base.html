@@ -10,8 +10,8 @@
 {% block title %}AVA- Protect Your People{% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-glyphicons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-glyphicons.css' %}"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.form.js' %}"></script>
@@ -20,130 +20,139 @@
 
 {% block content %}
 
-<div id="page-container" class="page-sidebar-fixed page-header-fixed">
+    <div id="page-container" class="page-sidebar-fixed page-header-fixed">
 
-{% block topnavbar %}
-<!-- begin #header -->
-<div id="header" class="header navbar navbar-default navbar-fixed-top">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">AVA - Protect Your People</a>
+        {% block topnavbar %}
+            <!-- begin #header -->
+            <div id="header" class="header navbar navbar-default navbar-fixed-top">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">AVA - Protect Your People</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if not user %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'password-change' %}">Change Password</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                {% if not user %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                {% else %}
-                    <li><a href="{% url 'password-change' %}">Change Password</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
 
-{% endblock %}
+        {% endblock %}
 
-{% if not user %}
+        {% if not user %}
 
-{% else %}
+        {% else %}
 
-{% block sidebar %}
-<!-- begin #sidebar -->
-<div id="sidebar" class="sidebar">
-    <div data-scrollbar="true" data-height="100%">
-        <!-- begin sidebar nav -->
-        <ul class="nav">
-        <!-- <li><a href="/">Dashboard</a></li> -->
-        <li class="user-welcome">
-            <div>
-                <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
-                <span class="user">Hi, {{ user.user }}</span>
-            </div>
-        </li>
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">My</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'my-friends-index' %}">Friends</a></li>
-                <li><a href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
-                <li><a href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
-                <li><a href="{% url 'my-profile-history-index' %}">Activity</a></li>
-            </ul>
-        </li>
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Learn</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'learn-path-index' %}">Pathways</a></li>
-                <li><a href="{% url 'learn-module-index' %}">Modules</a></li>
-                <li><a href="{% url 'learn-role-index' %}">Roles</a></li>
-            </ul>
-        </li>
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Organize</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'group-index' %}">Groups</a></li>
-                <li><a href="{% url 'person-index' %}">People</a></li>
-            </ul>
-        </li>
+            {% block sidebar %}
+                <!-- begin #sidebar -->
+                <div id="sidebar" class="sidebar">
+                    <div data-scrollbar="true" data-height="100%">
+                        <!-- begin sidebar nav -->
+                        <ul class="nav">
+                            <!-- <li><a href="/">Dashboard</a></li> -->
+                            <li class="user-welcome">
+                                <div>
+                                    <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                                    <span class="user">Hi, {{ user.user }}</span>
+                                </div>
+                            </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">My</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'my-friends-index' %}">Friends</a></li>
+                                    <li><a href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
+                                    <li><a href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
+                                    <li><a href="{% url 'my-profile-history-index' %}">Activity</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Learn</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'learn-path-index' %}">Pathways</a></li>
+                                    <li><a href="{% url 'learn-module-index' %}">Modules</a></li>
+                                    <li><a href="{% url 'learn-role-index' %}">Roles</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Organize</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'group-index' %}">Groups</a></li>
+                                    <li><a href="{% url 'person-index' %}">People</a></li>
+                                </ul>
+                            </li>
 
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Evaluate</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'evaluate-controller-index' %}">Controllers</a></li>
-                <li><a href="{% url 'evaluate-target-index' %}">Targets</a></li>
-                <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
-                <li><a href="{% url 'evaluate-results-index' %}">Results</a></li>
-                <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Evaluate</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'evaluate-controller-index' %}">Controllers</a></li>
+                                    <li><a href="{% url 'evaluate-target-index' %}">Targets</a></li>
+                                    <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
+                                    <li><a href="{% url 'evaluate-results-index' %}">Results</a></li>
+                                    <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
 
-            </ul>
-        </li>
-         <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Achievements</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'game-achievement-index' %}">Achievements</a></li>
-            </ul>
-        </li>
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Analyse</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'person-index' %}">Analyse</a></li>
-            </ul>
-        </li>
+                                </ul>
+                            </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Integrations</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'integration-google-index' %}">Google</a></li>
+                                    <li><a href="{% url 'integration-ldap-index' %}">LDAP</a></li>
+                                </ul>
+                            </li>
 
-        {% if is_admin %}
-        <li class="nav-header has-sub-menu">
-            <span class="sidebar-header">Settings</span>
-            <ul class="sub-menu">
-                <li><a href="{% url 'person-index' %}">Import from LDAP</a></li>
-                <li><a href="{% url '' %}">Import from Google</a></li>
-            </ul>
-        </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Achievements</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'game-achievement-index' %}">Achievements</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-header has-sub-menu">
+                                <span class="sidebar-header">Analyse</span>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'person-index' %}">Analyse</a></li>
+                                </ul>
+                            </li>
+
+                            {% if is_admin %}
+                                <li class="nav-header has-sub-menu">
+                                    <span class="sidebar-header">Settings</span>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'person-index' %}">Import from LDAP</a></li>
+                                        <li><a href="{% url '' %}">Import from Google</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        </ul>
+                        <!-- end sidebar nav -->
+                    </div>
+                </div>
+                <div class="sidebar-bg"></div>
+                <!-- end #sidebar -->
+            {% endblock %}
+
         {% endif %}
-        </ul>
-        <!-- end sidebar nav -->    
+
+        <div id="content" class="content {% if not user %}no-auth{% endif %}">
+            {% block mainpage %}
+            {% endblock %}
+        </div>
+
     </div>
-</div>
-<div class="sidebar-bg"></div>
-<!-- end #sidebar -->
-{% endblock %}
-
-{% endif %}
-
-<div id="content" class="content {% if not user %}no-auth{% endif %}">
-    {% block mainpage %}
-    {% endblock %}
-</div>
-
-</div>
-</div> <!-- end of container-fluid -->
+    </div> <!-- end of container-fluid -->
 
 {% endblock %}

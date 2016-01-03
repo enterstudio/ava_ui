@@ -37,12 +37,13 @@ class AchievementCreate(ObjectCreate):
                                                    redirect_url=redirect_url,
                                                    **kwargs)
 
+
 class AchievementDelete(ObjectDelete):
     url_suffix = '/game/achievement/'
     redirect_url = 'game-achievement-index'
 
     def get(self, request, **kwargs):
         return super(AchievementDelete, self).get(request=request,
-                                             url_suffix=self.url_suffix,
-                                             redirect_url=self.redirect_url,
-                                             **kwargs)
+                                                  url_suffix=self.url_suffix,
+                                                  redirect_url=self.redirect_url,
+                                                  **kwargs)
