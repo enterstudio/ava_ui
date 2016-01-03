@@ -27,12 +27,12 @@
                 <tbody>
                 {% for item in object_list %}
                     <tr>
-                        <td>{{ item.name }}</td>
+                        <td>{{ item.integration.name }}</td>
                         <td>{{ item.created }}</td>
-                        <td>{{ item.status }}</td>
+                        <td>{{ item.import_status }}</td>
                         <td>{{ item.no_people }}</td>
                         <td>{{ item.no_groups }}</td>
-                        <td>{{ item.identifiers }}</td>
+                        <td>{{ item.no_identifiers }}</td>
                         <td>{{ item.next_scheduled }}</td>
                         <td><a href="{% url 'gather-ldap-import' item.integration.id %}" class="btn btn-success btn-md">Manual Import</a></td>
                     </tr>
