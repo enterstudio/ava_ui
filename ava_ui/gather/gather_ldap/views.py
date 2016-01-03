@@ -12,7 +12,7 @@ class LDAPGatherImport(ObjectDetail):
         return super(LDAPGatherImport, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 class LDAPGatherIndex(ObjectIndex):
-    url_suffix = '/gather/ldap/'
+    url_suffix = '/integration/ldap/setup/'
     template_name = "gather/ldap/ldap_dashboard.html"
 
     def get(self, request, **kwargs):

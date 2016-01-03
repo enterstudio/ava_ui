@@ -14,7 +14,7 @@ class GoogleGatherImport(ObjectDetail):
 
 
 class GoogleGatherIndex(ObjectIndex):
-    url_suffix = '/gather/google/'
+    url_suffix = '/integration/google/setup/'
     template_name = "gather/google/google_dashboard.html"
 
     def get(self, request, **kwargs):

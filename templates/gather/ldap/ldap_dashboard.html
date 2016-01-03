@@ -27,14 +27,14 @@
                 <tbody>
                 {% for item in object_list %}
                     <tr>
-                        <td>{{ item.integration.name }}</td>
-                        <td>{{ item.created }}</td>
-                        <td>{{ item.import_status }}</td>
-                        <td>{{ item.no_people }}</td>
-                        <td>{{ item.no_groups }}</td>
-                        <td>{{ item.no_identifiers }}</td>
-                        <td>{{ item.next_scheduled }}</td>
-                        <td><a href="{% url 'gather-ldap-import' item.integration.id %}" class="btn btn-success btn-md">Manual Import</a></td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.ldap_integration_history.created }}</td>
+                        <td>{{ item.ldap_integration_history.import_status }}</td>
+                        <td>{{ item.ldap_integration_history.no_people }}</td>
+                        <td>{{ item.ldap_integration_history.no_groups }}</td>
+                        <td>{{ item.ldap_integration_history.no_identifiers }}</td>
+                        <td>{{ item.ldap_integration_history.next_scheduled }}</td>
+                        <td><a href="{% url 'gather-ldap-import' item.id %}" class="btn btn-success btn-md">Manual Import</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
