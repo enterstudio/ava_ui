@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block mainpage %}
+
+    <div class="row">
+        <div class="auth">
+
+            <div class="auth-inner">
+                {% if form.errors %}
+                    <div class="alert bg-danger">
+                        <p>{{ form.errors }}</p>
+                    </div>
+                {% endif %}
+
+                <form action="{% url 'integration-ldap-create' %}" method='POST'> {% csrf_token %}
+                     <div class="form-group input-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" id="name" type="text" name='name' placeholder=""/>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="dump_dn">Dump DN</label>
+                        <input class="form-control" id="dump_dn" type="text" name='dump_dn' placeholder=""/>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="server">Server</label>
+                        <input class="form-control" id="server" type="text" name='server' placeholder=""/>
+                    </div>
+                     <div class="form-group input-group">
+                        <label for="ldap_user">Username</label>
+                        <input class="form-control" id="ldap_user" type="text" name='ldap_user' placeholder=""/>
+                    </div>
+                     <div class="form-group input-group">
+                        <label for="ldap_password">Password</label>
+                        <input class="form-control" id="ldap_password" type="password" name='ldap_password' placeholder=""/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

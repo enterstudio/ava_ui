@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">LDAP Integrations - Detail</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <td>Dump DN:</td>
+                <td>{{ object.dump_dn }}</td>
+            </tr>
+            <tr>
+                <td>Server:</td>
+                <td>{{ object.server }}</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>{{ object.ldap_user}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="page-header">
+        <h2>Import History: </h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in object.integration_history %}
+                <tr>
+                    <td>{{ obj.created }}</td>
+                    <td>{{ obj.status }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
