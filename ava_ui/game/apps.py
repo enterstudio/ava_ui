@@ -8,5 +8,3 @@ class MyConfig(AppConfig):
     label = 'ava_game'
     verbose_name = 'Game'
 
-    def ready(self):
-        import ava.game.signals
