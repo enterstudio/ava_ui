@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
@@ -32,6 +32,22 @@ class AchievementCreate(ObjectCreate):
         expected_fields = ['name', 'description', 'icon_url', 'score']
         redirect_url = 'game-achievement-index'
         return super(AchievementCreate, self).post(request=request, template_name=self.template_name,
+                                                   url_suffix=self.url_suffix,
+                                                   expected_fields=expected_fields,
+                                                   redirect_url=redirect_url,
+                                                   **kwargs)
+
+class AchievementUpdate(ObjectUpdate):
+    url_suffix = '/game/achievement/'
+    template_name = "game/achievement/achievement_form.html"
+
+    def get(self, request, **kwargs):
+        return super(AchievementUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description', 'icon_url', 'score']
+        redirect_url = 'game-achievement-index'
+        return super(AchievementUpdate, self).post(request=request, template_name=self.template_name,
                                                    url_suffix=self.url_suffix,
                                                    expected_fields=expected_fields,
                                                    redirect_url=redirect_url,
