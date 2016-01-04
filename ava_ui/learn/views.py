@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
@@ -32,6 +32,23 @@ class ModuleCreate(ObjectCreate):
         expected_fields = ['name', 'description', 'module_url']
         redirect_url = 'learn-module-index'
         return super(ModuleCreate, self).post(request=request, template_name=self.template_name,
+                                              url_suffix=self.url_suffix,
+                                              expected_fields=expected_fields,
+                                              redirect_url=redirect_url,
+                                              **kwargs)
+
+
+class ModuleUpdate(ObjectUpdate):
+    url_suffix = '/learn/module/'
+    template_name = "learn/module/module_update.html"
+
+    def get(self, request, **kwargs):
+        return super(ModuleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description', 'module_url']
+        redirect_url = 'learn-module-index'
+        return super(ModuleUpdate, self).post(request=request, template_name=self.template_name,
                                               url_suffix=self.url_suffix,
                                               expected_fields=expected_fields,
                                               redirect_url=redirect_url,
@@ -76,6 +93,22 @@ class RoleCreate(ObjectCreate):
         expected_fields = ['name', 'description']
         redirect_url = 'learn-role-index'
         return super(RoleCreate, self).post(request=request, template_name=self.template_name,
+                                            url_suffix=self.url_suffix,
+                                            expected_fields=expected_fields,
+                                            redirect_url=redirect_url,
+                                            **kwargs)
+
+class RoleUpdate(ObjectUpdate):
+    url_suffix = '/learn/role/'
+    template_name = "learn/role/role_update.html"
+
+    def get(self, request, **kwargs):
+        return super(RoleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description']
+        redirect_url = 'learn-role-index'
+        return super(RoleUpdate, self).post(request=request, template_name=self.template_name,
                                             url_suffix=self.url_suffix,
                                             expected_fields=expected_fields,
                                             redirect_url=redirect_url,
@@ -131,6 +164,23 @@ class PathDelete(ObjectDelete):
 #         expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
 #         redirect_url = 'learn-path-index'
 #         return super(PathCreate, self).post(request=request, template_name=self.template_name,
+#                                               url_suffix=self.url_suffix,
+#                                               expected_fields=expected_fields,
+#                                               redirect_url=redirect_url,
+#                                               **kwargs)
+
+# TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
+# class PathUpdate(ObjectUpdate):
+#     url_suffix = '/learn/path/'
+#     template_name = "learn/path/path_update.html"
+#
+#     def get(self, request, **kwargs):
+#         return super(PathUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
+#         redirect_url = 'learn-path-index'
+#         return super(PathUpdate, self).post(request=request, template_name=self.template_name,
 #                                               url_suffix=self.url_suffix,
 #                                               expected_fields=expected_fields,
 #                                               redirect_url=redirect_url,

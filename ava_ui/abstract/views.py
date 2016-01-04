@@ -111,13 +111,7 @@ class ObjectUpdate(ObjectDetail):
 
         if results.status_code is 200:
             log.debug(str(self.__class__) + " POST results = " + str(results))
-            #
-            # objects = results.json()
-            #
-            # log.debug(str(self.__class__) + " returned objects = " + str(objects))
-            #
-            # self.context['object'] = objects
-
+            #TODO might actually want to redirect to the details page here instead of the index
             return redirect(redirect_url)
         else:
             return handle_error(request, results.status_code)

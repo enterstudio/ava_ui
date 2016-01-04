@@ -16,7 +16,7 @@ def handle_error(request, status_code):
         return render(request, 'error/generic_error.html')
 
 
-def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False, **kwargs):
+def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
     # add authorization header to existing headers if is_authenticated == True
     if is_authenticated is True:
         if 'token' in request.session:
