@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0316d751-c00e-4f11-8177-abc9abf0f563" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui.db" afterPath="$PROJECT_DIR$/ava_ui.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/abstract/utils.py" afterPath="$PROJECT_DIR$/ava_ui/abstract/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/abstract/views.py" afterPath="$PROJECT_DIR$/ava_ui/abstract/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/evaluate/urls.py" afterPath="$PROJECT_DIR$/ava_ui/evaluate/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/evaluate/views.py" afterPath="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/learn/urls.py" afterPath="$PROJECT_DIR$/ava_ui/learn/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/learn/views.py" afterPath="$PROJECT_DIR$/ava_ui/learn/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/module/module_detail.html" afterPath="$PROJECT_DIR$/templates/learn/module/module_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/module/module_form.html" afterPath="$PROJECT_DIR$/templates/learn/module/module_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/path/path_detail.html" afterPath="$PROJECT_DIR$/templates/learn/path/path_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/path/path_form.html" afterPath="$PROJECT_DIR$/templates/learn/path/path_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/path/path_index.html" afterPath="$PROJECT_DIR$/templates/learn/path/path_index.html" />
     </list>
     <ignored path="ava_frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1698114">
-              <caret line="234" column="43" selection-start-line="234" selection-start-column="43" selection-end-line="234" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.43074003">
+              <caret line="173" column="38" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -83,20 +75,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="target_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_form.html">
+      <file leaf-file-name="target_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4166665">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller_form.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33453238">
+            <state vertical-scroll-proportion="-7.75">
               <caret line="20" column="108" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="108" />
               <folding />
             </state>
@@ -153,9 +155,7 @@
         <option value="$PROJECT_DIR$/templates/learn/module/module_index.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_index.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" />
-        <option value="$PROJECT_DIR$/ava_ui/evaluate/urls.py" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_update.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_form.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/template/template_update.html" />
@@ -177,8 +177,10 @@
         <option value="$PROJECT_DIR$/ava_ui/abstract/views.py" />
         <option value="$PROJECT_DIR$/ava_ui/abstract/utils.py" />
         <option value="$PROJECT_DIR$/templates/learn/module/module_detail.html" />
-        <option value="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
         <option value="$PROJECT_DIR$/templates/evaluate/target/target_form.html" />
+        <option value="$PROJECT_DIR$/ava_ui/evaluate/urls.py" />
+        <option value="$PROJECT_DIR$/templates/evaluate/target/target_index.html" />
+        <option value="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
       </list>
     </option>
   </component>
@@ -985,14 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7823741">
-          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53956836">
@@ -1007,16 +1001,6 @@
           <caret line="53" column="60" selection-start-line="39" selection-start-column="0" selection-end-line="53" selection-end-column="60" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.320755">
-          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1137,16 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1698114">
-          <caret line="234" column="43" selection-start-line="234" selection-start-column="43" selection-end-line="234" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/learn/module/module_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.5">
@@ -1155,19 +1129,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_form.html">
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4166665">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        <state vertical-scroll-proportion="-7.75">
+          <caret line="20" column="108" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="108" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_form.html">
+    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33453238">
-          <caret line="20" column="108" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="108" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43074003">
+          <caret line="173" column="38" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -59,19 +59,9 @@ urlpatterns = [
     url(r'^target/$', EvaluateTargetProfileIndex.as_view(),
         name="evaluate-target-index"),
 
-    # TODO relationships during creation
-    # url(r'^target/new/$', EvaluateTargetProfileCreate.as_view(),
-    #     name="evaluate-target-create"),
-
     url(r'^target/(?P<pk>[0-9]+)/$', EvaluateTargetProfileDetail.as_view(),
         name="evaluate-target-detail"),
 
-    url(r'^target/delete(?P<pk>[0-9]+)/$', EvaluateTargetProfileDelete.as_view(),
-        name="evaluate-target-delete"),
-
-    # url(r'^target/update(?P<pk>[0-9]+)/$', EvaluateTargetProfileUpdate.as_view(),
-    #     name="evaluate-target-update"),
-    #
 
 
 
