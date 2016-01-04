@@ -20,6 +20,10 @@
                 <td>URL:</td>
                 <td>{{ object.module_url }}</td>
             </tr>
+            <tr>
+                <td>Parent:</td>
+                <td>{%  if object.parent %}<a href="{% url 'learn-module-detail' object.parent %}" class="btn btn-primary btn-sm">View Parent</a>{% endif %}</td>
+            </tr>
 
             </tbody>
         </table>
@@ -39,7 +43,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for path in object.path_module %}
+            {% for path in object.path_modules %}
                 <tr>
                     <td>{{ path.name }}</td>
                     <td>

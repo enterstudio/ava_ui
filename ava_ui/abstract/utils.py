@@ -3,7 +3,7 @@ import logging
 
 import requests
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 log = logging.getLogger(__name__)
 
@@ -46,20 +46,23 @@ def refresh_jwt_token(request):
 
     headers = {'Content-Type': 'application/json'}
 
-    data = {'token': request.session['token']}
-    data = json.dumps(data)
+    if 'token' in request.session:
+        data = {'token': request.session['token']}
+        data = json.dumps(data)
 
-    # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
+        # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
 
-    results = requests.post(url, data=data, headers=headers)
+        results = requests.post(url, data=data, headers=headers)
 
-    if results.status_code is 200:
-        objects = results.json()
-        request.session['token'] = objects['token']
-        # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
+        if results.status_code is 200:
+            objects = results.json()
+            request.session['token'] = objects['token']
+            # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
+        else:
+            log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
+                results.content) + ")")
     else:
-        log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
-            results.content) + ")")
+        return redirect('login')
 
 
 def get_user_context(request):

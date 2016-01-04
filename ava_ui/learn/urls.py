@@ -39,8 +39,8 @@ urlpatterns = [
     url(r'^path/$', PathIndex.as_view(),
         name="learn-path-index"),
 
-    # url(r'^path/new/$', PathCreate.as_view(),
-    #     name="learn-path-create"),
+    url(r'^path/new/$', PathCreate.as_view(),
+        name="learn-path-create"),
 
     url(r'^path/(?P<pk>[0-9]+)/$', PathDetail.as_view(),
         name="learn-path-detail"),
