@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0316d751-c00e-4f11-8177-abc9abf0f563" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/learn/module/module_update.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/learn/path/path_update.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/learn/role/role_update.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/abstract/utils.py" afterPath="$PROJECT_DIR$/ava_ui/abstract/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/abstract/views.py" afterPath="$PROJECT_DIR$/ava_ui/abstract/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/learn/urls.py" afterPath="$PROJECT_DIR$/ava_ui/learn/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/learn/views.py" afterPath="$PROJECT_DIR$/ava_ui/learn/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/module/module_index.html" afterPath="$PROJECT_DIR$/templates/learn/module/module_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/path/path_form.html" afterPath="$PROJECT_DIR$/templates/learn/path/path_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/path/path_index.html" afterPath="$PROJECT_DIR$/templates/learn/path/path_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/role/role_index.html" afterPath="$PROJECT_DIR$/templates/learn/role/role_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/evaluate/controller/controller_update.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/evaluate/sender/sender_update.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/evaluate/template/template_update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/evaluate/views.py" afterPath="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/template/template_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
     </list>
     <ignored path="ava_frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,31 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="module_index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/learn/module/module_index.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5143885">
-              <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="path_index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/learn/path/path_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.875">
-              <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role_index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/learn/role/role_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.875">
-              <caret line="30" column="87" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
+            <state vertical-scroll-proportion="2.13852">
+              <caret line="80" column="110" selection-start-line="80" selection-start-column="110" selection-end-line="80" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -92,18 +67,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_detail.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_detail.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_index.html" />
-        <option value="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
-        <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_detail.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_form.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_form.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_form.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/template/template_detail.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/template/template_form.html" />
         <option value="$PROJECT_DIR$/templates/learn/role/role_form.html" />
         <option value="$PROJECT_DIR$/templates/learn/module/module_form.html" />
@@ -143,6 +109,15 @@
         <option value="$PROJECT_DIR$/templates/learn/role/role_index.html" />
         <option value="$PROJECT_DIR$/templates/learn/path/path_index.html" />
         <option value="$PROJECT_DIR$/templates/learn/module/module_index.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_update.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/target/target_update.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_update.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/template/template_update.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/target/target_index.html" />
+        <option value="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" />
+        <option value="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
       </list>
     </option>
   </component>
@@ -227,33 +202,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="learn" />
+              <option name="myItemId" value="evaluate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="role" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="path" />
+              <option name="myItemId" value="template" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -271,33 +224,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="learn" />
+              <option name="myItemId" value="evaluate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gather" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ldap" />
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,11 +246,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gather" />
+              <option name="myItemId" value="evaluate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="google" />
+              <option name="myItemId" value="sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evaluate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="results" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evaluate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -365,6 +340,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="evaluate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ava_ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="abstract" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -384,11 +377,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/evaluate/controller" />
+      <recent name="$PROJECT_DIR$/templates/evaluate/sender" />
+      <recent name="$PROJECT_DIR$/templates/evaluate/target" />
+      <recent name="$PROJECT_DIR$/templates/evaluate/template" />
       <recent name="$PROJECT_DIR$/templates/learn/role" />
-      <recent name="$PROJECT_DIR$/templates/learn/path" />
-      <recent name="$PROJECT_DIR$/templates/learn/module" />
-      <recent name="$PROJECT_DIR$/templates/game/achievement" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/evaluate/template_slack" />
@@ -643,56 +636,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/test/test_dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8651079">
-          <caret line="75" column="10" selection-start-line="73" selection-start-column="3" selection-end-line="75" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8381295">
-          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64748204">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/results/evaluate_result_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.107913665">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64748204">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43165466">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6384892">
-          <caret line="33" column="92" selection-start-line="33" selection-start-column="92" selection-end-line="33" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.89028776">
@@ -732,20 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75179857">
           <caret line="36" column="92" selection-start-line="36" selection-start-column="92" selection-end-line="36" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21582733">
-          <caret line="8" column="10" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.580645">
-          <caret line="148" column="48" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1023,6 +952,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/learn/module/module_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7032374">
+          <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/learn/path/path_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7284173">
+          <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/learn/role/role_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6852518">
+          <caret line="30" column="87" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.051948">
+          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26618704">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31654677">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.10611511">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56654674">
+          <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8093525">
+          <caret line="30" column="91" selection-start-line="30" selection-start-column="91" selection-end-line="30" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7823741">
+          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/evaluate/controller/controller_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53956836">
+          <caret line="33" column="91" selection-start-line="33" selection-start-column="91" selection-end-line="33" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ava_ui/game/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1033,26 +1050,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/learn/role/role_index.html">
+    <entry file="file://$PROJECT_DIR$/ava_ui/evaluate/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.875">
-          <caret line="30" column="87" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/learn/path/path_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.875">
-          <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/learn/module/module_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5143885">
-          <caret line="33" column="87" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+        <state vertical-scroll-proportion="2.13852">
+          <caret line="80" column="110" selection-start-line="80" selection-start-column="110" selection-end-line="80" selection-end-column="110" />
           <folding />
         </state>
       </provider>

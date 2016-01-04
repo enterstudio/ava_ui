@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex, ObjectDelete
+from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
@@ -32,6 +32,21 @@ class EvaluateTemplateCreate(ObjectCreate):
         expected_fields = ['name', 'description', 'template_type', 'email_subject', 'email_body']
         redirect_url = 'evaluate-template-index'
         return super(EvaluateTemplateCreate, self).post(request=request, template_name=self.template_name,
+                                                        url_suffix=self.url_suffix,
+                                                        expected_fields=expected_fields,
+                                                        redirect_url=redirect_url,
+                                                        **kwargs)
+class EvaluateTemplateUpdate(ObjectUpdate):
+    url_suffix = '/evaluate/template/'
+    template_name = "evaluate/template/template_update.html"
+
+    def get(self, request, **kwargs):
+        return super(EvaluateTemplateUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description', 'template_type', 'email_subject', 'email_body']
+        redirect_url = 'evaluate-template-index'
+        return super(EvaluateTemplateUpdate, self).post(request=request, template_name=self.template_name,
                                                         url_suffix=self.url_suffix,
                                                         expected_fields=expected_fields,
                                                         redirect_url=redirect_url,
@@ -97,6 +112,21 @@ class EvaluateSenderCreate(ObjectCreate):
                                                       redirect_url=redirect_url,
                                                       **kwargs)
 
+class EvaluateSenderUpdate(ObjectUpdate):
+    url_suffix = '/evaluate/sender/'
+    template_name = "evaluate/sender/sender_update.html"
+
+    def get(self, request, **kwargs):
+        return super(EvaluateSenderUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['first_name', 'last_name', 'email_address', 'slack_name']
+        redirect_url = 'evaluate-sender-index'
+        return super(EvaluateSenderUpdate, self).post(request=request, template_name=self.template_name,
+                                                      url_suffix=self.url_suffix,
+                                                      expected_fields=expected_fields,
+                                                      redirect_url=redirect_url,
+                                                      **kwargs)
 
 class EvaluateSenderDelete(ObjectDelete):
     url_suffix = '/evaluate/sender/'
@@ -144,6 +174,25 @@ class EvaluateControllerDetail(ObjectDetail):
 #                                                           redirect_url=redirect_url,
 #                                                           **kwargs)
 
+# TODO RELATIONSHIPS WTF HELP
+# class EvaluateControllerUpdate(ObjectUpdate):
+#     url_suffix = '/evaluate/controller/'
+#     template_name = "evaluate/controller/controller_update.html"
+#
+#     def get(self, request, **kwargs):
+#         return super(EvaluateControllerUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['scheduled_type', 'scheduled_time', 'expiry_type', 'expiry_time', 'sender', 'template',
+#                            'targets',
+#                            'status']
+#         redirect_url = 'evaluate-controller-index'
+#         return super(EvaluateControllerUpdate, self).post(request=request, template_name=self.template_name,
+#                                                           url_suffix=self.url_suffix,
+#                                                           expected_fields=expected_fields,
+#                                                           redirect_url=redirect_url,
+# 
+
 class EvaluateControllerDelete(ObjectDelete):
     url_suffix = '/evaluate/controller/'
     redirect_url = 'evaluate-controller-index'
@@ -186,6 +235,23 @@ class EvaluateTargetProfileDetail(ObjectDetail):
 #                                                       expected_fields=expected_fields,
 #                                                       redirect_url=redirect_url,
 #                                                       **kwargs)
+
+# TODO RELATIONSHIPS WTF HELP
+# class EvaluateTargetProfileUpdate(ObjectUpdate):
+#     url_suffix = '/evaluate/target/'
+#     template_name = "evaluate/target/target_update.html"
+#
+#     def get(self, request, **kwargs):
+#         return super(EvaluateTargetProfileUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['target_controller', 'target', 'token', 'delivery_status']
+#         redirect_url = 'evaluate-target-index'
+#         return super(EvaluateTargetProfileUpdate, self).post(request=request, template_name=self.template_name,
+#                                                       url_suffix=self.url_suffix,
+#                                                       expected_fields=expected_fields,
+#                                                       redirect_url=redirect_url,
+#   
 
 
 class EvaluateTargetProfileDelete(ObjectDelete):
