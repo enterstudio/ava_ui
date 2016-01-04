@@ -76,6 +76,52 @@ class ObjectDetail(AbstractObjectInterface):
             return handle_error(request, results.status_code)
 
 
+class ObjectUpdate(ObjectDetail):
+    def get(self, request, template_name, url_suffix, **kwargs):
+        return super(ObjectUpdate, self).get(request, template_name, url_suffix, **kwargs)
+
+    def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):
+        super(ObjectCreate, self).post(request, **kwargs)
+        log.debug(str(self.__class__) + " POST called")
+
+        self.url = self.url + url_suffix + '{}/'
+
+        log.debug(str(self.__class__) + " Pre formatted url " + self.url)
+
+        pk = self.kwargs.get('pk')
+        self.url = self.url.format(pk)
+
+        api_data = {}
+
+        for field in expected_fields:
+            # TODO explore validation here
+            api_data[field] = request.POST.get(field)
+
+        api_data = json.dumps(api_data)
+
+        log.debug(str(self.__class__) + " POST attempting to get data from url " + self.url)
+        log.debug(str(self.__class__) + " POST using the following api_data " + str(api_data))
+
+        headers = {'Content-Type': 'application/json'}
+
+        results = csrf_request(request=request, url=self.url, request_type='PUT', api_data=api_data, headers=headers,
+                               is_authenticated=True, **kwargs)
+
+        log.debug(str(self.__class__) + " POST returned with status_code " + str(results.status_code))
+
+        if results.status_code is 200:
+            log.debug(str(self.__class__) + " POST results = " + str(results))
+            #
+            # objects = results.json()
+            #
+            # log.debug(str(self.__class__) + " returned objects = " + str(objects))
+            #
+            # self.context['object'] = objects
+
+            return redirect(redirect_url)
+        else:
+            return handle_error(request, results.status_code)
+
 class ObjectCreate(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix):
         super(ObjectCreate, self).get(request)
@@ -141,8 +187,8 @@ class ObjectDelete(AbstractObjectInterface):
         else:
             return handle_error(request, results.status_code)
 
-class ObjectAuthorize(AbstractObjectInterface):
 
+class ObjectAuthorize(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix, **kwargs):
         super(ObjectAuthorize, self).get(request)
         log.debug(str(self.__class__) + " GET called")
@@ -170,8 +216,8 @@ class ObjectAuthorize(AbstractObjectInterface):
         else:
             return handle_error(request, results.status_code)
 
-class ObjectAuthorizeCallback(AbstractObjectInterface):
 
+class ObjectAuthorizeCallback(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix, **kwargs):
         super(ObjectAuthorizeCallback, self).get(request)
         log.debug(str(self.__class__) + " GET called")
