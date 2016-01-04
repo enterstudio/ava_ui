@@ -38,7 +38,7 @@ class EvaluateTemplateCreate(ObjectCreate):
                                                         **kwargs)
 class EvaluateTemplateUpdate(ObjectUpdate):
     url_suffix = '/evaluate/template/'
-    template_name = "evaluate/template/template_update.html"
+    template_name = "evaluate/template/template_form.html"
 
     def get(self, request, **kwargs):
         return super(EvaluateTemplateUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -114,7 +114,7 @@ class EvaluateSenderCreate(ObjectCreate):
 
 class EvaluateSenderUpdate(ObjectUpdate):
     url_suffix = '/evaluate/sender/'
-    template_name = "evaluate/sender/sender_update.html"
+    template_name = "evaluate/sender/sender_form.html"
 
     def get(self, request, **kwargs):
         return super(EvaluateSenderUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -177,7 +177,7 @@ class EvaluateControllerDetail(ObjectDetail):
 # TODO RELATIONSHIPS WTF HELP
 # class EvaluateControllerUpdate(ObjectUpdate):
 #     url_suffix = '/evaluate/controller/'
-#     template_name = "evaluate/controller/controller_update.html"
+#     template_name = "evaluate/controller/controller_form.html"
 #
 #     def get(self, request, **kwargs):
 #         return super(EvaluateControllerUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -239,7 +239,7 @@ class EvaluateTargetProfileDetail(ObjectDetail):
 # TODO RELATIONSHIPS WTF HELP
 # class EvaluateTargetProfileUpdate(ObjectUpdate):
 #     url_suffix = '/evaluate/target/'
-#     template_name = "evaluate/target/target_update.html"
+#     template_name = "evaluate/target/target_form.html"
 #
 #     def get(self, request, **kwargs):
 #         return super(EvaluateTargetProfileUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)

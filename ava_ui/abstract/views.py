@@ -119,6 +119,7 @@ class ObjectUpdate(ObjectDetail):
 class ObjectCreate(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix):
         super(ObjectCreate, self).get(request)
+        self.context['object'] = None
         return render(request, self.template_name, context=self.context)
 
     def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):

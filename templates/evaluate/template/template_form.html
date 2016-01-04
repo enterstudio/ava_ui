@@ -12,29 +12,29 @@
                     </div>
                 {% endif %}
 
-                <form action="{% url 'evaluate-template-create' %}" method='POST'> {% csrf_token %}
+                <form action="{% if object %}{% url 'evaluate-template-update' object.id %} {% else %} {% url 'evaluate-template-create' %} {% endif %}" method='POST'> {% csrf_token %}
                     <div class="form-group input-group">
                         <label for="name">Template Name</label>
-                        <input class="form-control" id="name" type="text" name='name' placeholder=""/>
+                        <input class="form-control" id="name" type="text" name='name' value="{% if object %}{{ object.name }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Description</label>
-                        <input class="form-control" id="description" type="text" name='description' placeholder=""/>
+                        <input class="form-control" id="description" type="text" name='description' value="{% if object %}{{ object.description }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Type</label>
                         <select class="form-control" name="template_type" id="template_type">
-                            <option value="0">Email</option>
-                            <option value="1">Slack</option>
+                            <option {% if object %}{% if object.template_type == 0 %} selected {% endif %}{% endif %} value="0">Email</option>
+                            <option {% if object %}{% if object.template_type == 1 %} selected {% endif %}{% endif %} value="1">Slack</option>
                         </select>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Subject</label>
-                        <input class="form-control" id="email_subject" type="text" name='email_subject' placeholder=""/>
+                        <input class="form-control" id="email_subject" type="text" name='email_subject' value="{% if object %}{{ object.email_subject }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Template Message Body</label>
-                        <input class="form-control" id="email_body" type="text" name='email_body' placeholder=""/>
+                        <input class="form-control" id="email_body" type="text" name='email_body' value="{% if object %}{{ object.email_body }} {% endif %}"/>
                     </div>
 
                     <div class="form-group">

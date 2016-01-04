@@ -40,7 +40,7 @@ class ModuleCreate(ObjectCreate):
 
 class ModuleUpdate(ObjectUpdate):
     url_suffix = '/learn/module/'
-    template_name = "learn/module/module_update.html"
+    template_name = "learn/module/module_form.html"
 
     def get(self, request, **kwargs):
         return super(ModuleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -100,7 +100,7 @@ class RoleCreate(ObjectCreate):
 
 class RoleUpdate(ObjectUpdate):
     url_suffix = '/learn/role/'
-    template_name = "learn/role/role_update.html"
+    template_name = "learn/role/role_form.html"
 
     def get(self, request, **kwargs):
         return super(RoleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
@@ -172,7 +172,7 @@ class PathDelete(ObjectDelete):
 # TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
 # class PathUpdate(ObjectUpdate):
 #     url_suffix = '/learn/path/'
-#     template_name = "learn/path/path_update.html"
+#     template_name = "learn/path/path_form.html"
 #
 #     def get(self, request, **kwargs):
 #         return super(PathUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
