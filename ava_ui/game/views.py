@@ -39,7 +39,7 @@ class AchievementCreate(ObjectCreate):
 
 class AchievementUpdate(ObjectUpdate):
     url_suffix = '/game/achievement/'
-    template_name = "game/achievement/achievement_form.html"
+    template_name = "game/achievement/achievement_update.html"
 
     def get(self, request, **kwargs):
         return super(AchievementUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)

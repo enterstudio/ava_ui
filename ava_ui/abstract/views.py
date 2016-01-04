@@ -81,7 +81,7 @@ class ObjectUpdate(ObjectDetail):
         return super(ObjectUpdate, self).get(request, template_name, url_suffix, **kwargs)
 
     def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):
-        super(ObjectCreate, self).post(request, **kwargs)
+        super(ObjectUpdate, self).post(request, **kwargs)
         log.debug(str(self.__class__) + " POST called")
 
         self.url = self.url + url_suffix + '{}/'
@@ -105,7 +105,7 @@ class ObjectUpdate(ObjectDetail):
         headers = {'Content-Type': 'application/json'}
 
         results = csrf_request(request=request, url=self.url, request_type='PUT', api_data=api_data, headers=headers,
-                               is_authenticated=True, **kwargs)
+                               is_authenticated=True)
 
         log.debug(str(self.__class__) + " POST returned with status_code " + str(results.status_code))
 
