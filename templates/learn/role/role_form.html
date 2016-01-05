@@ -21,6 +21,14 @@
                         <label for="name">Description</label>
                         <input class="form-control" id="description" type="text" name='description' value="{% if object %}{{ object.description }} {% endif %}"/>
                     </div>
+                     <div class=" form-group input-group">
+                        <label for="path">Paths</label>
+                         <select class="form-control" multiple name="path" id="path">
+                            {% for path in form_data.paths %}
+                                <option {% if object %}{% if path.id in object.paths %} selected {% endif %}{% endif %} value="{{ path.id }}">{{ path.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
                         <input type="hidden" name="next" value="{{ next }}"/>

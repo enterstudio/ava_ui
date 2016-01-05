@@ -1,7 +1,7 @@
 import logging
 
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate, \
-    ObjectCreateRelated
+    ObjectCreateRelated, ObjectUpdateRelated
 
 log = logging.getLogger(__name__)
 
@@ -29,32 +29,42 @@ class ModuleCreate(ObjectCreateRelated):
 
     def get(self, request):
         return super(ModuleCreate, self).get(request=request, template_name=self.template_name,
-                                           url_suffix=self.form_data_url)
+                                             url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description', 'module_url', 'parent']
         related_fields = ['parent']
+        multiple_fields = ['path']
         redirect_url = 'learn-module-index'
         return super(ModuleCreate, self).post(request=request, template_name=self.template_name,
                                               url_suffix=self.url_suffix,
                                               expected_fields=expected_fields,
                                               related_fields=related_fields,
+                                              multiple_fields=multiple_fields,
                                               redirect_url=redirect_url,
                                               **kwargs)
 
-class ModuleUpdate(ObjectUpdate):
+
+class ModuleUpdate(ObjectUpdateRelated):
     url_suffix = '/learn/module/'
+    form_data_url = '/learn/form/'
     template_name = "learn/module/module_form.html"
 
     def get(self, request, **kwargs):
-        return super(ModuleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+        return super(ModuleUpdate, self).get(request=request, template_name=self.template_name,
+                                             form_data_url_suffix=self.form_data_url, url_suffix=self.url_suffix,
+                                             **kwargs)
 
     def post(self, request, **kwargs):
-        expected_fields = ['name', 'description', 'module_url']
+        expected_fields = ['name', 'description', 'module_url', 'parent']
+        related_fields = ['parent']
+        multiple_fields = ['path']
         redirect_url = 'learn-module-index'
         return super(ModuleUpdate, self).post(request=request, template_name=self.template_name,
                                               url_suffix=self.url_suffix,
                                               expected_fields=expected_fields,
+                                              related_fields=related_fields,
+                                              multiple_fields=multiple_fields,
                                               redirect_url=redirect_url,
                                               **kwargs)
 
@@ -85,38 +95,50 @@ class RoleDetail(ObjectDetail):
     def get(self, request, **kwargs):
         return super(RoleDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
-
-class RoleCreate(ObjectCreate):
+class RoleCreate(ObjectCreateRelated):
     url_suffix = '/learn/role/'
+    form_data_url = '/learn/form/'
     template_name = "learn/role/role_form.html"
 
     def get(self, request):
-        return super(RoleCreate, self).get(request, self.template_name, self.url_suffix)
+        return super(RoleCreate, self).get(request=request, template_name=self.template_name,
+                                           url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description']
+        related_fields = []
+        multiple_fields = ['path']
         redirect_url = 'learn-role-index'
         return super(RoleCreate, self).post(request=request, template_name=self.template_name,
                                             url_suffix=self.url_suffix,
                                             expected_fields=expected_fields,
                                             redirect_url=redirect_url,
+                                            multiple_fields=multiple_fields,
+                                            related_fields=related_fields,
                                             **kwargs)
 
 
-class RoleUpdate(ObjectUpdate):
+class RoleUpdate(ObjectUpdateRelated):
     url_suffix = '/learn/role/'
+    form_data_url = '/learn/form/'
     template_name = "learn/role/role_form.html"
 
     def get(self, request, **kwargs):
-        return super(RoleUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+        return super(RoleUpdate, self).get(request=request, template_name=self.template_name,
+                                           url_suffix=self.url_suffix,
+                                           form_data_url_suffix=self.form_data_url, **kwargs)
 
     def post(self, request, **kwargs):
         expected_fields = ['name', 'description']
+        related_fields = []
+        multiple_fields = ['path']
         redirect_url = 'learn-role-index'
         return super(RoleUpdate, self).post(request=request, template_name=self.template_name,
                                             url_suffix=self.url_suffix,
                                             expected_fields=expected_fields,
                                             redirect_url=redirect_url,
+                                            multiple_fields=multiple_fields,
+                                            related_fields=related_fields,
                                             **kwargs)
 
 
@@ -158,7 +180,6 @@ class PathDelete(ObjectDelete):
                                            **kwargs)
 
 
-# TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
 class PathCreate(ObjectCreateRelated):
     url_suffix = '/learn/path/'
     form_data_url = '/learn/form/'
@@ -169,29 +190,38 @@ class PathCreate(ObjectCreateRelated):
                                            url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
-        expected_fields = ['name', 'description', 'module', 'parent_module']
-        related_fields = ['module', 'parent_module']
+        expected_fields = ['name', 'description']
+        related_fields = []
+        multiple_fields = ['path_modules','path_roles']
         redirect_url = 'learn-path-index'
         return super(PathCreate, self).post(request=request, template_name=self.template_name,
                                             url_suffix=self.url_suffix,
                                             expected_fields=expected_fields,
                                             redirect_url=redirect_url,
+                                            multiple_fields=multiple_fields,
                                             related_fields=related_fields,
                                             **kwargs)
 
-        # TODO THIS PROBABLY DOESN'T WORK DUE TO RELATIONSHIPS ..... GAHHHHHHH
-        # class PathUpdate(ObjectUpdate):
-        #     url_suffix = '/learn/path/'
-        #     template_name = "learn/path/path_form.html"
-        #
-        #     def get(self, request, **kwargs):
-        #         return super(PathUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
-        #
-        #     def post(self, request, **kwargs):
-        #         expected_fields = ['name', 'description', 'module', 'parent_module', 'role']
-        #         redirect_url = 'learn-path-index'
-        #         return super(PathUpdate, self).post(request=request, template_name=self.template_name,
-        #                                               url_suffix=self.url_suffix,
-        #                                               expected_fields=expected_fields,
-        #                                               redirect_url=redirect_url,
-        #                                               **kwargs)
+
+class PathUpdate(ObjectUpdateRelated):
+    url_suffix = '/learn/path/'
+    form_data_url = '/learn/form/'
+    template_name = "learn/path/path_form.html"
+
+    def get(self, request, **kwargs):
+        return super(PathUpdate, self).get(request=request, template_name=self.template_name,
+                                           url_suffix=self.url_suffix,
+                                           form_data_url_suffix=self.form_data_url, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description']
+        related_fields = []
+        multiple_fields = ['path_modules','path_roles']
+        redirect_url = 'learn-path-index'
+        return super(PathUpdate, self).post(request=request, template_name=self.template_name,
+                                            url_suffix=self.url_suffix,
+                                            expected_fields=expected_fields,
+                                            redirect_url=redirect_url,
+                                            multiple_fields=multiple_fields,
+                                            related_fields=related_fields,
+                                            **kwargs)

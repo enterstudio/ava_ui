@@ -23,9 +23,17 @@
                     </div>
                     <div class="form-group input-group">
                         <label for="name">Module</label>
-                        <select class="form-control" name="module" id="module">
+                        <select class="form-control" multiple name="path_modules" id="module">
                             {% for module in form_data.modules %}
-                                <option {% if object %}{% if object.module == module.id %} selected {% endif %}{% endif %} value="{{ module.id }}">{{ module.name }}</option>
+                                <option {% if object %}{% if module.id in object.path_modules %} selected {% endif %}{% endif %} value="{{ module.id }}">{{ module.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="name">Roles</label>
+                        <select class="form-control" multiple name="path_roles" id="path_roles">
+                            {% for role in form_data.roles %}
+                                <option {% if object %}{% if role.id in object.path_roles %} selected {% endif %}{% endif %} value="{{ role.id }}">{{ role.name }}</option>
                             {% endfor %}
                         </select>
                     </div>

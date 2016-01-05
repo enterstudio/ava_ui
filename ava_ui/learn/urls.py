@@ -33,8 +33,8 @@ urlpatterns = [
     url(r'^role/update/(?P<pk>[0-9]+)/$', RoleUpdate.as_view(),
         name="learn-role-update"),
     
-    # url(r'^path/update/(?P<pk>[0-9]+)/$', PathUpdate.as_view(),
-    #     name="learn-path-update"),
+    url(r'^path/update/(?P<pk>[0-9]+)/$', PathUpdate.as_view(),
+        name="learn-path-update"),
 
     url(r'^path/$', PathIndex.as_view(),
         name="learn-path-index"),
