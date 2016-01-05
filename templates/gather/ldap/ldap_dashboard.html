@@ -2,7 +2,7 @@
 {% block mainpage %}
 
     <div class="page-header">
-        <h2 class="sub-header">LDAP Integrations</h2>
+        <h2 class="sub-header">Gather Dashboard - LDAP Imports</h2>
     </div>
 
     <div class="button pull-right">
@@ -15,7 +15,10 @@
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Server</th>
+                    <th>Last Import</th>
+                    <th>Import Status</th>
+                    <th>Message</th>
+                    <th>Scheduled</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -23,18 +26,11 @@
                 {% for item in object_list %}
                     <tr>
                         <td>{{ item.name }}</td>
-                        <td>{{ item.server }}</td>
-                        <td>
-                            <a href="{% url 'integration-ldap-detail' item.id %}">
-                                <button type="button" class="btn btn-primary btn-sm">View</button>
-                            </a>
-                            <a href="{% url 'integration-ldap-delete' item.id %}">
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                            </a>
-                            <a href="{% url 'gather-ldap-import' item.id %}">
-                                <button type="button" class="btn btn-danger btn-sm">Import</button>
-                            </a>
-                        </td>
+                        <td>{{ item.ldap_integration_history.0.created }}</td>
+                        <td>{{ item.ldap_integration_history.0.import_status }}</td>
+                        <td>{{ item.ldap_integration_history.0.message }}</td>
+                        <td>{{ item.ldap_integration_history.0.next_scheduled }}</td>
+                        <td><a href="{% url 'gather-ldap-import' item.id %}" class="btn btn-success btn-md">Manual Import</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

@@ -12,19 +12,36 @@
                     </div>
                 {% endif %}
 
-                <form action="{% url 'learn-module-create' %}" method='POST'> {% csrf_token %}
+                <form action="{% if object %}{% url 'learn-module-update' object.id %} {% else %} {% url 'learn-module-create' %} {% endif %}" method='POST'> {% csrf_token %}
                     <div class="form-group input-group">
                         <label for="name">Name</label>
-                        <input class="form-control" id="name" type="text" name='name' placeholder=""/>
+                        <input class="form-control" id="name" type="text" name='name' value="{% if object %}{{ object.name }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
-                        <label for="name">Description</label>
-                        <input class="form-control" id="description" type="text" name='description' placeholder=""/>
+                        <label for="description">Description</label>
+                        <input class="form-control" id="description" type="text" name='description' value="{% if object %}{{ object.description }} {% endif %}"/>
                     </div>
                      <div class="form-group input-group">
-                        <label for="name">URL</label>
-                        <input class="form-control" id="module_url" type="text" name='module_url' placeholder=""/>
+                        <label for="module_url">URL</label>
+                        <input class="form-control" id="module_url" type="text" name='module_url' value="{% if object %}{{ object.module_url }} {% endif %}"/>
                     </div>
+                     <div class="form-group input-group">
+                        <label for="parent">Parent Module</label>
+                        <select class="form-control" name="parent" id="parent">
+                            {% for module in form_data.modules %}
+                                <option {% if object %}{% if object.module == module.id %} selected {% endif %}{% endif %} value="{{ module.id }}">{{ module.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class=" form-group input-group">
+                        <label for="path">Paths</label>
+                         <select class="form-control" multiple name="path" id="path">
+                            {% for path in form_data.paths %}
+                                <option {% if object %}{% if path.id in object.paths %} selected {% endif %}{% endif %} value="{{ path.id }}">{{ path.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
                         <input type="hidden" name="next" value="{{ next }}"/>

@@ -12,6 +12,9 @@ urlpatterns = [
     url(r'^template/(?P<pk>[0-9]+)/$', EvaluateTemplateDetail.as_view(),
         name="evaluate-template-detail"),
 
+    url(r'^template/update/(?P<pk>[0-9]+)/$', EvaluateTemplateUpdate.as_view(),
+        name="evaluate-template-update"),
+
     url(r'^template/delete/(?P<pk>[0-9]+)/$', EvaluateTemplateDelete.as_view(),
         name="evaluate-template-delete"),
 
@@ -34,12 +37,14 @@ urlpatterns = [
     url(r'^sender/delete/(?P<pk>[0-9]+)/$', EvaluateSenderDelete.as_view(),
         name="evaluate-sender-delete"),
 
+    url(r'^sender/update/(?P<pk>[0-9]+)/$', EvaluateSenderUpdate.as_view(),
+        name="evaluate-sender-update"),
+
     url(r'^controller/$', EvaluateControllerIndex.as_view(),
         name="evaluate-controller-index"),
 
-    # TODO relationships during creation
-    # url(r'^controller/new/$', EvaluateControllerCreate.as_view(),
-    #     name="evaluate-controller-create"),
+    url(r'^controller/new/$', EvaluateControllerCreate.as_view(),
+        name="evaluate-controller-create"),
 
     url(r'^controller/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
         name="evaluate-controller-detail"),
@@ -47,16 +52,16 @@ urlpatterns = [
     url(r'^controller/delete/(?P<pk>[0-9]+)/$', EvaluateControllerDelete.as_view(),
         name="evaluate-controller-delete"),
 
+    url(r'^controller/update/(?P<pk>[0-9]+)/$', EvaluateControllerUpdate.as_view(),
+        name="evaluate-controller-update"),
+
     url(r'^target/$', EvaluateTargetProfileIndex.as_view(),
         name="evaluate-target-index"),
-
-    # TODO relationships during creation
-    # url(r'^target/new/$', EvaluateTargetProfileCreate.as_view(),
-    #     name="evaluate-target-create"),
 
     url(r'^target/(?P<pk>[0-9]+)/$', EvaluateTargetProfileDetail.as_view(),
         name="evaluate-target-detail"),
 
-    url(r'^target/delete(?P<pk>[0-9]+)/$', EvaluateTargetProfileDelete.as_view(),
-        name="evaluate-target-delete"),
+
+
+
 ]

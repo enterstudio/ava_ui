@@ -12,24 +12,31 @@
                     </div>
                 {% endif %}
 
-                <form action="{% url 'learn-path-create' %}" method='POST'> {% csrf_token %}
+                <form action="{% if object %}{% url 'learn-path-update' object.id %} {% else %} {% url 'learn-path-create' %} {% endif %}" method='POST'> {% csrf_token %}
                     <div class="form-group input-group">
-                        <label for="name">Template Name</label>
-                        <input class="form-control" id="name" type="text" name='name' placeholder=""/>
+                        <label for="name">Name</label>
+                        <input class="form-control" id="name" type="text" name='name' value="{% if object %}{{ object.name }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
-                        <label for="name">Template Description</label>
-                        <input class="form-control" id="description" type="text" name='description' placeholder=""/>
+                        <label for="name">Description</label>
+                        <input class="form-control" id="description" type="text" name='description' value="{% if object %}{{ object.description }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
-                        <label for="name">Template Subject</label>
-                        <input class="form-control" id="subject" type="text" name='subject' placeholder=""/>
+                        <label for="name">Module</label>
+                        <select class="form-control" multiple name="path_modules" id="module">
+                            {% for module in form_data.modules %}
+                                <option {% if object %}{% if module.id in object.path_modules %} selected {% endif %}{% endif %} value="{{ module.id }}">{{ module.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="form-group input-group">
-                        <label for="name">Template Message Body</label>
-                        <input class="form-control" id="body" type="text" name='body' placeholder=""/>
+                        <label for="name">Roles</label>
+                        <select class="form-control" multiple name="path_roles" id="path_roles">
+                            {% for role in form_data.roles %}
+                                <option {% if object %}{% if role.id in object.path_roles %} selected {% endif %}{% endif %} value="{{ role.id }}">{{ role.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
-
                     <div class="form-group">
                         <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
                         <input type="hidden" name="next" value="{{ next }}"/>

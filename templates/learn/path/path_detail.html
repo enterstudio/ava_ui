@@ -35,13 +35,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for module in object.path_module %}
+            {% for module in object.path_modules %}
                 <tr>
-                    <td>{{ module.name }}</td>
-                    <td>{{ module.description }}</td>
+                    <td>{{ module }}</td>
+                    <td>{{ module }}</td>
                     <td>
                         <div class="pull-right">
-                            <a href="{% url 'learn-module-detail' module.id %}" class="btn btn-primary btn-sm">View</a>
+                            <a href="{% url 'learn-module-detail' module %}" class="btn btn-primary btn-sm">View</a>
                         </div>
                     </td>
                 </tr>
@@ -49,9 +49,8 @@
             </tbody>
         </table>
     </div>
-
-
-    <div class="page-header">
+    
+     <div class="page-header">
         <h2>Roles: </h2>
     </div>
 
@@ -65,13 +64,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for role in object.path_role %}
+            {% for role in object.path_roles %}
                 <tr>
-                    <td>{{ role.name }}</td>
-                    <td>{{ role.description }}</td>
+                    <td>{{ role }}</td>
+                    <td>{{ role }}</td>
                     <td>
                         <div class="pull-right">
-                            <a href="{% url 'learn-role-detail' role.id %}" class="btn btn-primary btn-sm">View</a>
+                            <a href="{% url 'learn-role-detail' role %}" class="btn btn-primary btn-sm">View</a>
                         </div>
                     </td>
                 </tr>
@@ -79,5 +78,6 @@
             </tbody>
         </table>
     </div>
+
 
 {% endblock %}
