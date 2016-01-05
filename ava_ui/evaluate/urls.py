@@ -21,10 +21,6 @@ urlpatterns = [
     url(r'^results/$', EvaluateResultIndex.as_view(),
         name="evaluate-results-index"),
 
-    # TODO REMOVED DUE TO TIME CONSTRAINTS - WORKS BUT TEMPLATE.HTML NEEDS LOVE
-    # url(r'^results/(?P<pk>[0-9]+)/$', EvaluateResultDetail.as_view(),
-    #     name="evaluate-results-detail"),
-
     url(r'^sender/$', EvaluateSenderIndex.as_view(),
         name="evaluate-sender-index"),
 
@@ -48,9 +44,6 @@ urlpatterns = [
 
     url(r'^controller/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
         name="evaluate-controller-detail"),
-
-    url(r'^controller/delete/(?P<pk>[0-9]+)/$', EvaluateControllerDelete.as_view(),
-        name="evaluate-controller-delete"),
 
     url(r'^controller/update/(?P<pk>[0-9]+)/$', EvaluateControllerUpdate.as_view(),
         name="evaluate-controller-update"),
