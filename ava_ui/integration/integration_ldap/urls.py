@@ -14,5 +14,8 @@ urlpatterns = [
 
     url(r'^ldap/delete/(?P<pk>[0-9]+)/$', LDAPIntegrationDelete.as_view(),
         name="integration-ldap-delete"),
+
+    url(r'^ldap/update/(?P<pk>[0-9]+)/$', LDAPIntegrationUpdate.as_view(),
+        name="integration-ldap-update"),
    
 ]

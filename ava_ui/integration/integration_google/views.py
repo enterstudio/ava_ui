@@ -1,7 +1,7 @@
 import logging
 
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectAuthorize, \
-    ObjectAuthorizeCallback
+    ObjectAuthorizeCallback, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
@@ -39,6 +39,23 @@ class GoogleIntegrationCreate(ObjectCreate):
                                                          **kwargs)
 
 
+class GoogleIntegrationUpdate(ObjectUpdate):
+    url_suffix = '/integration/google/setup/'
+    template_name = "integration/google/google_form.html"
+
+    def get(self, request, **kwargs):
+        return super(GoogleIntegrationUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description', 'domain']
+        redirect_url = 'integration-google-index'
+        return super(GoogleIntegrationUpdate, self).post(request=request, template_name=self.template_name,
+                                                         url_suffix=self.url_suffix,
+                                                         expected_fields=expected_fields,
+                                                         redirect_url=redirect_url,
+                                                         **kwargs)
+
+
 class GoogleIntegrationDelete(ObjectDelete):
     url_suffix = '/integration/google/setup/'
     redirect_url = 'integration-google-index'
@@ -63,4 +80,5 @@ class GoogleIntegrationAuthorizeCallback(ObjectAuthorizeCallback):
     template_name = "integration/google/google_index.html"
 
     def get(self, request, **kwargs):
-        return super(GoogleIntegrationAuthorizeCallback, self).get(request, self.template_name, self.url_suffix, **kwargs)
+        return super(GoogleIntegrationAuthorizeCallback, self).get(request, self.template_name, self.url_suffix,
+                                                                   **kwargs)
