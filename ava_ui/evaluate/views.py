@@ -1,7 +1,7 @@
 import logging
 
 from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex, ObjectDelete, ObjectUpdate, \
-    ObjectCreateRelated
+    ObjectCreateRelated, ObjectUpdateRelated
 
 log = logging.getLogger(__name__)
 
@@ -184,24 +184,29 @@ class EvaluateControllerCreate(ObjectCreateRelated):
                                                           **kwargs)
 
 
-# TODO RELATIONSHIPS WTF HELP
-# class EvaluateControllerUpdate(ObjectUpdate):
-#     url_suffix = '/evaluate/controller/'
-#     template_name = "evaluate/controller/controller_form.html"
-#
-#     def get(self, request, **kwargs):
-#         return super(EvaluateControllerUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
-#
-#     def post(self, request, **kwargs):
-#         expected_fields = ['scheduled_type', 'scheduled_time', 'expiry_type', 'expiry_time', 'sender', 'template',
-#                            'targets',
-#                            'status']
-#         redirect_url = 'evaluate-controller-index'
-#         return super(EvaluateControllerUpdate, self).post(request=request, template_name=self.template_name,
-#                                                           url_suffix=self.url_suffix,
-#                                                           expected_fields=expected_fields,
-#                                                           redirect_url=redirect_url,
-# 
+class EvaluateControllerUpdate(ObjectUpdateRelated):
+    url_suffix = '/evaluate/controller/'
+    template_name = "evaluate/controller/controller_form.html"
+    form_data_url = '/evaluate/form/controller/'
+
+    def get(self, request, **kwargs):
+        return super(EvaluateControllerUpdate, self).get(request=request, template_name=self.template_name, url_suffix=self.url_suffix,
+                                                         form_data_url_suffix=self.form_data_url, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'description', 'scheduled_type', 'scheduled_time', 'expiry_type', 'sender',
+                           'template', 'expiry_time']
+        redirect_url = 'evaluate-controller-index'
+        related_fields = ['sender', 'template', 'scheduled_type', 'expiry_type']
+        multiple_fields = ['targets']
+        return super(EvaluateControllerUpdate, self).post(request=request, template_name=self.template_name,
+                                                          url_suffix=self.url_suffix,
+                                                          expected_fields=expected_fields,
+                                                          related_fields=related_fields,
+                                                          multiple_fields=multiple_fields,
+                                                          redirect_url=redirect_url,
+                                                          **kwargs)
+
 
 class EvaluateControllerDelete(ObjectDelete):
     url_suffix = '/evaluate/controller/'

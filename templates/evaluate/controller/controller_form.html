@@ -64,7 +64,7 @@
                         <label for="targets">Targets</label>
                          <select class="form-control" multiple name="targets" id="targets">
                             {% for target in form_data.targets %}
-                                <option {% if object %}{% if object.target == target.id %} selected {% endif %}{% endif %} value="{{ target.id }}">{{ target.first_name }} {{ target.surname }}</option>
+                                <option {% if object %}{% if target.id in object.targets %} selected {% endif %}{% endif %} value="{{ target.id }}">{{ target.first_name }} {{ target.surname }}</option>
                             {% endfor %}
                         </select>
                     </div>
