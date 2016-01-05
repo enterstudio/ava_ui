@@ -170,14 +170,16 @@ class EvaluateControllerCreate(ObjectCreateRelated):
                                                          url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
-        expected_fields = ['scheduled_type', 'scheduled_time', 'expiry_type', 'sender', 'template',
-                           'targets', 'status']
+        expected_fields = ['name', 'description', 'scheduled_type', 'scheduled_time', 'expiry_type', 'sender',
+                           'template', 'expiry_time']
         redirect_url = 'evaluate-controller-index'
-        related_fields = ['sender', 'template', 'targets']
+        related_fields = ['sender', 'template', 'scheduled_type', 'expiry_type']
+        multiple_fields = ['targets']
         return super(EvaluateControllerCreate, self).post(request=request, template_name=self.template_name,
                                                           url_suffix=self.url_suffix,
                                                           expected_fields=expected_fields,
                                                           related_fields=related_fields,
+                                                          multiple_fields=multiple_fields,
                                                           redirect_url=redirect_url,
                                                           **kwargs)
 
@@ -226,5 +228,3 @@ class EvaluateTargetProfileDetail(ObjectDetail):
 
     def get(self, request, **kwargs):
         return super(EvaluateTargetProfileDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-

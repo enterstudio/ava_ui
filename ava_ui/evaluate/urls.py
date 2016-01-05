@@ -44,8 +44,8 @@ urlpatterns = [
         name="evaluate-controller-index"),
 
     # TODO relationships during creation
-    # url(r'^controller/new/$', EvaluateControllerCreate.as_view(),
-    #     name="evaluate-controller-create"),
+    url(r'^controller/new/$', EvaluateControllerCreate.as_view(),
+        name="evaluate-controller-create"),
 
     url(r'^controller/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
         name="evaluate-controller-detail"),

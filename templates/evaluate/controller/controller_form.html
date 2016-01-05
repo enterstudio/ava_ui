@@ -4,7 +4,6 @@
 
     <div class="row">
         <div class="auth">
-
             <div class="auth-inner">
                 {% if form.errors %}
                     <div class="alert bg-danger">
@@ -12,26 +11,62 @@
                     </div>
                 {% endif %}
 
-                <form action="
-
-                        {% if object %}{% url 'evaluate-controller-update' object.id %} {% else %} {% url 'evaluate-controller-create' %} {% endif %}"
-                      method='POST'> {% csrf_token %}
+                <form action="{% if object %}{% url 'evaluate-controller-update' object.id %} {% else %} {% url 'evaluate-controller-create' %} {% endif %}"
+                      method='POST'>
+                    {% csrf_token %}
                     <div class="form-group input-group">
-                        <label for="name">Template Name</label>
+                        <label for="name">Name</label>
                         <input class="form-control" id="name" type="text" name='name' value="{% if object %}{{ object.name }} {% endif %}"/>
                     </div>
                     <div class="form-group input-group">
-                        <label for="name">Template Description</label>
+                        <label for="name">Description</label>
                         <input class="form-control" id="description" type="text" name='description'
                                value="{% if object %}{{ object.description }}{% endif %}" />
                     </div>
                     <div class=" form-group input-group">
-                        <label for="name">Template Subject</label>
-                        <input class="form-control" id="subject" type="text" name='subject' value="{% if object %}{{ object.subject }}{% endif %}/>
+                        <label for="scheduled_type">Scheduled Type</label>
+                        <select class="form-control" name="scheduled_type" id="scheduled_type">
+                            {% for type in form_data.schedule_types %}
+                                <option {% if object %}{% if object.scheduled_type == type.0 %} selected {% endif %}{% endif %} value="{{ type.0 }}">{{ type.1 }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class=" form-group input-group">
-                        <label for="name">Template Message Body</label>
-                        <input class="form-control" id="body" type="text" name='body' value="{% if object %}{{ object.body }}{% endif %}/>
+                        <label for="scheduled_time">Scheduled Time</label>
+                           <input class="form-control" id="scheduled_time" type="datetime-local" name='scheduled_time' placeholder=""
+                               value="{% if object %}{{ object.scheduled_time }}{% endif %}" />
+                    </div>
+                    <div class=" form-group input-group">
+                        <label for="expiry_type">Expiry Type</label>
+                        <select class="form-control" name="expiry_type" id="expiry_type">
+                            {% for type in form_data.expiry_types %}
+                                <option {% if object %}{% if object.expiry_type == type.0 %} selected {% endif %}{% endif %} value="{{ type.0 }}">{{ type.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class=" form-group input-group">
+                        <label for="sender">Sender</label>
+                        <select class="form-control" name="sender" id="sender">
+                            {% for sender in form_data.senders %}
+                                <option {% if object %}{% if object.sender == sender.id %} selected {% endif %}{% endif %} value="{{ sender.id }}">{{ sender.first_name }} {{ sender.lastname }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class=" form-group input-group">
+                        <label for="template">Template</label>
+                        <select class="form-control" name="template" id="template">
+                            {% for template in form_data.templates %}
+                                <option {% if object %}{% if object.template == template.id %} selected {% endif %}{% endif %} value="{{ template.id }}">{{ template.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class=" form-group input-group">
+                        <label for="targets">Targets</label>
+                         <select class="form-control" multiple name="targets" id="targets">
+                            {% for target in form_data.targets %}
+                                <option {% if object %}{% if object.target == target.id %} selected {% endif %}{% endif %} value="{{ target.id }}">{{ target.first_name }} {{ target.surname }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
 
                     <div class=" form-group">

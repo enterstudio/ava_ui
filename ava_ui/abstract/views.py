@@ -172,22 +172,25 @@ class ObjectCreateRelated(AbstractObjectInterface):
 
         if results.status_code is 200:
 
-            objects = results.json()
-            log.debug(" returned objects = " + str(objects))
+            try:
+                objects = results.json()
+                log.debug(" returned objects = " + str(objects))
 
-            if isinstance(objects['form_data'], dict):
-                log.debug(" Form data is a dict ")
-            else:
-                log.debug(" Form data is not a dict ")
+                if isinstance(objects['form_data'], dict):
+                    log.debug(" Form data is a dict ")
+                else:
+                    log.debug(" Form data is not a dict ")
 
-            self.context['form_data'] = objects['form_data']
-            self.context['object'] = None
+                self.context['form_data'] = objects['form_data']
+                self.context['object'] = None
 
-            return render(request, self.template_name, context=self.context)
+                return render(request, self.template_name, context=self.context)
+            except Exception as e:
+                return redirect("login")
         else:
             return handle_error(request, results.status_code)
 
-    def post(self, request, template_name, url_suffix, expected_fields, related_fields, redirect_url, **kwargs):
+    def post(self, request, template_name, url_suffix, expected_fields, related_fields, redirect_url,multiple_fields=[], **kwargs):
         super(ObjectCreateRelated, self).post(request, **kwargs)
         log.debug(" POST called")
 
@@ -204,7 +207,22 @@ class ObjectCreateRelated(AbstractObjectInterface):
                     api_data[field] = None
 
             else:
-                api_data[field] = request.POST.get(field)
+                if field in request.POST:
+                    api_data[field] = request.POST.get(field)
+                else:
+                    api_data[field] = None
+
+        # log.debug(" POST data " + str(request.POST))
+        for field in multiple_fields:
+            if field in request.POST:
+                    string_values = request.POST.getlist(field)
+                    int_values = []
+                    for value in string_values:
+                        int_values.append(int(value))
+                    api_data[field] = int_values
+
+
+
 
         api_data = json.dumps(api_data)
 
