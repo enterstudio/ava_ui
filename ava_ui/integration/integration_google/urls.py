@@ -15,6 +15,9 @@ urlpatterns = [
     url(r'^google/delete/(?P<pk>[0-9]+)/$', GoogleIntegrationDelete.as_view(),
         name="integration-google-delete"),
 
+    url(r'^google/update/(?P<pk>[0-9]+)/$', GoogleIntegrationUpdate.as_view(),
+        name="integration-google-update"),
+
     url(r'^google/auth/(?P<pk>[0-9]+)/$',  GoogleIntegrationAuthorize.as_view(),
         name="integration-google-auth"),
 
