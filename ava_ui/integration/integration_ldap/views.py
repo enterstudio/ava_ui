@@ -1,6 +1,6 @@
 import logging
 
-from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete
+from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
@@ -32,10 +32,27 @@ class LDAPIntegrationCreate(ObjectCreate):
         expected_fields = ['name', 'dump_dn', 'server', 'ldap_password', 'ldap_user']
         redirect_url = 'integration-ldap-index'
         return super(LDAPIntegrationCreate, self).post(request=request, template_name=self.template_name,
-                                                   url_suffix=self.url_suffix,
-                                                   expected_fields=expected_fields,
-                                                   redirect_url=redirect_url,
-                                                   **kwargs)
+                                                       url_suffix=self.url_suffix,
+                                                       expected_fields=expected_fields,
+                                                       redirect_url=redirect_url,
+                                                       **kwargs)
+
+
+class LDAPIntegrationUpdate(ObjectUpdate):
+    url_suffix = '/integration/ldap/setup/'
+    template_name = "integration/ldap/ldap_form.html"
+
+    def get(self, request, **kwargs):
+        return super(LDAPIntegrationUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+
+    def post(self, request, **kwargs):
+        expected_fields = ['name', 'dump_dn', 'server', 'ldap_password', 'ldap_user']
+        redirect_url = 'integration-ldap-index'
+        return super(LDAPIntegrationUpdate, self).post(request=request, template_name=self.template_name,
+                                                       url_suffix=self.url_suffix,
+                                                       expected_fields=expected_fields,
+                                                       redirect_url=redirect_url,
+                                                       **kwargs)
 
 
 class LDAPIntegrationDelete(ObjectDelete):
@@ -44,6 +61,6 @@ class LDAPIntegrationDelete(ObjectDelete):
 
     def get(self, request, **kwargs):
         return super(LDAPIntegrationDelete, self).get(request=request,
-                                                  url_suffix=self.url_suffix,
-                                                  redirect_url=self.redirect_url,
-                                                  **kwargs)
+                                                      url_suffix=self.url_suffix,
+                                                      redirect_url=self.redirect_url,
+                                                      **kwargs)
