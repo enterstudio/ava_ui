@@ -36,6 +36,9 @@
                             <a href="{% url 'integration-google-auth' item.id %}">
                                 <button type="button" class="btn btn-danger btn-sm">Authorise</button>
                             </a>
+                            <a href="{% url 'gather-google-import' item.id %}">
+                                <button type="button" class="btn btn-danger btn-sm">Import</button>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -31,6 +31,9 @@
                             <a href="{% url 'integration-ldap-delete' item.id %}">
                                 <button type="button" class="btn btn-danger btn-sm">Delete</button>
                             </a>
+                            <a href="{% url 'gather-ldap-import' item.id %}">
+                                <button type="button" class="btn btn-danger btn-sm">Import</button>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
