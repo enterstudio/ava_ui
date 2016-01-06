@@ -1,0 +1,36 @@
+{% block sidebar %}
+    <ul class="nav">
+        <li class="user-welcome">
+            <div>
+                <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                <span class="user">Hi, {{ user.user }}</span>
+            </div>
+        </li>
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">My Profile</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'my-friends-index' %}">Friends</a></li>
+                <li><a href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
+                <li><a href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
+                <li><a href="{% url 'my-profile-history-index' %}">Activity</a></li>
+                <li><a href="{% url 'my-alerts-index' %}">Alerts</a></li>
+            </ul>
+        </li>
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">My Organization</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'news-index' %}">News</a></li>
+                <li><a href="{% url 'alerts-index' %}">Alerts</a></li>
+                <li><a href="{% url 'game-achievement-leaderboard' %}">Achievements Leaderboard</a></li>
+            </ul>
+        </li>
+        <li class="nav-header has-sub-menu">
+            <span class="sidebar-header">Report</span>
+            <ul class="sub-menu">
+                <li><a href="{% url 'report-suspicious-create' %}">Report something suspicious</a></li>
+                <li><a href="{% url 'report-change-create' %}">Request a change</a></li>
+                <li><a href="{% url 'report-question-create' %}">Ask a question</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}

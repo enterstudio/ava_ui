@@ -1,0 +1,33 @@
+{% block sidebar %}
+
+            <ul class="nav">
+                <!-- <li><a href="/">Dashboard</a></li> -->
+                <li class="user-welcome">
+                    <div>
+                        <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                        <span class="user">Hi, {{ user.user }}</span>
+                    </div>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">My Organization</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'group-index' %}">Groups</a></li>
+                        <li><a href="{% url 'person-index' %}">People</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Reports</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'organize-report' %}">Organization</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Settings</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'gather-index' %}">Manage Imports</a></li>
+                        <li><a href="{% url 'integration-index' %}">Manage Integrations</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+{% endblock %}

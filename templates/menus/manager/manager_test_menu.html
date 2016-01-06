@@ -1,0 +1,40 @@
+{% block sidebar %}
+              <ul class="nav">
+                <!-- <li><a href="/">Dashboard</a></li> -->
+                <li class="user-welcome">
+                    <div>
+                        <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                        <span class="user">Hi, {{ user.user }}</span>
+                    </div>
+                </li>
+
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Test</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'evaluate-controller-create' %}">Add Test Project</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Manage Tests</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'evaluate-controller-index' %}">View Test Projects</a></li>
+                        <li><a href="{% url 'evaluate-target-index' %}">View Individual Tests</a></li>
+                        <li><a href="{% url 'evaluate-results-index' %}">View Results</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Reports</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'evaluate-report' %}">Testing</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header has-sub-menu">
+                    <span class="sidebar-header">Settings</span>
+                    <ul class="sub-menu">
+                        <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
+                        <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+{% endblock %}
