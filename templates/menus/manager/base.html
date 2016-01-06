@@ -3,65 +3,77 @@
 
     <nav class="navbar navbar-dark bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#knowNavBar">
-            <i class="glyphicon glyphicon-menu-hamburger"></i> Know
+            <span class="glyphicon glyphicon-align-justify">&nbsp;Know</span>
         </button>
     </nav>
     <div class="collapse" id="knowNavBar">
         <div class=" p-a-1">
-            <ul>
-                <li><a href="{% url 'know-index' %}">Know</a></li>
-                <li><a href="{% url 'group-index' %}">Groups</a></li>
-                <li><a href="{% url 'person-index' %}">People</a></li>
-                <li class="dropdown-header">Reports</li>
-                <li><a href="{# url 'organize-report' #}">Organization</a></li>
-                <li class="dropdown-header">Settings</li>
-                <li><a href="{# url 'gather-index' #}">Manage Imports</a></li>
-                <li><a href="{# url 'integration-index' #}">Manage Integrations</a></li>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item">Home</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'know-index' %}">Dashboard</a></li>
+                <li class="nav-item">Explore</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'group-index' %}">Groups</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'person-index' %}">People</a></li>
+                <li class="nav-item">Manage</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'gather-index' %}">Imports</a></li>
+                <li class="nav-item">Reports</li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'organize-report' #}">Organization</a></li>
+                <li class="nav-item">Settings</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'integration-index' %}">Integrations</a>
+                </li>
             </ul>
 
         </div>
     </div>
     <nav class="navbar navbar-light bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#testNavBar">
-             <i class="glyphicon glyphicon-menu-hamburger"></i> Test
+            <span class="glyphicon glyphicon-align-justify">&nbsp;Test</span>
         </button>
     </nav>
     <div class="collapse" id="testNavBar">
         <div class=" p-a-1">
 
-            <ul>
-                <li><a href="{% url 'test-index' %}">Test</a></li>
-                <li><a href="{% url 'evaluate-controller-create' %}">Add Test Project</a></li>
-                <li class="dropdown-header">Manage Tests</li>
-                <li><a href="{% url 'evaluate-controller-index' %}">View Test Projects</a></li>
-                <li><a href="{% url 'evaluate-target-index' %}">View Individual Tests</a></li>
-                <li><a href="{% url 'evaluate-results-index' %}">View Results</a></li>
-                <li class="dropdown-header">Reports</li>
-                <li><a href="{# url 'evaluate-report' #}">Testing</a></li>
-                <li class="dropdown-header">Settings</li>
-                <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
-                <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item">Home</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'test-index' %}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-controller-create' %}">Add Test
+                    Project</a></li>
+                <li class="nav-item">Manage</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-controller-index' %}">View Test
+                    Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-target-index' %}">View Individual
+                    Tests</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-results-index' %}">View Results</a></li>
+                <li class="nav-item">Reports</li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'evaluate-report' #}">Testing</a></li>
+                <li class="nav-item">Settings</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-sender-index' %}">Senders</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-template-index' %}">Templates</a></li>
             </ul>
 
         </div>
     </div>
     <nav class="navbar navbar-light bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#teachNavBar">
-             <i class="glyphicon glyphicon-menu-hamburger"></i> Teach
+            <span class="glyphicon glyphicon-align-justify">&nbsp;Teach</span>
         </button>
     </nav>
     <div class="collapse" id="teachNavBar">
         <div class=" p-a-1">
-            <ul>
-                <a href="{% url 'educate-index' %}">Teach</a>
-                <li class="dropdown-header">Reports</li>
-                <li><a href="{# url 'learn-report' #}">Education and Learning</a></li>
-                <li><a href="{# url 'game-report' #}">Achievements</a></li>
-                <li class="dropdown-header">Settings</li>
-                <li><a href="{% url 'learn-path-index' %}">Learning Paths</a></li>
-                <li><a href="{% url 'learn-module-index' %}">Learning Modules</a></li>
-                <li><a href="{% url 'learn-role-index' %}">Learner Roles</a></li>
-                <li><a href="{% url 'game-achievement-index' %}">Achievements</a></li>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item">Home</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'educate-index' %}">Dashboard</a>
+                <li class="nav-item">Manage</li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'learn-path-assign' #}">Assign Paths</a></li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'learn-role-assign' #}">Assign Roles</a></li>
+                <li class="nav-item">Reports</li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'learn-report' #}">Training</a></li>
+                <li class="nav-item"><a class="nav-link" href="{# url 'game-report' #}">Achievements</a></li>
+                <li class="nav-item">Settings</li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'learn-path-index' %}">Paths</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'learn-module-index' %}">Modules</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'learn-role-index' %}">Roles</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'game-achievement-index' %}">Achievements</a></li>
             </ul>
         </div>
     </div>
