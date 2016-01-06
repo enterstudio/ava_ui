@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^learn/', include('ava_ui.learn.urls')),
     url(r'^test/', include('ava_ui.evaluate.urls')),
     #
-    url(r'^/', include('ava_ui.dashboards.urls')),
+    url(r'^', include('ava_ui.dashboards.urls')),
     #
     url(r'^gather/', include('ava_ui.gather.gather_google.urls')),
     url(r'^gather/', include('ava_ui.gather.gather_ldap.urls')),
