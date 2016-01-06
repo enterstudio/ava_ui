@@ -37,7 +37,7 @@ class ObjectIndex(AbstractObjectInterface):
         if results.status_code is 200:
 
             objects = results.json()
-            log.debug(" returned objects = " + str(objects))
+            # log.debug(" returned objects = " + str(objects))
 
             self.context['object_list'] = objects['results']
 
@@ -67,7 +67,7 @@ class ObjectDetail(AbstractObjectInterface):
             log.debug(" GET results = " + str(results))
             objects = results.json()
 
-            log.debug(" returned objects = " + str(objects))
+            # log.debug(" returned objects = " + str(objects))
 
             self.context['object'] = objects
 
@@ -152,7 +152,7 @@ class ObjectCreate(AbstractObjectInterface):
 
             objects = results.json()
 
-            log.debug(" returned objects = " + str(objects))
+            # log.debug(" returned objects = " + str(objects))
 
             self.context['object'] = objects
 
@@ -175,7 +175,7 @@ class ObjectCreateRelated(AbstractObjectInterface):
 
             try:
                 objects = results.json()
-                log.debug(" returned objects = " + str(objects))
+                # log.debug(" returned objects = " + str(objects))
 
                 if isinstance(objects['form_data'], dict):
                     log.debug(" Form data is a dict ")
@@ -240,7 +240,7 @@ class ObjectCreateRelated(AbstractObjectInterface):
 
             objects = results.json()
 
-            log.debug(" returned objects = " + str(objects))
+            # log.debug(" returned objects = " + str(objects))
 
             self.context['object'] = objects
 
@@ -269,7 +269,7 @@ class ObjectUpdateRelated(AbstractObjectInterface):
             log.debug(" GET results = " + str(results))
             objects = results.json()
 
-            log.debug(" returned objects = " + str(objects))
+            # log.debug(" returned objects = " + str(objects))
 
             self.context['object'] = objects
 
@@ -283,7 +283,7 @@ class ObjectUpdateRelated(AbstractObjectInterface):
 
             try:
                 objects = results.json()
-                log.debug(" returned objects = " + str(objects))
+                # log.debug(" returned objects = " + str(objects))
 
                 if isinstance(objects['form_data'], dict):
                     log.debug(" Form data is a dict ")
