@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-glyphicons.css' %}"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.form.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -63,88 +65,7 @@
                 <div id="sidebar" class="sidebar">
                     <div data-scrollbar="true" data-height="100%">
                         <!-- begin sidebar nav -->
-                        <ul class="nav">
-                            <!-- <li><a href="/">Dashboard</a></li> -->
-                            <li class="user-welcome">
-                                <div>
-                                    <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
-                                    <span class="user">Hi, {{ user.user }}</span>
-                                </div>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">My</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'my-friends-index' %}">Friends</a></li>
-                                    <li><a href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
-                                    <li><a href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
-                                    <li><a href="{% url 'my-profile-history-index' %}">Activity</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Learn</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'learn-path-index' %}">Pathways</a></li>
-                                    <li><a href="{% url 'learn-module-index' %}">Modules</a></li>
-                                    <li><a href="{% url 'learn-role-index' %}">Roles</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Organize</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'group-index' %}">Groups</a></li>
-                                    <li><a href="{% url 'person-index' %}">People</a></li>
-                                </ul>
-                            </li>
 
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Evaluate</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'evaluate-controller-index' %}">Controllers</a></li>
-                                    <li><a href="{% url 'evaluate-target-index' %}">Targets</a></li>
-                                    <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
-                                    <li><a href="{% url 'evaluate-results-index' %}">Results</a></li>
-                                    <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Gather</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'gather-google-index' %}">Google</a></li>
-                                    <li><a href="{% url 'gather-ldap-index' %}">LDAP</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Integrations</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'integration-google-index' %}">Google</a></li>
-                                    <li><a href="{% url 'integration-ldap-index' %}">LDAP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Achievements</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'game-achievement-index' %}">Achievements</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-header has-sub-menu">
-                                <span class="sidebar-header">Analyse</span>
-                                <ul class="sub-menu">
-                                    <li><a href="{% url 'person-index' %}">Analyse</a></li>
-                                </ul>
-                            </li>
-
-                            {% if is_admin %}
-                                <li class="nav-header has-sub-menu">
-                                    <span class="sidebar-header">Settings</span>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'person-index' %}">Import from LDAP</a></li>
-                                        <li><a href="{% url '' %}">Import from Google</a></li>
-                                    </ul>
-                                </li>
-                            {% endif %}
-                        </ul>
                         <!-- end sidebar nav -->
                     </div>
                 </div>
