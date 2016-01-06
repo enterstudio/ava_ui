@@ -118,7 +118,7 @@ LOCAL_APPS = (
     'ava_ui.learn',
     'ava_ui.my',
     'ava_ui.game',
-    'ava_ui.notify',
+    # 'ava_ui.notify',
     'ava_ui.integration.integration_google',
     'ava_ui.integration.integration_ldap',
     'ava_ui.evaluate',
