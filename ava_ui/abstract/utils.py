@@ -8,12 +8,15 @@ from django.shortcuts import render, redirect
 log = logging.getLogger(__name__)
 
 
-def handle_error(request, status_code):
+def handle_error(request, status_code, error_message='Unknown Error'):
+    context = get_user_context(request)
     log.debug("Called handle_error with status code :: " + str(status_code))
-    if status_code is 401 or 403:
-        #     return redirect('login')
-        # else:
-        return render(request, 'error/generic_error.html')
+    # if status_code is 401 or 403:
+    #     return redirect('login')
+    # else:
+    context['status_code'] = status_code
+    context['error_message'] = error_message
+    return render(request, 'error/generic_error.html', context=context)
 
 
 def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):

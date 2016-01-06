@@ -6,8 +6,20 @@
         <h1>Something isn't quite right!</h1>
     </div>
     <div class="table-responsive">
-        <p>Not sure what happened there..... oops. That's embarassing</p>
-        <p>For reference the status code was : {{ status_code }}</p>
+        <p>Not sure what happened there..... oops. That's embarrassing</p>
+
+        <p>Here's a little more information:</p>
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Status Code:</td>
+                <td>{{ status_code }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ error_message }}</td>
+            </tr>
+        </table>
 
     </div>
 
