@@ -36,22 +36,22 @@ urlpatterns = [
     url(r'^sender/update/(?P<pk>[0-9]+)/$', EvaluateSenderUpdate.as_view(),
         name="evaluate-sender-update"),
 
-    url(r'^controller/$', EvaluateControllerIndex.as_view(),
+    url(r'^project/$', EvaluateControllerIndex.as_view(),
         name="evaluate-controller-index"),
 
-    url(r'^controller/new/$', EvaluateControllerCreate.as_view(),
+    url(r'^project/new/$', EvaluateControllerCreate.as_view(),
         name="evaluate-controller-create"),
 
-    url(r'^controller/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
+    url(r'^project/(?P<pk>[0-9]+)/$', EvaluateControllerDetail.as_view(),
         name="evaluate-controller-detail"),
 
-    url(r'^controller/update/(?P<pk>[0-9]+)/$', EvaluateControllerUpdate.as_view(),
+    url(r'^project/update/(?P<pk>[0-9]+)/$', EvaluateControllerUpdate.as_view(),
         name="evaluate-controller-update"),
 
-    url(r'^target/$', EvaluateTargetProfileIndex.as_view(),
+    url(r'^test/', EvaluateTargetProfileIndex.as_view(),
         name="evaluate-target-index"),
 
-    url(r'^target/(?P<pk>[0-9]+)/$', EvaluateTargetProfileDetail.as_view(),
+    url(r'^test/(?P<pk>[0-9]+)/$', EvaluateTargetProfileDetail.as_view(),
         name="evaluate-target-detail"),
 
 

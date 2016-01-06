@@ -11,6 +11,7 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-glyphicons.css' %}"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -59,19 +60,29 @@
         {% if not user %}
 
         {% else %}
+            <!-- begin #sidebar -->
+            <div id="sidebar" class="sidebar">
+                <div data-scrollbar="true" data-height="100%">
+                    <ul class="nav">
+                        <li class="user-welcome">
+                            <div>
+                                <span class="user-image"><img src="{% static 'images/ava-small.png' %}"></span>
+                                <span class="user">Hi, {{ user.user }}</span>
+                            </div>
+                        </li>
 
-            {% block sidebar %}
-                <!-- begin #sidebar -->
-                <div id="sidebar" class="sidebar">
-                    <div data-scrollbar="true" data-height="100%">
+                    {% block sidebar %}
+
                         <!-- begin sidebar nav -->
 
                         <!-- end sidebar nav -->
-                    </div>
+
+                    {% endblock %}
+                    </ul>
                 </div>
-                <div class="sidebar-bg"></div>
-                <!-- end #sidebar -->
-            {% endblock %}
+            </div>
+            <div class="sidebar-bg"></div>
+            <!-- end #sidebar -->
 
         {% endif %}
 

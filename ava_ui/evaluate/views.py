@@ -220,7 +220,7 @@ class EvaluateControllerDelete(ObjectDelete):
 
 
 class EvaluateTargetProfileIndex(ObjectIndex):
-    url_suffix = '/evaluate/target/'
+    url_suffix = '/evaluate/test/'
     template_name = "evaluate/target/target_index.html"
 
     def get(self, request):
@@ -228,7 +228,7 @@ class EvaluateTargetProfileIndex(ObjectIndex):
 
 
 class EvaluateTargetProfileDetail(ObjectDetail):
-    url_suffix = '/evaluate/target/'
+    url_suffix = '/evaluate/test/'
     template_name = "evaluate/target/target_detail.html"
 
     def get(self, request, **kwargs):

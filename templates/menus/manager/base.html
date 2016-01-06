@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block sidebar %}
+
+    <nav class="navbar navbar-dark bg-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#knowNavBar">
+            <i class="glyphicon glyphicon-menu-hamburger"></i> Know
+        </button>
+    </nav>
+    <div class="collapse" id="knowNavBar">
+        <div class=" p-a-1">
+            <ul>
+                <li><a href="{% url 'know-index' %}">Know</a></li>
+                <li><a href="{% url 'group-index' %}">Groups</a></li>
+                <li><a href="{% url 'person-index' %}">People</a></li>
+                <li class="dropdown-header">Reports</li>
+                <li><a href="{# url 'organize-report' #}">Organization</a></li>
+                <li class="dropdown-header">Settings</li>
+                <li><a href="{# url 'gather-index' #}">Manage Imports</a></li>
+                <li><a href="{# url 'integration-index' #}">Manage Integrations</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <nav class="navbar navbar-light bg-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#testNavBar">
+             <i class="glyphicon glyphicon-menu-hamburger"></i> Test
+        </button>
+    </nav>
+    <div class="collapse" id="testNavBar">
+        <div class=" p-a-1">
+
+            <ul>
+                <li><a href="{% url 'test-index' %}">Test</a></li>
+                <li><a href="{% url 'evaluate-controller-create' %}">Add Test Project</a></li>
+                <li class="dropdown-header">Manage Tests</li>
+                <li><a href="{% url 'evaluate-controller-index' %}">View Test Projects</a></li>
+                <li><a href="{% url 'evaluate-target-index' %}">View Individual Tests</a></li>
+                <li><a href="{% url 'evaluate-results-index' %}">View Results</a></li>
+                <li class="dropdown-header">Reports</li>
+                <li><a href="{# url 'evaluate-report' #}">Testing</a></li>
+                <li class="dropdown-header">Settings</li>
+                <li><a href="{% url 'evaluate-sender-index' %}">Senders</a></li>
+                <li><a href="{% url 'evaluate-template-index' %}">Templates</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <nav class="navbar navbar-light bg-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#teachNavBar">
+             <i class="glyphicon glyphicon-menu-hamburger"></i> Teach
+        </button>
+    </nav>
+    <div class="collapse" id="teachNavBar">
+        <div class=" p-a-1">
+            <ul>
+                <a href="{% url 'educate-index' %}">Teach</a>
+                <li class="dropdown-header">Reports</li>
+                <li><a href="{# url 'learn-report' #}">Education and Learning</a></li>
+                <li><a href="{# url 'game-report' #}">Achievements</a></li>
+                <li class="dropdown-header">Settings</li>
+                <li><a href="{% url 'learn-path-index' %}">Learning Paths</a></li>
+                <li><a href="{% url 'learn-module-index' %}">Learning Modules</a></li>
+                <li><a href="{% url 'learn-role-index' %}">Learner Roles</a></li>
+                <li><a href="{% url 'game-achievement-index' %}">Achievements</a></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
