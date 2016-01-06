@@ -45,6 +45,28 @@ class ObjectIndex(AbstractObjectInterface):
         else:
             return handle_error(request, results.status_code)
 
+class ObjectDashboard(AbstractObjectInterface):
+    def get(self, request, template_name, url_suffix):
+        super(ObjectDashboard, self).get(request)
+        log.debug(" GET called")
+
+        # self.url = self.url + url_suffix
+        #
+        # log.debug(" GET attempting to get data from url " + self.url)
+        #
+        # results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
+        #
+        # if results.status_code is 200:
+        #
+        #     objects = results.json()
+        #     # log.debug(" returned objects = " + str(objects))
+        #
+        #     self.context['object_list'] = objects['results']
+
+        return render(request, self.template_name, context=self.context)
+        # else:
+        #     return handle_error(request, results.status_code)
+
 
 class ObjectDetail(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix, **kwargs):
