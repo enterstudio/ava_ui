@@ -31,14 +31,19 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
 
     log.debug("csrf_request :: making " + request_type + " request to " + str(url) + " with " + str(api_data))
 
-    if request_type is 'POST':
-        return requests.post(url, data=api_data, headers=headers)
-    elif request_type is 'GET':
-        return requests.get(url, headers=headers)
-    elif request_type is 'DELETE':
-        return requests.delete(url, headers=headers)
-    elif request_type is 'PUT':
-        return requests.put(url, data=api_data, headers=headers)
+    try:
+        if request_type is 'POST':
+            return requests.post(url, data=api_data, headers=headers)
+        elif request_type is 'GET':
+            return requests.get(url, headers=headers)
+        elif request_type is 'DELETE':
+            return requests.delete(url, headers=headers)
+        elif request_type is 'PUT':
+            return requests.put(url, data=api_data, headers=headers)
+    except ConnectionError as e:
+        log.debug("Exception:: Connection Error " + e)
+        return handle_error(None, '404')
+
 
 
 def refresh_jwt_token(request):
@@ -51,16 +56,19 @@ def refresh_jwt_token(request):
         data = json.dumps(data)
 
         # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
+        try:
+            results = requests.post(url, data=data, headers=headers)
 
-        results = requests.post(url, data=data, headers=headers)
-
-        if results.status_code is 200:
-            objects = results.json()
-            request.session['token'] = objects['token']
-            # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
-        else:
-            log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
-                results.content) + ")")
+            if results.status_code is 200:
+                objects = results.json()
+                request.session['token'] = objects['token']
+                # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
+            else:
+                log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
+                    results.content) + ")")
+        except ConnectionError as e:
+            log.debug("Exception:: Connection Error " + e)
+            return handle_error(None, '404')
     else:
         return redirect('login')
 
