@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="dash-info">
                             <div class="dash-img">
-                                <img src="{# static 'images/know.png' #}">
+                                <img src="{% static 'images/know.png' %}">
                             </div>
                             <div class="dash-desc">
                                 <h3>Know: Dashboard</h3>
@@ -20,19 +20,19 @@
                         </div>
                         <div class="dash-stats">
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_count #}</span>
+                                <span class="dash-count">{% person_count %}</span>
                                 <span class="dash-type">people</span>
-                                <a href="{# url 'person-index' #}" class="btn btn-sm btn-default">View People</a>
+                                <a href="{% url 'person-index' %}" class="btn btn-sm btn-default">View People</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_identifier_count #}</span>
+                                <span class="dash-count">{% person_identifier_count %}</span>
                                 <span class="dash-type">identities</span>
-                                <a href="{# url 'people-index' #}" class="btn btn-sm btn-default">View Identities</a>
+                                <a href="{% url 'people-index' %}" class="btn btn-sm btn-default">View Identities</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# group_count #}</span>
+                                <span class="dash-count">{% group_count %}</span>
                                 <span class="dash-type">active groups</span>
-                                <a href="{# url 'groups-index' #}" class="btn btn-sm btn-default">View Groups</a>
+                                <a href="{% url 'groups-index' %}" class="btn btn-sm btn-default">View Groups</a>
                             </div>
                         </div>
                     </div>
@@ -51,9 +51,9 @@
                             <div class="panel dash-passwords">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# ldap_config|length #}</span>
+                                        <span class="dash-count">{% ldap_config|length %}</span>
                                         <span class="dash-type">LDAP Integrations</span>
-                                        <a href="{# url 'know-ldap-dashboard' #}"
+                                        <a href="{% url 'know-ldap-dashboard' %}"
                                            class="btn btn-def btn-block btn-success">LDAP Know
                                             Dashboard</a>
                                     </div>
@@ -65,7 +65,7 @@
                             <div class="panel dash-passwords">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# ldap.admin_accounts|length #}</span>
+                                        <span class="dash-count">{% ldap.admin_accounts|length %}</span>
                                         <span class="dash-type">Administrators</span>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                             <div class="panel dash-passwords">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# ldap.never_logged_in|length #}</span>
+                                        <span class="dash-count">{% ldap.never_logged_in|length %}</span>
                                         <span class="dash-type">Never Logged In</span>
                                     </div>
                                 </div>
@@ -98,9 +98,9 @@
                             <div class="panel dash-connected">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# google_config|length #}</span>
+                                        <span class="dash-count">{% google_config|length %}</span>
                                         <span class="dash-type">Google Integrations</span>
-                                        <a href="{# url 'know-google-dashboard' #}"
+                                        <a href="{% url 'know-google-dashboard' %}"
                                            class="btn btn-def btn-block btn-success">Google
                                             Know Dashboard</a>
                                     </div>
@@ -112,7 +112,7 @@
                             <div class="panel dash-passwords">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# google.admin_accounts|length #}</span>
+                                        <span class="dash-count">{% google.admin_accounts|length %}</span>
                                         <span class="dash-type">Administrators</span>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                             <div class="panel dash-passwords">
                                 <div class="panel-body">
                                     <div class="body-item">
-                                        <span class="dash-count">{# google.never_logged_in|length #}</span>
+                                        <span class="dash-count">{% google.never_logged_in|length %}</span>
                                         <span class="dash-type">Never Logged In</span>
                                     </div>
                                 </div>

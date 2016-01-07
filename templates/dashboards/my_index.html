@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="dash-info">
                             <div class="dash-img">
-                                <img src="{# static 'images/know.png' #}">
+                                <img src="{% static 'images/know.png' %}">
                             </div>
                             <div class="dash-desc">
                                 <h3>My: Dashboard</h3>
@@ -19,36 +19,36 @@
                         </div>
                         <div class="dash-stats">
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_count #}</span>
+                                <span class="dash-count">{% person_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'person-index' #}" class="btn btn-sm btn-default">View Scorecard</a>
+                                <a href="{% url 'person-index' %}" class="btn btn-sm btn-default">View Scorecard</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_identifier_count #}</span>
+                                <span class="dash-count">{% person_identifier_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'people-index' #}" class="btn btn-sm btn-default">View Test Results</a>
+                                <a href="{% url 'people-index' %}" class="btn btn-sm btn-default">View Test Results</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# group_count #}</span>
+                                <span class="dash-count">{% group_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'groups-index' #}" class="btn btn-sm btn-default">View Friends</a>
+                                <a href="{% url 'groups-index' %}" class="btn btn-sm btn-default">View Friends</a>
                             </div>
                         </div>
                         <div class="dash-stats">
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_count #}</span>
+                                <span class="dash-count">{% person_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'person-index' #}" class="btn btn-sm btn-default">View Learning Profile</a>
+                                <a href="{% url 'person-index' %}" class="btn btn-sm btn-default">View Learning Profile</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_identifier_count #}</span>
+                                <span class="dash-count">{% person_identifier_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'people-index' #}" class="btn btn-sm btn-default">View People</a>
+                                <a href="{% url 'people-index' %}" class="btn btn-sm btn-default">View People</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# group_count #}</span>
+                                <span class="dash-count">{% group_count %}</span>
                                 <span class="dash-type"></span>
-                                <a href="{# url 'groups-index' #}" class="btn btn-sm btn-default">View Activity</a>
+                                <a href="{% url 'groups-index' %}" class="btn btn-sm btn-default">View Activity</a>
                             </div>
                         </div>
                     </div>
