@@ -4,9 +4,9 @@ from ava_ui.accounts import views
 
 urlpatterns = [
     # Standard authentication functions
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', views.login_ui, name='login'),
 
-    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^logout/$', views.logout_ui, name='logout'),
 
     url(r'^password/reset/$', views.password_reset, name='password-reset'),
 
