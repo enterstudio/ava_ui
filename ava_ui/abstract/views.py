@@ -5,23 +5,22 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views import generic
 
-from .utils import handle_error, csrf_request, get_user_context, refresh_jwt_token
+from .utils import handle_error, csrf_request, refresh_jwt_token
 
 log = getLogger(__name__)
 
 
 class AbstractObjectInterface(generic.TemplateView):
     url = settings.API_BASE_URL
-    context = {}
+    # context = {}
 
     def get(self, request, *args, **kwargs):
         refresh_jwt_token(request)
-        self.context = self.get_context_data()
+        # self.context = self.get_context_data()
 
     def post(self, request, **kwargs):
         refresh_jwt_token(request)
-        # self.context['user'] = get_user_context(request)
-        self.context = self.get_context_data()
+        # self.context = self.get_context_data()
 
     def get_context_data(self, **kwargs):
         return super(AbstractObjectInterface, self).get_context_data()
@@ -49,28 +48,21 @@ class ObjectIndex(AbstractObjectInterface):
         else:
             return handle_error(request, results.status_code)
 
+    def get_context_data(self, **kwargs):
+        context_data = super(ObjectIndex, self).get_context_data()
+        log.debug("Conext data :: " + str(context_data))
+
+
 class ObjectDashboard(AbstractObjectInterface):
+
+    # def get_context_data(self, **kwargs):
+    #     context_data = super(ObjectIndex, self).get_context_data()
+    #     log.debug("Conext data :: " + str(context_data))
+
     def get(self, request, template_name, url_suffix):
         super(ObjectDashboard, self).get(request)
-        log.debug(" GET called")
-
-        # self.url = self.url + url_suffix
-        #
-        # log.debug(" GET attempting to get data from url " + self.url)
-        #
-        # results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
-        #
-        # if results.status_code is 200:
-        #
-        #     objects = results.json()
-        #     # log.debug(" returned objects = " + str(objects))
-        #
-        #     self.context['object_list'] = objects['results']
-
-        return render(request, self.template_name, context=self.context)
-        # else:
-        #     return handle_error(request, results.status_code)
-
+        log.debug(" Object Dashboard GET called with :: " + str(request.user))
+        return render(request, self.template_name)
 
 class ObjectDetail(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix, **kwargs):
@@ -278,7 +270,7 @@ class ObjectCreateRelated(AbstractObjectInterface):
 class ObjectUpdateRelated(AbstractObjectInterface):
     def get(self, request, template_name, url_suffix, form_data_url_suffix, **kwargs):
         super(ObjectUpdateRelated, self).get(request)
-        
+
         url = self.url + url_suffix + '{}/'
 
         log.debug(" Pre formatted url " + self.url)
@@ -379,6 +371,7 @@ class ObjectUpdateRelated(AbstractObjectInterface):
             return redirect(redirect_url)
         else:
             return handle_error(request, results.status_code)
+
 
 class ObjectDelete(AbstractObjectInterface):
     def get(self, request, redirect_url, url_suffix, **kwargs):
