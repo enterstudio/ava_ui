@@ -18,6 +18,5 @@ urlpatterns = [
 
     url(r'^accounts/', include('ava_ui.accounts.urls')),
 
-    # Admin screens
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
 ]

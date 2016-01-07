@@ -16,11 +16,15 @@ class AbstractObjectInterface(generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         refresh_jwt_token(request)
-        self.context['user'] = get_user_context(request)
+        self.context = self.get_context_data()
 
     def post(self, request, **kwargs):
         refresh_jwt_token(request)
-        self.context['user'] = get_user_context(request)
+        # self.context['user'] = get_user_context(request)
+        self.context = self.get_context_data()
+
+    def get_context_data(self, **kwargs):
+        return super(AbstractObjectInterface, self).get_context_data()
 
 
 class ObjectIndex(AbstractObjectInterface):
@@ -41,7 +45,7 @@ class ObjectIndex(AbstractObjectInterface):
 
             self.context['object_list'] = objects['results']
 
-            return render(request, self.template_name, context=self.context)
+            return render(request, self.template_name)
         else:
             return handle_error(request, results.status_code)
 
