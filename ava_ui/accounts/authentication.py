@@ -5,13 +5,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 
 from ava_ui.abstract.utils import csrf_request
-from ava_ui.accounts.serializers import UserSerializer
 
 log = getLogger(__name__)
 
 
 class APIAuthenticationBackend(object):
-
     def authenticate(self, username=None, password=None, request=None):
         url = settings.API_BASE_URL + '/login/'
         api_data = {'username': username,
@@ -30,9 +28,11 @@ class APIAuthenticationBackend(object):
         return None
 
     def get_user(self, user_id):
+        log.debug(" called get_user")
         try:
             user = User.objects.get(pk=user_id)
-            log.debug(" called get_user and returned user: "+ user.username)
+            log.debug(" called get_user and returned user: " + user.username)
+            return user
         except User.DoesNotExist:
             log.debug(" called get_user and returned None")
             return None
@@ -46,7 +46,7 @@ class APIAuthenticationBackend(object):
             response = csrf_request(request=request, url=url, api_data=api_data,
                                     request_type='POST',
                                     is_authenticated=True)
-            log.debug("get_user_from_token returned response " + str(response))
+            # log.debug("get_user_from_token returned response " + str(response))
             if response.status_code is 200:
                 objects = response.json()
 
@@ -54,23 +54,28 @@ class APIAuthenticationBackend(object):
 
                 user_data = json.loads(user_data)
 
-                # users = User.objects.all()
-                # log.debug("Users :: " + str(users))
+                # log.debug(" user_data :: " + str(user_data))
+
                 try:
                     user = User.objects.get(username=user_data['username'])
-                    if user:
-                        user.delete()
-                except Exception as e:
-                    pass
 
-                # log.debug("get_user_from_token :: user_data =  " + str(user_data))
+                    # update the permissions on the user in case they have changed
+                    user.is_staff = user_data['is_staff']
+                    user.is_active = user_data['is_active']
+                    user.is_superuser = user_data['is_superuser']
+                    user.save()
 
-                user_serializer = UserSerializer(data=user_data)
-                log.debug("Applying validation to user :: " + repr(user_serializer))
-                if user_serializer.is_valid():
-                    user = user_serializer.save()
-                    log.debug("get_user_from_token username = " + str(user.username))
-                    return user
+                except User.DoesNotExist:
+                    # Create a new user. Note that we can set password
+                    # to anything, because it won't be checked; the password
+                    # from settings.py will.
+                    user = User(username=user_data['username'], password='NEVER CHECKED')
+                    user.is_staff = user_data['is_staff']
+                    user.is_active = user_data['is_active']
+                    user.is_superuser = user_data['is_superuser']
+                    user.save()
+
+                return user
 
         except Exception as e:
             log.debug("Exception in get_user_from_token =  " + str(e))

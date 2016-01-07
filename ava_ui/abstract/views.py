@@ -12,15 +12,15 @@ log = getLogger(__name__)
 
 class AbstractObjectInterface(generic.TemplateView):
     url = settings.API_BASE_URL
-    # context = {}
+    context = {}
 
     def get(self, request, *args, **kwargs):
         refresh_jwt_token(request)
-        # self.context = self.get_context_data()
+        self.context = self.get_context_data()
 
     def post(self, request, **kwargs):
         refresh_jwt_token(request)
-        # self.context = self.get_context_data()
+        self.context = self.get_context_data()
 
     def get_context_data(self, **kwargs):
         return super(AbstractObjectInterface, self).get_context_data()
@@ -44,24 +44,14 @@ class ObjectIndex(AbstractObjectInterface):
 
             self.context['object_list'] = objects['results']
 
-            return render(request, self.template_name)
+            return render(request, self.template_name, context=self.context)
         else:
-            return handle_error(request, results.status_code)
-
-    def get_context_data(self, **kwargs):
-        context_data = super(ObjectIndex, self).get_context_data()
-        log.debug("Conext data :: " + str(context_data))
-
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 class ObjectDashboard(AbstractObjectInterface):
 
-    # def get_context_data(self, **kwargs):
-    #     context_data = super(ObjectIndex, self).get_context_data()
-    #     log.debug("Conext data :: " + str(context_data))
-
     def get(self, request, template_name, url_suffix):
         super(ObjectDashboard, self).get(request)
-        log.debug(" Object Dashboard GET called with :: " + str(request.user))
         return render(request, self.template_name)
 
 class ObjectDetail(AbstractObjectInterface):
@@ -91,7 +81,7 @@ class ObjectDetail(AbstractObjectInterface):
 
             return render(request, self.template_name, context=self.context)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectUpdate(ObjectDetail):
@@ -132,7 +122,7 @@ class ObjectUpdate(ObjectDetail):
             # TODO might actually want to redirect to the details page here instead of the index
             return redirect(redirect_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectCreate(AbstractObjectInterface):
@@ -176,7 +166,7 @@ class ObjectCreate(AbstractObjectInterface):
 
             return redirect(redirect_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectCreateRelated(AbstractObjectInterface):
@@ -207,7 +197,7 @@ class ObjectCreateRelated(AbstractObjectInterface):
             except Exception as e:
                 return redirect("login")
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
     def post(self, request, template_name, url_suffix, expected_fields, related_fields, redirect_url,
              multiple_fields=[], **kwargs):
@@ -264,7 +254,7 @@ class ObjectCreateRelated(AbstractObjectInterface):
 
             return redirect(redirect_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectUpdateRelated(AbstractObjectInterface):
@@ -301,19 +291,13 @@ class ObjectUpdateRelated(AbstractObjectInterface):
 
             try:
                 objects = results.json()
-                # log.debug(" returned objects = " + str(objects))
-
-                if isinstance(objects['form_data'], dict):
-                    log.debug(" Form data is a dict ")
-                else:
-                    log.debug(" Form data is not a dict ")
 
                 self.context['form_data'] = objects['form_data']
 
             except Exception as e:
                 return redirect("login")
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
         return render(request, self.template_name, context=self.context)
 
@@ -370,7 +354,7 @@ class ObjectUpdateRelated(AbstractObjectInterface):
         if results.status_code is 200:
             return redirect(redirect_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectDelete(AbstractObjectInterface):
@@ -393,7 +377,7 @@ class ObjectDelete(AbstractObjectInterface):
             log.debug(" POST results = " + str(results))
             return redirect(to=redirect_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectAuthorize(AbstractObjectInterface):
@@ -422,7 +406,7 @@ class ObjectAuthorize(AbstractObjectInterface):
 
             return redirect(authorize_url)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)
 
 
 class ObjectAuthorizeCallback(AbstractObjectInterface):
@@ -447,4 +431,4 @@ class ObjectAuthorizeCallback(AbstractObjectInterface):
 
             return render(request, self.template_name, context=self.context)
         else:
-            return handle_error(request, results.status_code)
+            return handle_error(request=request, context=self.context, status_code=results.status_code)

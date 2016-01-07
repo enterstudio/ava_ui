@@ -2,6 +2,7 @@ import logging
 
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
@@ -15,16 +16,17 @@ def login_ui(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        log.debug("Attempting to authenticate :: " + username)
+        # log.debug("Attempting to authenticate :: " + username)
         user = authenticate(username=username, password=password, request=request)
         if user:
             if user.is_active:
                 try:
                     login(request, user)
-                    log.debug("Request :: " + str(request.user))
-                    log.debug("Is authenticated :: " + str(user.is_authenticated()))
+                    # log.debug("Request :: " + str(request.user))
+                    # log.debug("Is authenticated :: " + str(user.is_authenticated()))
                 except Exception as e:
                     log.debug("Exception during login ::" + e)
+        log.debug(" Login_ui GET called with :: " + str(request.user))
         return redirect('learn-index')
     else:
         return render(request, 'accounts/login.html')
@@ -32,6 +34,7 @@ def login_ui(request):
 
 def logout_ui(request):
     request.session['token'] = None
+    Session.objects.all().delete()
     try:
         logout(request)
     except Exception as e:
