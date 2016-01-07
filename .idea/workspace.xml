@@ -2,77 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0316d751-c00e-4f11-8177-abc9abf0f563" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/dashboards/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/dashboards/apps.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/dashboards/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/dashboards/views.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/evaluate/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/learn/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/menus/manager/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/organize/index.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/dashboard/dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/dashboard/google_dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/dashboard/ldap_dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/dashboard/search.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/person/search.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui.db" afterPath="$PROJECT_DIR$/ava_ui.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/visualise/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ava_ui/visualise/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/visualise/visualise_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/visualise/visualise_view.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/evaluate/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/organize/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/abstract/utils.py" afterPath="$PROJECT_DIR$/ava_ui/abstract/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/evaluate/urls.py" afterPath="$PROJECT_DIR$/ava_ui/evaluate/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/evaluate/views.py" afterPath="$PROJECT_DIR$/ava_ui/evaluate/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/urls.py" afterPath="$PROJECT_DIR$/ava_ui/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.css" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/static/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/bootstrap.js" afterPath="$PROJECT_DIR$/static/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/base.html" afterPath="$PROJECT_DIR$/templates/evaluate/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/controller/controller_detail.html" afterPath="$PROJECT_DIR$/templates/evaluate/controller/controller_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/controller/controller_form.html" afterPath="$PROJECT_DIR$/templates/evaluate/controller/controller_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/controller/controller_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/results/evaluate_result_detail.html" afterPath="$PROJECT_DIR$/templates/evaluate/results/evaluate_result_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/results/evaluate_result_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/results/evaluate_result_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/sender/sender_detail.html" afterPath="$PROJECT_DIR$/templates/evaluate/sender/sender_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/sender/sender_form.html" afterPath="$PROJECT_DIR$/templates/evaluate/sender/sender_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/template/template_detail.html" afterPath="$PROJECT_DIR$/templates/evaluate/template/template_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/template/template_form.html" afterPath="$PROJECT_DIR$/templates/evaluate/template/template_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/evaluate/template/template_index.html" afterPath="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/game/achievement/achievement_detail.html" afterPath="$PROJECT_DIR$/templates/game/achievement/achievement_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/game/achievement/achievement_form.html" afterPath="$PROJECT_DIR$/templates/game/achievement/achievement_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/game/achievement/achievement_index.html" afterPath="$PROJECT_DIR$/templates/game/achievement/achievement_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/game/base.html" afterPath="$PROJECT_DIR$/templates/game/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/gather/base.html" afterPath="$PROJECT_DIR$/templates/gather/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/gather/google/google_dashboard.html" afterPath="$PROJECT_DIR$/templates/gather/google/google_dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/gather/ldap/ldap_dashboard.html" afterPath="$PROJECT_DIR$/templates/gather/ldap/ldap_dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/base.html" afterPath="$PROJECT_DIR$/templates/integration/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/google/google_detail.html" afterPath="$PROJECT_DIR$/templates/integration/google/google_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/google/google_form.html" afterPath="$PROJECT_DIR$/templates/integration/google/google_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/google/google_index.html" afterPath="$PROJECT_DIR$/templates/integration/google/google_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/ldap/ldap_detail.html" afterPath="$PROJECT_DIR$/templates/integration/ldap/ldap_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/ldap/ldap_form.html" afterPath="$PROJECT_DIR$/templates/integration/ldap/ldap_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/integration/ldap/ldap_index.html" afterPath="$PROJECT_DIR$/templates/integration/ldap/ldap_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/learn/base.html" afterPath="$PROJECT_DIR$/templates/learn/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menus/manager/manager_educate_menu.html" afterPath="$PROJECT_DIR$/templates/menus/manager/manager_educate_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menus/manager/manager_know_menu.html" afterPath="$PROJECT_DIR$/templates/menus/manager/manager_know_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menus/manager/manager_test_menu.html" afterPath="$PROJECT_DIR$/templates/menus/manager/manager_test_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menus/user/user_menu.html" afterPath="$PROJECT_DIR$/templates/menus/user/user_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/base.html" afterPath="$PROJECT_DIR$/templates/my/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/friends/friends_index.html" afterPath="$PROJECT_DIR$/templates/my/friends/friends_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/learning/history/learning_history_index.html" afterPath="$PROJECT_DIR$/templates/my/learning/history/learning_history_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/learning/profile/learning_profile.html" afterPath="$PROJECT_DIR$/templates/my/learning/profile/learning_profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/learning/queue/learning_queue_index.html" afterPath="$PROJECT_DIR$/templates/my/learning/queue/learning_queue_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/profile/history/profile_history_index.html" afterPath="$PROJECT_DIR$/templates/my/profile/history/profile_history_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/profile/profile.html" afterPath="$PROJECT_DIR$/templates/my/profile/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/my/scorecard/scorecard_index.html" afterPath="$PROJECT_DIR$/templates/my/scorecard/scorecard_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organize/base.html" afterPath="$PROJECT_DIR$/templates/organize/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organize/group/group_detail.html" afterPath="$PROJECT_DIR$/templates/organize/group/group_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organize/group/group_index.html" afterPath="$PROJECT_DIR$/templates/organize/group/group_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organize/person/person_detail.html" afterPath="$PROJECT_DIR$/templates/organize/person/person_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organize/person/person_index.html" afterPath="$PROJECT_DIR$/templates/organize/person/person_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archive/frontend/templates/test/test_dashboard.html" afterPath="$PROJECT_DIR$/archive/frontend/templates/test/test_dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/dashboards/urls.py" afterPath="$PROJECT_DIR$/ava_ui/dashboards/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ava_ui/dashboards/views.py" afterPath="$PROJECT_DIR$/ava_ui/dashboards/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/evaluate_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/evaluate_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/game_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/game_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/gather_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/gather_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/integration_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/integration_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/learn_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/learn_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/manager_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/manager_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/my_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/my_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/organize_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/organize_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboards/user_index.html" afterPath="$PROJECT_DIR$/templates/dashboards/user_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menus/manager/base.html" afterPath="$PROJECT_DIR$/templates/menus/manager/base.html" />
     </list>
     <ignored path="ava_frontend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,75 +46,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/menus/manager/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7128713">
-              <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
+            <state vertical-scroll-proportion="5.5416665">
+              <caret line="37" column="79" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <file leaf-file-name="game_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dashboards/game_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="13" column="77" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <file leaf-file-name="integration_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dashboards/integration_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="34.25">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="15.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.166667">
+              <caret line="28" column="118" selection-start-line="28" selection-start-column="118" selection-end-line="28" selection-end-column="118" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ava_ui/accounts/views.py">
+        <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="178" column="47" selection-start-line="178" selection-start-column="47" selection-end-line="178" selection-end-column="47" />
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23275863">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ava_ui/abstract/utils.py">
+      <file leaf-file-name="gather_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dashboards/gather_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-16.291666">
+              <caret line="33" column="111" selection-start-line="33" selection-start-column="111" selection-end-line="33" selection-end-column="111" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ava_ui/urls.py">
+      <file leaf-file-name="manager_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dashboards/manager_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/dashboards/my_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.666666">
+              <caret line="50" column="111" selection-start-line="50" selection-start-column="111" selection-end-line="50" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -187,20 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/my/learning/history/learning_history_index.html" />
-        <option value="$PROJECT_DIR$/templates/my/profile/profile.html" />
-        <option value="$PROJECT_DIR$/templates/my/profile/history/profile_history_index.html" />
-        <option value="$PROJECT_DIR$/templates/my/scorecard/scorecard_index.html" />
-        <option value="$PROJECT_DIR$/templates/organize/group/group_index.html" />
-        <option value="$PROJECT_DIR$/templates/organize/group/group_detail.html" />
-        <option value="$PROJECT_DIR$/templates/organize/person/person_index.html" />
-        <option value="$PROJECT_DIR$/templates/organize/person/person_detail.html" />
-        <option value="$PROJECT_DIR$/templates/menus/user/user_menu.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/template/template_index.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/template/template_form.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/template/template_detail.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_index.html" />
-        <option value="$PROJECT_DIR$/templates/evaluate/target/target_detail.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_index.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_form.html" />
         <option value="$PROJECT_DIR$/templates/evaluate/sender/sender_detail.html" />
@@ -226,8 +169,6 @@
         <option value="$PROJECT_DIR$/templates/organize/index.html" />
         <option value="$PROJECT_DIR$/templates/learn/index.html" />
         <option value="$PROJECT_DIR$/ava_ui/abstract/views.py" />
-        <option value="$PROJECT_DIR$/ava_ui/dashboards/views.py" />
-        <option value="$PROJECT_DIR$/ava_ui/dashboards/urls.py" />
         <option value="$PROJECT_DIR$/ava_ui/urls.py" />
         <option value="$PROJECT_DIR$/templates/organize/base.html" />
         <option value="$PROJECT_DIR$/templates/menus/manager/manager_test_menu.html" />
@@ -237,7 +178,23 @@
         <option value="$PROJECT_DIR$/ava_ui/accounts/views.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/menus/manager/cruft.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/evaluate_index.html" />
         <option value="$PROJECT_DIR$/templates/menus/manager/base.html" />
+        <option value="$PROJECT_DIR$/archive/frontend/templates/test/test_dashboard.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/organize_index.html" />
+        <option value="$PROJECT_DIR$/templates/visualise/d3_ldap.html" />
+        <option value="$PROJECT_DIR$/templates/visualise/visualise_index.html" />
+        <option value="$PROJECT_DIR$/ava_ui/visualise/views.py" />
+        <option value="$PROJECT_DIR$/ava_ui/visualise/urls.py" />
+        <option value="$PROJECT_DIR$/templates/dashboards/game_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/integration_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/learn_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/my_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/gather_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/manager_index.html" />
+        <option value="$PROJECT_DIR$/templates/dashboards/user_index.html" />
+        <option value="$PROJECT_DIR$/ava_ui/dashboards/views.py" />
+        <option value="$PROJECT_DIR$/ava_ui/dashboards/urls.py" />
       </list>
     </option>
   </component>
@@ -276,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -360,21 +316,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="requirements" />
+              <option name="myItemId" value="ava_ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -389,6 +331,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ava_ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="visualise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,34 +366,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ava_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ava_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="abstract" />
+              <option name="myItemId" value="archive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -727,7 +652,7 @@
     <frame x="0" y="23" width="1280" height="700" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28513733" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28917608" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -764,99 +689,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/organize/group/group_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/organize/person/person_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/organize/person/person_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menus/user/user_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6493506">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/template/template_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/target/target_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/evaluate/sender/sender_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,31 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.125">
           <caret line="13" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/evaluate/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/organize/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/learn/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1044,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,29 +852,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2641509">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#14#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3962264">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ava_ui/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.25773194">
           <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding />
         </state>
@@ -1090,31 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menus/manager/manager_test_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menus/manager/manager_know_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menus/manager/manager_educate_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,21 +871,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5819209">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="34.25">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1144,7 +884,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ava_ui/abstract/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.1340206">
           <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -1154,7 +894,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ava_ui/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="4.587629">
           <caret line="178" column="47" selection-start-line="178" selection-start-column="47" selection-end-line="178" selection-end-column="47" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -1164,17 +904,191 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
+        <state vertical-scroll-proportion="0.34946236">
           <caret line="13" column="77" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/evaluate_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.857142">
+          <caret line="66" column="85" selection-start-line="66" selection-start-column="85" selection-end-line="66" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/test/test_dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.75">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/know/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="140" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/visualise/visualise_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.5">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/graph/vis_ldap_graph_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026978416">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ava_ui/visualise/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ava_ui/visualise/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.256167">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/graph_ldap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/graph/vis_ldap_graph_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/visualise/visualise_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.107913665">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/frontend/templates/know/google_dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19064748">
+          <caret line="145" column="30" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/organize_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.194805">
+          <caret line="42" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/game_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/integration_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.166667">
+          <caret line="28" column="118" selection-start-line="28" selection-start-column="118" selection-end-line="28" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/my_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.666666">
+          <caret line="50" column="111" selection-start-line="50" selection-start-column="111" selection-end-line="50" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/learn_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.916666">
+          <caret line="42" column="14" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/gather_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.291666">
+          <caret line="33" column="111" selection-start-line="33" selection-start-column="111" selection-end-line="33" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/manager_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="42" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboards/user_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/menus/manager/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7128713">
-          <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
+        <state vertical-scroll-proportion="5.5416665">
+          <caret line="37" column="79" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="79" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ava_ui/dashboards/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23275863">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
