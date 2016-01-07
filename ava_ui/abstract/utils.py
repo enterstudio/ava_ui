@@ -81,11 +81,3 @@ def refresh_jwt_token(request):
     else:
         return redirect('login')
 
-
-def get_user_context(request):
-    context = {}
-    if 'user' in request.session:
-        context['user'] = request.session['user']
-    else:
-        context['user'] = None
-    return context
