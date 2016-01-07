@@ -3,17 +3,12 @@ from django.conf.urls import url
 from .views import *
 
 urlpatterns = [
-    url(r'^educate/dashboard/$', EducateDashboard.as_view(),
-        name="educate-index"),
 
-    url(r'^test/dashboard/$', TestDashboard.as_view(),
-        name="test-index"),
-
-    url(r'^know/dashboard/$', KnowDashboard.as_view(),
+    url(r'^know/dashboard/$', OrganizeDashboard.as_view(),
         name="know-index"),
 
     url(r'^learn/dashboard/$', LearnDashboard.as_view(),
-        name="learn-index"),
+        name="educate-index"),
 
     url(r'^evaluate/dashboard/$', EvaluateDashboard.as_view(),
         name="evaluate-index"),
