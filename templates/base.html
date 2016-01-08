@@ -34,10 +34,10 @@
                         <span class="user-image">
                             <img src="{% static 'images/ava-small-blue.png' %}">
                         </span>
-                        <span class="user">{% if user.is_authenticated %} Hi, {{ user }} {% else %} Not authenticated{% endif %}</span>
+                        <span class="user">{% if user.is_authenticated %} Hi, {{ user }} {% endif %}</span>
                     </a>
                     <ul class="nav navbar-nav navbar pull-xs-right">
-                        {% if not user %}
+                        {% if not user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                         {% else %}
@@ -55,20 +55,20 @@
 
         {% endblock %}
 
-        {% if not user %}
 
-        {% else %}
+
+        {% if user.is_authenticated %}
             <!-- begin #sidebar -->
             <div id="sidebar" class="sidebar">
                 <div data-scrollbar="true" data-height="100%">
 
-                        {% block sidebar %}
+                    {% block sidebar %}
 
-                            <!-- begin sidebar nav -->
+                        <!-- begin sidebar nav -->
 
-                            <!-- end sidebar nav -->
+                        <!-- end sidebar nav -->
 
-                        {% endblock %}
+                    {% endblock %}
                     </ul>
                 </div>
             </div>
@@ -77,7 +77,7 @@
 
         {% endif %}
 
-        <div id="content" class="content {% if not user %}no-auth{% endif %}">
+        <div id="content" class="content {% if not user.is_authenticated %}no-auth{% endif %}">
             {% block mainpage %}
             {% endblock %}
         </div>
