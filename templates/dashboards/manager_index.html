@@ -17,21 +17,22 @@
                                 <p>Your gateway to the protect your people.</p>
                             </div>
                         </div>
+
                         <div class="dash-stats">
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_count #}</span>
+                                <img src="{% static 'images/know.png' %}">
                                 <span class="dash-type"></span>
-                                <a href="{# url 'know-index' #}" class="btn btn-sm btn-default">Know</a>
+                                <a href="{% url 'know-index' %}" class="btn btn-sm btn-default">Know</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# person_identifier_count #}</span>
+                                <img src="{% static 'images/test.png' %}">
                                 <span class="dash-type"></span>
-                                <a href="{# url 'evaluate-index' #}" class="btn btn-sm btn-default">Test</a>
+                                <a href="{% url 'evaluate-index' %}" class="btn btn-sm btn-default">Test</a>
                             </div>
                             <div class="dash-stat">
-                                <span class="dash-count">{# group_count #}</span>
+                                <img src="{% static 'images/learn.png' %}">
                                 <span class="dash-type"></span>
-                                <a href="{# url 'educate-index' #}" class="btn btn-sm btn-default">Learn</a>
+                                <a href="{% url 'educate-index' %}" class="btn btn-sm btn-default">Learn</a>
                             </div>
                         </div>
                     </div>
