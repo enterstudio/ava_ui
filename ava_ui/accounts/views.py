@@ -17,17 +17,22 @@ def login_ui(request):
         password = request.POST.get('password')
 
         # log.debug("Attempting to authenticate :: " + username)
-        user = authenticate(username=username, password=password, request=request)
-        if user:
-            if user.is_active:
-                try:
-                    login(request, user)
-                    # log.debug("Request :: " + str(request.user))
-                    # log.debug("Is authenticated :: " + str(user.is_authenticated()))
-                except Exception as e:
-                    log.debug("Exception during login ::" + e)
-        log.debug(" Login_ui GET called with :: " + str(request.user))
-        return redirect('user-index')
+        try:
+            user = authenticate(username=username, password=password, request=request)
+
+            if user:
+                if user.is_active:
+                    try:
+                        login(request, user)
+                        # log.debug("Request :: " + str(request.user))
+                        # log.debug("Is authenticated :: " + str(user.is_authenticated()))
+                    except Exception as e:
+                        log.debug("Exception during login ::" + str(e))
+            log.debug(" Login_ui GET called with :: " + str(request.user))
+            return redirect('user-index')
+        except Exception as e:
+            log.error("Connection Failure in authenticate ::" + str(e))
+            return handle_error(request=request, status_code='500', error_message="Unable to reach AVA backend server "+ str(e))
     else:
         return render(request, 'accounts/login.html')
 
