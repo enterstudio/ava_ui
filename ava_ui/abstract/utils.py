@@ -3,12 +3,11 @@ import logging
 
 import requests
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+
+from ava_ui.abstract.errors import handle_error, ErrorStatus
 
 log = logging.getLogger(__name__)
-
-
-
 
 
 def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
@@ -18,8 +17,8 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
             headers['Authorization'] = 'JWT ' + request.session['token']
 
         else:
-            # TODO FIX THIS
-            return handle_error(request=request, error_message='Not logged in', status_code='500', context=None)
+            return handle_error(request=request, error_message='No token found in session',
+                                status_code=ErrorStatus.NOT_AUTHENTICATED)
 
     # add csrf header to existing headers
     if request:
@@ -35,8 +34,8 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
         elif request_type is 'PUT':
             return requests.put(url, data=api_data, headers=headers)
     except ConnectionError as e:
-        log.debug("Exception:: Connection Error " + e)
-        return handle_error(None, '404')
+        return handle_error(request=request, error_message='Connection Error' + str(e),
+                            status_code=ErrorStatus.SERVER_ERROR)
 
 
 def refresh_jwt_token(request):
@@ -48,19 +47,17 @@ def refresh_jwt_token(request):
         data = {'token': request.session['token']}
         data = json.dumps(data)
 
-        # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
         try:
             results = requests.post(url, data=data, headers=headers)
 
             if results.status_code is 200:
                 objects = results.json()
                 request.session['token'] = objects['token']
-                # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
             else:
                 log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
                     results.content) + ")")
         except ConnectionError as e:
-            log.debug("Exception:: Connection Error " + e)
-            return handle_error(None, '404')
+            return handle_error(request=request, error_message='Connection Error' + str(e),
+                                status_code=ErrorStatus.SERVER_ERROR)
     else:
         return redirect('login')
