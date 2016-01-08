@@ -28,11 +28,12 @@ class ErrorStatus():
         NOT_FOUND: 'error/generic_error.html',
     }
 
-    def get_display_message(self, error_type):
-        if error_type in self.ERROR_TYPES:
-            return self.ERROR_TYPES[error_type]
-        else:
-            return self.ERROR_TYPES[self.UNKNOWN_ERROR]
+
+def get_display_message(error_type):
+    if error_type in ErrorStatus.ERROR_TYPES:
+        return ErrorStatus.ERROR_TYPES[error_type]
+    else:
+        return ErrorStatus.ERROR_TYPES[ErrorStatus.UNKNOWN_ERROR]
 
 
 def handle_error(request,
@@ -47,7 +48,7 @@ def handle_error(request,
 
     context = {}
     context['status_code'] = status_code
-    context['error_message'] = ErrorStatus.get_display_message(status_code)
+    context['error_message'] = get_display_message(error_type=status_code)
 
     log.error("Handle_Error:: [" + str(status_code) + "] with message: " + str(error_message))
 

@@ -1,12 +1,15 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate, \
     ObjectCreateRelated, ObjectUpdateRelated
 
 log = logging.getLogger(__name__)
 
 
-class ModuleIndex(ObjectIndex):
+class ModuleIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/learn/module/'
     template_name = "learn/module/module_index.html"
 
@@ -14,7 +17,8 @@ class ModuleIndex(ObjectIndex):
         return super(ModuleIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class ModuleDetail(ObjectDetail):
+class ModuleDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/learn/module/'
     template_name = "learn/module/module_detail.html"
 
@@ -22,7 +26,8 @@ class ModuleDetail(ObjectDetail):
         return super(ModuleDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class ModuleCreate(ObjectCreateRelated):
+class ModuleCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/module/'
     form_data_url = '/learn/form/'
     template_name = "learn/module/module_form.html"
@@ -45,7 +50,8 @@ class ModuleCreate(ObjectCreateRelated):
                                               **kwargs)
 
 
-class ModuleUpdate(ObjectUpdateRelated):
+class ModuleUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/module/'
     form_data_url = '/learn/form/'
     template_name = "learn/module/module_form.html"
@@ -69,7 +75,8 @@ class ModuleUpdate(ObjectUpdateRelated):
                                               **kwargs)
 
 
-class ModuleDelete(ObjectDelete):
+class ModuleDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/learn/module/'
     redirect_url = 'learn-module-index'
 
@@ -80,7 +87,8 @@ class ModuleDelete(ObjectDelete):
                                              **kwargs)
 
 
-class RoleIndex(ObjectIndex):
+class RoleIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/learn/role/'
     template_name = "learn/role/role_index.html"
 
@@ -88,14 +96,16 @@ class RoleIndex(ObjectIndex):
         return super(RoleIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class RoleDetail(ObjectDetail):
+class RoleDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/learn/role/'
     template_name = "learn/role/role_detail.html"
 
     def get(self, request, **kwargs):
         return super(RoleDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
-class RoleCreate(ObjectCreateRelated):
+class RoleCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/role/'
     form_data_url = '/learn/form/'
     template_name = "learn/role/role_form.html"
@@ -118,7 +128,8 @@ class RoleCreate(ObjectCreateRelated):
                                             **kwargs)
 
 
-class RoleUpdate(ObjectUpdateRelated):
+class RoleUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/role/'
     form_data_url = '/learn/form/'
     template_name = "learn/role/role_form.html"
@@ -142,7 +153,8 @@ class RoleUpdate(ObjectUpdateRelated):
                                             **kwargs)
 
 
-class RoleDelete(ObjectDelete):
+class RoleDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/learn/role/'
     redirect_url = 'learn-role-index'
 
@@ -153,7 +165,8 @@ class RoleDelete(ObjectDelete):
                                            **kwargs)
 
 
-class PathIndex(ObjectIndex):
+class PathIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/learn/path/'
     template_name = "learn/path/path_index.html"
 
@@ -161,7 +174,8 @@ class PathIndex(ObjectIndex):
         return super(PathIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class PathDetail(ObjectDetail):
+class PathDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/learn/path/'
     template_name = "learn/path/path_detail.html"
 
@@ -169,7 +183,8 @@ class PathDetail(ObjectDetail):
         return super(PathDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class PathDelete(ObjectDelete):
+class PathDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/learn/path/'
     redirect_url = 'learn-path-index'
 
@@ -180,7 +195,8 @@ class PathDelete(ObjectDelete):
                                            **kwargs)
 
 
-class PathCreate(ObjectCreateRelated):
+class PathCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/path/'
     form_data_url = '/learn/form/'
     template_name = "learn/path/path_form.html"
@@ -203,7 +219,8 @@ class PathCreate(ObjectCreateRelated):
                                             **kwargs)
 
 
-class PathUpdate(ObjectUpdateRelated):
+class PathUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/learn/path/'
     form_data_url = '/learn/form/'
     template_name = "learn/path/path_form.html"

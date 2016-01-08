@@ -2,6 +2,7 @@ import logging
 
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
@@ -32,7 +33,8 @@ def login_ui(request):
             return redirect('user-index')
         except Exception as e:
             log.error("Connection Failure in authenticate ::" + str(e))
-            return handle_error(request=request, status_code='500', error_message="Unable to reach AVA backend server "+ str(e))
+            return handle_error(request=request, status_code='500',
+                                error_message="Unable to reach AVA backend server " + str(e))
     else:
         return render(request, 'accounts/login.html')
 
@@ -124,9 +126,7 @@ def password_reset_complete(request):
     return render(request, template_name)
 
 
-# TODO sort out authentication for this
-# TODO I hate this workflow. This doesn't ask for the old password and is pretty nasty. Could do with replacing this
-# TODO with an email verification thing like used for password reset
+@login_required
 def password_change(request):
     template_name = 'accounts/password-change.html'
     url = settings.API_BASE_URL + '/accounts/password/change/'
@@ -151,6 +151,7 @@ def password_change(request):
         return render(request, template_name)
 
 
+@login_required
 def password_change_done(request):
     template_name = 'accounts/password-change-done.html'
     return render(request, template_name)
