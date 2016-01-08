@@ -63,8 +63,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.request',
             ],
@@ -84,20 +84,18 @@ USE_TZ = True
 SECRET_KEY = os.environ.get('DJANGO_APP_SECRET_KEY', '')
 
 MIDDLEWARE_CLASSES = (
+
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # AVA Redirection Middleware must happen after AuthenticationMiddleware
-    # 'ava_ui.middleware.AVARedirectionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'csp.middleware.CSPMiddleware',
 )
 
-# AUTHENTICATION_BACKENDS = (
-#     # Django
-#     'django.contrib.auth.backends.ModelBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    'ava_ui.accounts.authentication.APIAuthenticationBackend',
+)
 
 ROOT_URLCONF = 'ava_ui.urls'
 

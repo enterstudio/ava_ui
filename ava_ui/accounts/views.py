@@ -1,55 +1,44 @@
 import logging
 
 from django.conf import settings
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from ava_ui.abstract.utils import handle_error, csrf_request, get_user_context
+from ava_ui.abstract.utils import handle_error, csrf_request
 
 log = logging.getLogger(__name__)
 
 
-def login(request):
+def login_ui(request):
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        log.debug("Attempting to authenticate :: " + username)
-        results = authenticate(request, username, password)
-        log.debug("Authenticate returned :: " + str(results))
-
-        if results is not None:
-
-            if results.status_code == 200:
-                content = results.json()
-                request.session['token'] = content['token']
-                request.session['user'] = username
-
-                if request.POST.get("next") is not "":
-                    log.debug("REDIRECTING TO NEXT " + str(request.POST.get("next")))
-                    return redirect(request.POST.get("next"))
-                else:
-                    log.debug("REDIRECTING TO :: " + str(settings.LOGIN_REDIRECT_URL))
-                    return redirect(settings.LOGIN_REDIRECT_URL, context=get_user_context(request))
-            else:
-                return handle_error(request, results.status_code)
-        else:
-            return HttpResponseRedirect('login')
+        # log.debug("Attempting to authenticate :: " + username)
+        user = authenticate(username=username, password=password, request=request)
+        if user:
+            if user.is_active:
+                try:
+                    login(request, user)
+                    # log.debug("Request :: " + str(request.user))
+                    # log.debug("Is authenticated :: " + str(user.is_authenticated()))
+                except Exception as e:
+                    log.debug("Exception during login ::" + e)
+        log.debug(" Login_ui GET called with :: " + str(request.user))
+        return redirect('learn-index')
     else:
-        return render(request, 'accounts/login.html', context=get_user_context(request))
+        return render(request, 'accounts/login.html')
 
 
-def authenticate(request, username, password):
-    url = settings.API_BASE_URL + '/login/'
-    login_data = {'username': username,
-                  'password': password,
-                  }
-    return csrf_request(request=request, request_type='POST', url=url, api_data=login_data)
-
-
-def logout(request):
+def logout_ui(request):
     request.session['token'] = None
-    request.session['user'] = None
+    Session.objects.all().delete()
+    try:
+        logout(request)
+    except Exception as e:
+        pass
     return redirect('login')
 
 
@@ -64,13 +53,13 @@ def password_reset(request):
 
         if results is not None:
             if results.status_code == 200:
-                return redirect(settings.LOGIN_REDIRECT_URL, context=get_user_context(request))
+                return redirect(settings.LOGIN_REDIRECT_URL)
             else:
                 return handle_error(request, results.status_code)
         else:
             return HttpResponseRedirect('login')
     else:
-        return render(request, template_name, context=get_user_context(request))
+        return render(request, template_name)
 
 
 def password_reset_token(request):
@@ -91,7 +80,7 @@ def password_reset_token(request):
                 return handle_error(request, results.status_code)
         else:
             # TODO is this the right template to send this to?
-            return render(request, reset_template_name, context=get_user_context(request))
+            return render(request, reset_template_name)
     else:
         return redirect('password-reset')
 
@@ -115,19 +104,19 @@ def password_reset_confirm(request):
                 return handle_error(request, results.status_code)
         else:
             # TODO is this the right template to send this to?
-            return render(request, reset_template_name, context=get_user_context(request))
+            return render(request, reset_template_name)
     else:
-        return render(request, template_name, context=get_user_context(request))
+        return render(request, template_name)
 
 
 def password_reset_done(request):
     template_name = 'accounts/password-reset-done.html'
-    return render(request, template_name, context=get_user_context(request))
+    return render(request, template_name)
 
 
 def password_reset_complete(request):
     template_name = 'accounts/password-reset-complete.html'
-    return render(request, template_name, context=get_user_context(request))
+    return render(request, template_name)
 
 
 # TODO sort out authentication for this
@@ -154,12 +143,12 @@ def password_change(request):
             # TODO is this the right template to send this to?
             return handle_error(request, results.status_code)
     else:
-        return render(request, template_name, context=get_user_context(request))
+        return render(request, template_name)
 
 
 def password_change_done(request):
     template_name = 'accounts/password-change-done.html'
-    return render(request, template_name, context=get_user_context(request))
+    return render(request, template_name)
 
 
 def register(request):
@@ -187,7 +176,7 @@ def register(request):
             # TODO is this the right template to send this to?
             return handle_error(request, results.status_code)
     else:
-        return render(request, template_name, context=get_user_context(request))
+        return render(request, template_name)
 
 
 def verify_email(request):
@@ -202,7 +191,7 @@ def verify_email(request):
 
         if results is not None:
             if results.status_code == 200:
-                return render(request, template_name, context=get_user_context(request))
+                return render(request, template_name)
             else:
                 return handle_error(request, results.status_code)
         else:

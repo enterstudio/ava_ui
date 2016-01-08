@@ -8,8 +8,7 @@ from django.shortcuts import render, redirect
 log = logging.getLogger(__name__)
 
 
-def handle_error(request, status_code, error_message='Unknown Error'):
-    context = get_user_context(request)
+def handle_error(request, context, status_code, error_message='Unknown Error'):
     log.debug("Called handle_error with status code :: " + str(status_code))
     # if status_code is 401 or 403:
     #     return redirect('login')
@@ -20,19 +19,27 @@ def handle_error(request, status_code, error_message='Unknown Error'):
 
 
 def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
+    # try:
+    #     log.debug("Request User " + str(request.user))
+    # except Exception as e:
+    #     log.debug("Request User doesn't exist")
+    #     pass
+
     # add authorization header to existing headers if is_authenticated == True
     if is_authenticated is True:
         if 'token' in request.session:
             headers['Authorization'] = 'JWT ' + request.session['token']
+            # log.debug("csrf_request :: Adding headers to request" + str(headers))
         else:
             # TODO FIX THIS
             return handle_error(request, 'Not logged in')
 
     # add csrf header to existing headers
-    headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
-    # log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
+    if request:
+        headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
+        # log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
 
-    log.debug("csrf_request :: making " + request_type + " request to " + str(url) + " with " + str(api_data))
+    # log.debug("csrf_request :: making " + request_type + " request to " + str(url) + " with " + str(api_data))
 
     try:
         if request_type is 'POST':
@@ -46,7 +53,6 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
     except ConnectionError as e:
         log.debug("Exception:: Connection Error " + e)
         return handle_error(None, '404')
-
 
 
 def refresh_jwt_token(request):
@@ -75,11 +81,3 @@ def refresh_jwt_token(request):
     else:
         return redirect('login')
 
-
-def get_user_context(request):
-    context = {}
-    if 'user' in request.session:
-        context['user'] = request.session['user']
-    else:
-        context['user'] = None
-    return context

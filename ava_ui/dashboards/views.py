@@ -1,5 +1,9 @@
 import logging
 
+from django.conf import settings
+from django.contrib.auth import load_backend
+from django.contrib.auth.models import AnonymousUser
+
 from ava_ui.abstract.views import ObjectDashboard
 
 log = logging.getLogger(__name__)

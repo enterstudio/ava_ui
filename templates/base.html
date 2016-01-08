@@ -34,6 +34,7 @@
                         <span class="user-image">
                             <img src="{% static 'images/ava-small-blue.png' %}">
                         </span>
+                        <span class="user">{% if user.is_authenticated %} Hi, {{ user }} {% else %} Not authenticated{% endif %}</span>
                     </a>
                     <ul class="nav navbar-nav navbar pull-xs-right">
                         {% if not user %}
@@ -60,7 +61,10 @@
             <!-- begin #sidebar -->
             <div id="sidebar" class="sidebar">
                 <div data-scrollbar="true" data-height="100%">
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
                         {% block sidebar %}
 
                             <!-- begin sidebar nav -->
