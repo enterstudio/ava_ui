@@ -27,6 +27,7 @@ DATABASES = {
 API_BASE_URL = 'http://192.168.59.103:8000'
 PUBLIC_BASE_URL = 'http://avasecure.com:8888'
 LOGIN_REDIRECT_URL = PUBLIC_BASE_URL + '/organize/people/'
+LOGIN_URL = '/accounts/login/'
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'true').lower() == 'true'
 # TEMPLATE_DEBUG = DEBUG

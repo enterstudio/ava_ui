@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block sidebar %}
+{% if user.is_authenticated and user.is_staff %}
+
     <nav class="navbar bg-inverse">
         <button class="navbar-toggler" type="button" disabled>
             <span class="user">Hi, {{ user.user }}</span>
@@ -82,4 +84,5 @@
         </div>
     </div>
 
+{% endif %}
 {% endblock %}
