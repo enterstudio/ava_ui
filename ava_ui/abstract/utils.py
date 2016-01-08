@@ -8,18 +8,10 @@ from django.shortcuts import render, redirect
 log = logging.getLogger(__name__)
 
 
-def handle_error(request, context, status_code, error_message='Unknown Error'):
-    log.debug("Called handle_error with status code :: " + str(status_code))
-    # if status_code is 401 or 403:
-    #     return redirect('login')
-    # else:
-    context['status_code'] = status_code
-    context['error_message'] = error_message
-    return render(request, 'error/generic_error.html', context=context)
+
 
 
 def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
-
     # add authorization header to existing headers if is_authenticated == True
     if is_authenticated is True:
         if 'token' in request.session:
@@ -72,4 +64,3 @@ def refresh_jwt_token(request):
             return handle_error(None, '404')
     else:
         return redirect('login')
-
