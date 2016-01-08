@@ -37,9 +37,7 @@ class ErrorStatus():
 
 def handle_error(request,
                  status_code=ErrorStatus.UNKNOWN_ERROR,
-                 error_message='Unknown Error',
-                 context={}):
-
+                 error_message='Unknown Error'):
     if status_code in [401, 403]:
         status_code = ErrorStatus.PERMISSION_DENIED
     if status_code in [404, ]:
@@ -47,6 +45,7 @@ def handle_error(request,
     if status_code in [500, ]:
         status_code = ErrorStatus.SERVER_ERROR
 
+    context = {}
     context['status_code'] = status_code
     context['error_message'] = ErrorStatus.get_display_message(status_code)
 
