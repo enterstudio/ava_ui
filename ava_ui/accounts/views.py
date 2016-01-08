@@ -27,7 +27,7 @@ def login_ui(request):
                 except Exception as e:
                     log.debug("Exception during login ::" + e)
         log.debug(" Login_ui GET called with :: " + str(request.user))
-        return redirect('learn-index')
+        return redirect('user-index')
     else:
         return render(request, 'accounts/login.html')
 
