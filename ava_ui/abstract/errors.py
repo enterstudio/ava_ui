@@ -41,10 +41,13 @@ def handle_error(request,
                  error_message='Unknown Error'):
     if status_code in [401, 403]:
         status_code = ErrorStatus.PERMISSION_DENIED
+
     if status_code in [404, ]:
         status_code = ErrorStatus.NOT_FOUND
     if status_code in [500, ]:
         status_code = ErrorStatus.SERVER_ERROR
+    else:
+        status_code = ErrorStatus.UNKNOWN_ERROR
 
     context = {}
     context['status_code'] = status_code
@@ -54,4 +57,8 @@ def handle_error(request,
 
     template_name = ErrorStatus.ERROR_TEMPLATES[status_code]
 
-    return render(request, template_name, context=context)
+    if status_code in [ErrorStatus.PERMISSION_DENIED, ErrorStatus.NOT_AUTHENTICATED]:
+        from ava_ui.abstract.views import logout_ui
+        return logout_ui(request)
+    else:
+        return render(request, template_name, context=context)

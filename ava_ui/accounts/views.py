@@ -7,7 +7,8 @@ from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from ava_ui.abstract.utils import handle_error, csrf_request
+from ava_ui.abstract.utils import csrf_request
+from ava_ui.abstract.errors import handle_error
 
 log = logging.getLogger(__name__)
 
@@ -40,7 +41,7 @@ def login_ui(request):
 
 
 def logout_ui(request):
-    request.session['token'] = None
+    log.debug("Called logout")
     Session.objects.all().delete()
     try:
         logout(request)
