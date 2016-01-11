@@ -32,7 +32,6 @@
         <div class=" p-a-1">
 
             <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><a class="nav-link" href="{# url 'news-index' #}">News</a></li>
                 <li class="nav-item"><a class="nav-link" href="{# url 'alerts-index' #}">Alerts</a></li>
                 <li class="nav-item"><a class="nav-link" href="{# url 'game-achievement-leaderboard' #}">Achievements Leaderboard</a></li>
             </ul>
@@ -48,11 +47,9 @@
         <div class=" p-a-1">
             <ul class="nav nav-pills nav-stacked">
                 <li class="nav-item">Seen something?</li>
-                <li class="nav-item"><a class="nav-link" href="{# url 'report-suspicious-create' #}">Report something suspicious</a></li>
-                <li class="nav-item">Need something updating?</li>
-                <li class="nav-item"><a class="nav-link" href="{# url 'report-change-create' #}">Request a change</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-suspicious-create' %}">Report something suspicious</a></li>
                 <li class="nav-item">Need help?</li>
-                <li class="nav-item"><a class="nav-link" href="{# url 'report-question-create' #}">Ask a question</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-question-create' %}">Ask a question</a></li>
             </ul>
         </div>
     </div>

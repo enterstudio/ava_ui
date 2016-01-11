@@ -83,6 +83,19 @@
             </ul>
         </div>
     </div>
+    <nav class="navbar navbar-light bg-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#supportNavBar">
+            <span class="glyphicon glyphicon-align-justify">&nbsp;Support</span>
+        </button>
+    </nav>
+    <div class="collapse" id="supportNavBar">
+        <div class=" p-a-1">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-suspicious-index' %}">Suspicious Activity Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-question-index' %}">Questions</a></li>
+            </ul>
+        </div>
+    </div>
 
 {% endif %}
 {% endblock %}
