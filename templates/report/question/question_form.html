@@ -1,0 +1,36 @@
+{% extends 'menus/user/user_menu.html' %}
+{% load staticfiles %}
+{% block mainpage %}
+    <div class="page-header">
+        <h2 class="sub-header">Ask a question</h2>
+    </div>
+
+    <div class="row">
+        <div class="form">
+
+            <div class="form-inner">
+                {% if form.errors %}
+                    <div class="alert bg-danger">
+                        <p>{{ form.errors }}</p>
+                    </div>
+                {% endif %}
+
+                <form action="{% if object %}{% url 'report-question-update' object.id %} {% else %} {% url 'report-question-create' %} {% endif %}" method='POST'> {% csrf_token %}
+                    <div class="form-group input-group">
+                        <label for="description">Question</label>
+                        <textarea class="form-control" id="description" name='description' rows="10" value="{% if object %}{{ object.description }} {% endif %}"></textarea>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="priority_type">Urgency</label>
+                        <input class="form-control" id="priority_type" type="text" name='priority_type'  value="{% if object %}{{ object.priority_type }} {% endif %}"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

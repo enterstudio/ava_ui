@@ -1,0 +1,85 @@
+{% extends 'game/base.html' %}
+{% block mainpage %}
+
+    <div class="page-header">
+        <h2 class="sub-header">Question - Detail</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td>Question:</td>
+                <td>{{ object.description }}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{ object.status_type }}</td>
+            </tr>
+            <tr>
+                <td>Priority:</td>
+                <td>{{ object.priority_type}}</td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{ object.created}}</td>
+            </tr>
+            <tr>
+                <td>Resolved:</td>
+                <td>{{ object.is_resolved}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="page-header">
+        <h2>Responses: </h2>
+    </div>
+
+    {% for response in object.question_responses %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <td>Response:</td>
+                    <td>{{ response.description }}</td>
+                </tr>
+                <tr>
+                    <td>Responder:</td>
+                    <td>{{ response.owner.email}}</td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{ response.created}}</td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    {%  if user.is_staff %}
+    <div class="row">
+        <div class="auth">
+
+            <div class="auth-inner">
+                {% if form.errors %}
+                    <div class="alert bg-danger">
+                        <p>{{ form.errors }}</p>
+                    </div>
+                {% endif %}
+
+                <form action="{% if object %}{% url 'report-response-update' object.id %} {% else %} {% url 'report-response-create' %} {% endif %}" method='POST'> {% csrf_token %}
+                    <div class="form-group input-group">
+                        <label for="message">Message</label>
+                        <input class="form-control" id="message" type="text" name='message' value="{% if object %}{{ object.description }} {% endif %}"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-def btn-block btn-success">Save</button>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}
