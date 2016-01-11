@@ -19,10 +19,10 @@ class APIAuthenticationBackend(object):
                     }
         response = csrf_request(request=request, url=url, request_type='POST', api_data=api_data,
                                 is_authenticated=False)
-        # log.debug("Authenticate returned response " + str(response.status_code))
+        #log.debug("Authenticate returned response " + str(response.status_code))
         if response.status_code is 200:
             content = response.json()
-            # log.debug("Authenticate returned " + str(response.text))
+            #log.debug("Authenticate returned " + str(response.text))
             if request:
                 request.session['token'] = content['token']
                 # log.debug("Token returned from authenticate :: " + str(request.session['token']))
