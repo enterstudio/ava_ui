@@ -331,6 +331,44 @@ table {
   background-color: #FCFCFC !important;
   padding: 0px !important; }
 
+.form {
+  background-color: #FFFFFF;
+  width: 75%;
+  min-height: 200px;
+  border: 1px solid #CFDBE2;
+  box-shadow: 0 2px 2px rgba(10, 10, 10, 0.06);
+  border-radius: 3px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  position: relative; }
+  .form h3 {
+    margin-top: 0px;
+    padding-bottom: 10px; }
+  .form .form-inner {
+    display: block;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+  }
+  .form .form-bottom {
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #CFDBE2;
+    background-color: #CFDBE2;
+    padding: 11px;
+    width: 100%;
+    left: 0px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px; }
+  .form .form-group {
+    width: 100%;
+    text-align: left; }
+
 .auth {
   background-color: #FFFFFF;
   width: 30%;
