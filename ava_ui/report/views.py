@@ -25,40 +25,24 @@ class QuestionDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
         return super(QuestionDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class QuestionCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
-    permission_required = 'is_staff'
+class QuestionCreate(LoginRequiredMixin, ObjectCreate):
     url_suffix = '/report/question/'
+    form_data_url = '/report/form/'
     template_name = "report/question/question_form.html"
 
     def get(self, request):
-        return super(QuestionCreate, self).get(request, self.template_name, self.url_suffix)
+        return super(QuestionCreate, self).get(request=request, template_name=self.template_name,
+                                               form_data_url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
         expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved']
-        redirect_url = 'report-question-index'
+        redirect_url = 'my-question-index'
         return super(QuestionCreate, self).post(request=request, template_name=self.template_name,
                                                 url_suffix=self.url_suffix,
                                                 expected_fields=expected_fields,
                                                 redirect_url=redirect_url,
                                                 **kwargs)
 
-
-class QuestionUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
-    permission_required = 'is_staff'
-    url_suffix = '/report/question/'
-    template_name = "report/question/question_form.html"
-
-    def get(self, request, **kwargs):
-        return super(QuestionUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-    def post(self, request, **kwargs):
-        expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved']
-        redirect_url = 'report-question-index'
-        return super(QuestionUpdate, self).post(request=request, template_name=self.template_name,
-                                                url_suffix=self.url_suffix,
-                                                expected_fields=expected_fields,
-                                                redirect_url=redirect_url,
-                                                **kwargs)
 
 
 class QuestionDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
@@ -91,41 +75,23 @@ class SuspiciousDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail
         return super(SuspiciousDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class SuspiciousCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
-    permission_required = 'is_staff'
+class SuspiciousCreate(LoginRequiredMixin, ObjectCreate):
     url_suffix = '/report/suspicious/'
+    form_data_url = '/report/form/'
     template_name = "report/suspicious/suspicious_form.html"
 
     def get(self, request):
-        return super(SuspiciousCreate, self).get(request, self.template_name, self.url_suffix)
+        return super(SuspiciousCreate, self).get(request=request, template_name=self.template_name,
+                                                 form_data_url_suffix=self.form_data_url)
 
     def post(self, request, **kwargs):
         expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved', 'url', 'incident_date']
-        redirect_url = 'report-suspicious-index'
+        redirect_url = 'my-suspicious-index'
         return super(SuspiciousCreate, self).post(request=request, template_name=self.template_name,
                                                   url_suffix=self.url_suffix,
                                                   expected_fields=expected_fields,
                                                   redirect_url=redirect_url,
                                                   **kwargs)
-
-
-class SuspiciousUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
-    permission_required = 'is_staff'
-    url_suffix = '/report/suspicious/'
-    template_name = "report/suspicious/suspicious_form.html"
-
-    def get(self, request, **kwargs):
-        return super(SuspiciousUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-    def post(self, request, **kwargs):
-        expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved', 'url', 'incident_date']
-        redirect_url = 'report-suspicious-index'
-        return super(SuspiciousUpdate, self).post(request=request, template_name=self.template_name,
-                                                  url_suffix=self.url_suffix,
-                                                  expected_fields=expected_fields,
-                                                  redirect_url=redirect_url,
-                                                  **kwargs)
-
 
 class SuspiciousDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
     permission_required = 'is_staff'
@@ -137,6 +103,7 @@ class SuspiciousDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete
                                                  url_suffix=self.url_suffix,
                                                  redirect_url=self.redirect_url,
                                                  **kwargs)
+
 
 class ResponseCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
     permission_required = 'is_staff'
@@ -156,22 +123,22 @@ class ResponseCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
                                                 **kwargs)
 
 
-class ResponseUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
-    permission_required = 'is_staff'
-    url_suffix = '/report/response/'
-    template_name = "report/question/question_index.html"
-
-    def get(self, request, **kwargs):
-        return super(ResponseUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-    def post(self, request, **kwargs):
-        expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved', 'url', 'incident_date']
-        redirect_url = 'report-response-index'
-        return super(ResponseUpdate, self).post(request=request, template_name=self.template_name,
-                                                url_suffix=self.url_suffix,
-                                                expected_fields=expected_fields,
-                                                redirect_url=redirect_url,
-                                                **kwargs)
+# class ResponseUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
+#     permission_required = 'is_staff'
+#     url_suffix = '/report/response/'
+#     template_name = "report/question/question_index.html"
+#
+#     def get(self, request, **kwargs):
+#         return super(ResponseUpdate, self).get(request, self.template_name, self.url_suffix, **kwargs)
+#
+#     def post(self, request, **kwargs):
+#         expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved', 'url', 'incident_date']
+#         redirect_url = 'report-response-index'
+#         return super(ResponseUpdate, self).post(request=request, template_name=self.template_name,
+#                                                 url_suffix=self.url_suffix,
+#                                                 expected_fields=expected_fields,
+#                                                 redirect_url=redirect_url,
+#                                                 **kwargs)
 
 
 class ResponseDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
