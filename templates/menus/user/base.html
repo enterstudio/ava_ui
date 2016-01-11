@@ -14,38 +14,22 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'my-learning-profile' %}">Learning Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'my-scorecard-index' %}">Scorecard</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'my-profile-history-index' %}">Activity</a></li>
-                <li class="nav-item"><a class="nav-link" href="{# url 'my-alerts-index' #}">Alerts</a></li>
             </ul>
 
         </div>
     </div>
     <nav class="navbar navbar-light bg-inverse">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#testNavBar">
-            <span class="glyphicon glyphicon-align-justify">&nbsp;Community</span>
-        </button>
-    </nav>
-    <div class="collapse" id="testNavBar">
-        <div class=" p-a-1">
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><a class="nav-link" href="{# url 'alerts-index' #}">Alerts</a></li>
-                <li class="nav-item"><a class="nav-link" href="{# url 'game-achievement-leaderboard' #}">Achievements Leaderboard</a></li>
-            </ul>
-
-        </div>
-    </div>
-    <nav class="navbar navbar-light bg-inverse">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#teachNavBar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#reportNavBar">
             <span class="glyphicon glyphicon-align-justify">&nbsp;Support</span>
         </button>
     </nav>
-    <div class="collapse" id="teachNavBar">
+    <div class="collapse" id="reportNavBar">
         <div class=" p-a-1">
             <ul class="nav nav-pills nav-stacked">
                 <li class="nav-item">Seen something?</li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'report-suspicious-create' %}">Report something suspicious</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-suspicious-create' %}">Report it!</a></li>
                 <li class="nav-item">Need help?</li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'report-question-create' %}">Ask a question</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-question-create' %}">Ask a question!</a></li>
             </ul>
         </div>
     </div>
