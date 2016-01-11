@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block sidebar %}
+     <nav class="navbar bg-inverse">
+        <button class="navbar-toggler" type="button" disabled>
+            <span class="user">Hi, {{ user }}</span>
+        </button>
+    </nav>
     <nav class="navbar navbar-dark bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#knowNavBar">
             <span class="glyphicon glyphicon-align-justify">&nbsp;Profile</span>

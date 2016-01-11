@@ -1,4 +1,43 @@
 {% extends 'gather/base.html' %}
+{% load staticfiles %}
 {% block mainpage %}
-This is the index page. We probably should do something pretty here.
+
+    <div class="row dashboard">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="dash-info">
+                            <div class="dash-img">
+                                <img src="{% static 'images/know.png' %}">
+                            </div>
+                            <div class="dash-desc">
+                                <h3>Gather: Dashboard</h3>
+
+                                <p>Automated import from a range of 3rd party systems. See your organisation and people as they are.</p>
+                            </div>
+                        </div>
+                        <div class="dash-stats">
+                            <div class="dash-stat">
+                                <span class="dash-count">{# person_count #}</span>
+                                <span class="dash-type"></span>
+                                <a href="{# url 'person-index' #}" class="btn btn-sm btn-default">View Integrations</a>
+                            </div>
+                            <div class="dash-stat">
+                                <span class="dash-count">{# person_identifier_count #}</span>
+                                <span class="dash-type"></span>
+                                <a href="{# url 'people-index' #}" class="btn btn-sm btn-default">View Import History</a>
+                            </div>
+                            <div class="dash-stat">
+                                <span class="dash-count">{# group_count #}</span>
+                                <span class="dash-type"></span>
+                                <a href="{# url 'groups-index' #}" class="btn btn-sm btn-default">Manual Import</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

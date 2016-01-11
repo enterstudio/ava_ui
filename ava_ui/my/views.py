@@ -1,11 +1,13 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail
 
 log = logging.getLogger(__name__)
 
 
-# class ProfileIndex(ObjectIndex):
+# class ProfileIndex(LoginRequiredMixin,  ObjectIndex):
 #     url_suffix = '/my/profile/'
 #     template_name = "my/profile/profile.html"
 #
@@ -13,7 +15,7 @@ log = logging.getLogger(__name__)
 #         return super(ProfileIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class LearningHistoryIndex(ObjectIndex):
+class LearningHistoryIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/learn/history/'
     template_name = "my/learning/history/learning_history_index.html"
 
@@ -21,7 +23,7 @@ class LearningHistoryIndex(ObjectIndex):
         return super(LearningHistoryIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class LearningQueueIndex(ObjectIndex):
+class LearningQueueIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/learn/queue/'
     template_name = "my/learning/queue/learning_queue_index.html"
 
@@ -29,7 +31,7 @@ class LearningQueueIndex(ObjectIndex):
         return super(LearningQueueIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class LearningProfileIndex(ObjectIndex):
+class LearningProfileIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/learn/profile/'
     template_name = "my/learning/profile/learning_profile.html"
 
@@ -37,7 +39,7 @@ class LearningProfileIndex(ObjectIndex):
         return super(LearningProfileIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class FriendsListIndex(ObjectIndex):
+class FriendsListIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/friends/'
     template_name = "my/friends/friends_index.html"
 
@@ -45,7 +47,7 @@ class FriendsListIndex(ObjectIndex):
         return super(FriendsListIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class ActivityLogIndex(ObjectIndex):
+class ActivityLogIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/activity/'
     template_name = "my/profile/history/profile_history_index.html"
 
@@ -53,7 +55,7 @@ class ActivityLogIndex(ObjectIndex):
         return super(ActivityLogIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class ScoreCardIndex(ObjectIndex):
+class ScoreCardIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/scorecard/'
     template_name = "my/scorecard/scorecard_index.html"
 

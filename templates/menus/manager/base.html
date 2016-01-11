@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block sidebar %}
+{% if user.is_authenticated and user.is_staff %}
 
+    <nav class="navbar bg-inverse">
+        <button class="navbar-toggler" type="button" disabled>
+            <span class="user">Hi, {{ user }}</span>
+        </button>
+    </nav>
     <nav class="navbar navbar-dark bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#knowNavBar">
             <span class="glyphicon glyphicon-align-justify">&nbsp;Know</span>
@@ -35,7 +41,7 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li class="nav-item">Home</li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'test-index' %}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-index' %}">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'evaluate-controller-create' %}">Add Test
                     Project</a></li>
                 <li class="nav-item">Manage</li>
@@ -78,4 +84,5 @@
         </div>
     </div>
 
+{% endif %}
 {% endblock %}

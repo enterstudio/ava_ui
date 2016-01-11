@@ -3,8 +3,10 @@ from logging import getLogger
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.sessions.models import Session
 
 from ava_ui.abstract.utils import csrf_request
+from ava_ui.accounts.views import logout_ui
 
 log = getLogger(__name__)
 
@@ -29,13 +31,47 @@ class APIAuthenticationBackend(object):
 
     def get_user(self, user_id):
         log.debug(" called get_user")
-        try:
-            user = User.objects.get(pk=user_id)
-            log.debug(" called get_user and returned user: " + user.username)
-            return user
-        except User.DoesNotExist:
-            log.debug(" called get_user and returned None")
+        if self.is_valid_token():
+            try:
+                user = User.objects.get(pk=user_id)
+                log.debug(" called get_user and returned user: " + user.username)
+                return user
+            except User.DoesNotExist:
+                log.debug(" called get_user and returned None")
+                return None
+        else:
+            logout_ui(None)
             return None
+
+    def is_valid_token(self):
+        url = settings.API_BASE_URL + '/api-token-verify/'
+
+        try:
+            token = None
+            session_objects = Session.objects.all()
+            for objects in session_objects:
+                if not token:
+                    # log.debug("Examining session with pk :" + str(objects.pk))
+                    # log.debug("Object :: " + str(objects.session_data))
+                    session_data = objects.get_decoded()
+                    # log.debug("Session data :: " + str(session_data))
+                    token = session_data['token']
+
+            api_data = {'token': token}
+
+            response = csrf_request(request=None, url=url, api_data=api_data,
+                                    request_type='POST',
+                                    is_authenticated=False)
+            log.debug("get_user_from_token returned response " + str(response))
+            if response.status_code is 200:
+                return True
+            else:
+                return False
+        except Exception as e:
+            log.debug("Exception in is_valid_token =  " + str(e))
+            pass
+
+        return False
 
     def get_user_from_token(self, token, request):
         url = settings.API_BASE_URL + '/accounts/user/token/'

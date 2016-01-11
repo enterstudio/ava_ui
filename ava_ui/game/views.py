@@ -1,11 +1,14 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
 
-class AchievementIndex(ObjectIndex):
+class AchievementIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/game/achievement/'
     template_name = "game/achievement/achievement_index.html"
 
@@ -13,7 +16,8 @@ class AchievementIndex(ObjectIndex):
         return super(AchievementIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class AchievementDetail(ObjectDetail):
+class AchievementDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/game/achievement/'
     template_name = "game/achievement/achievement_detail.html"
 
@@ -21,7 +25,8 @@ class AchievementDetail(ObjectDetail):
         return super(AchievementDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class AchievementCreate(ObjectCreate):
+class AchievementCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
+    permission_required = 'is_staff'
     url_suffix = '/game/achievement/'
     template_name = "game/achievement/achievement_form.html"
 
@@ -37,7 +42,9 @@ class AchievementCreate(ObjectCreate):
                                                    redirect_url=redirect_url,
                                                    **kwargs)
 
-class AchievementUpdate(ObjectUpdate):
+
+class AchievementUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
+    permission_required = 'is_staff'
     url_suffix = '/game/achievement/'
     template_name = "game/achievement/achievement_form.html"
 
@@ -54,7 +61,8 @@ class AchievementUpdate(ObjectUpdate):
                                                    **kwargs)
 
 
-class AchievementDelete(ObjectDelete):
+class AchievementDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/game/achievement/'
     redirect_url = 'game-achievement-index'
 

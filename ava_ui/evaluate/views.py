@@ -1,12 +1,15 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from ava_ui.abstract.views import ObjectCreate, ObjectDetail, ObjectIndex, ObjectDelete, ObjectUpdate, \
     ObjectCreateRelated, ObjectUpdateRelated
 
 log = logging.getLogger(__name__)
 
 
-class EvaluateTemplateIndex(ObjectIndex):
+class EvaluateTemplateIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/template/'
     template_name = "evaluate/template/template_index.html"
 
@@ -14,7 +17,8 @@ class EvaluateTemplateIndex(ObjectIndex):
         return super(EvaluateTemplateIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class EvaluateTemplateDetail(ObjectDetail):
+class EvaluateTemplateDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/template/'
     template_name = "evaluate/template/template_detail.html"
 
@@ -22,7 +26,8 @@ class EvaluateTemplateDetail(ObjectDetail):
         return super(EvaluateTemplateDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class EvaluateTemplateCreate(ObjectCreate):
+class EvaluateTemplateCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/template/'
     template_name = "evaluate/template/template_form.html"
 
@@ -39,7 +44,8 @@ class EvaluateTemplateCreate(ObjectCreate):
                                                         **kwargs)
 
 
-class EvaluateTemplateUpdate(ObjectUpdate):
+class EvaluateTemplateUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/template/'
     template_name = "evaluate/template/template_form.html"
 
@@ -56,7 +62,8 @@ class EvaluateTemplateUpdate(ObjectUpdate):
                                                         **kwargs)
 
 
-class EvaluateTemplateDelete(ObjectDelete):
+class EvaluateTemplateDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/template/'
     redirect_url = 'evaluate-template-index'
 
@@ -67,23 +74,16 @@ class EvaluateTemplateDelete(ObjectDelete):
                                                        **kwargs)
 
 
-class EvaluateResultIndex(ObjectIndex):
+class EvaluateResultIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/result/'
     template_name = "evaluate/results/evaluate_result_index.html"
 
     def get(self, request):
         return super(EvaluateResultIndex, self).get(request, self.template_name, self.url_suffix)
 
-
-# TODO REMOVED DUE TO TIME CONSTRAINTS - WORKS BUT TEMPLATE.HTML NEEDS LOVE
-# class EvaluateResultDetail(ObjectDetail):
-#     url_suffix = '/evaluate/result/'
-#     template_name = "evaluate/results/evaluate_result_detail.html"
-#
-#     def get(self, request, **kwargs):
-#         return super(EvaluateResultDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
-
-class EvaluateSenderIndex(ObjectIndex):
+class EvaluateSenderIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/sender/'
     template_name = "evaluate/sender/sender_index.html"
 
@@ -91,7 +91,8 @@ class EvaluateSenderIndex(ObjectIndex):
         return super(EvaluateSenderIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class EvaluateSenderDetail(ObjectDetail):
+class EvaluateSenderDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/sender/'
     template_name = "evaluate/sender/sender_detail.html"
 
@@ -99,7 +100,8 @@ class EvaluateSenderDetail(ObjectDetail):
         return super(EvaluateSenderDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class EvaluateSenderCreate(ObjectCreate):
+class EvaluateSenderCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/sender/'
     template_name = "evaluate/sender/sender_form.html"
 
@@ -116,7 +118,8 @@ class EvaluateSenderCreate(ObjectCreate):
                                                       **kwargs)
 
 
-class EvaluateSenderUpdate(ObjectUpdate):
+class EvaluateSenderUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/sender/'
     template_name = "evaluate/sender/sender_form.html"
 
@@ -133,7 +136,8 @@ class EvaluateSenderUpdate(ObjectUpdate):
                                                       **kwargs)
 
 
-class EvaluateSenderDelete(ObjectDelete):
+class EvaluateSenderDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/sender/'
     redirect_url = 'evaluate-sender-index'
 
@@ -144,7 +148,8 @@ class EvaluateSenderDelete(ObjectDelete):
                                                      **kwargs)
 
 
-class EvaluateControllerIndex(ObjectIndex):
+class EvaluateControllerIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/controller/'
     template_name = "evaluate/controller/controller_index.html"
 
@@ -152,7 +157,8 @@ class EvaluateControllerIndex(ObjectIndex):
         return super(EvaluateControllerIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class EvaluateControllerDetail(ObjectDetail):
+class EvaluateControllerDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/controller/'
     template_name = "evaluate/controller/controller_detail.html"
 
@@ -160,7 +166,8 @@ class EvaluateControllerDetail(ObjectDetail):
         return super(EvaluateControllerDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class EvaluateControllerCreate(ObjectCreateRelated):
+class EvaluateControllerCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/controller/'
     template_name = "evaluate/controller/controller_form.html"
     form_data_url = '/evaluate/form/controller/'
@@ -184,7 +191,8 @@ class EvaluateControllerCreate(ObjectCreateRelated):
                                                           **kwargs)
 
 
-class EvaluateControllerUpdate(ObjectUpdateRelated):
+class EvaluateControllerUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdateRelated):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/controller/'
     template_name = "evaluate/controller/controller_form.html"
     form_data_url = '/evaluate/form/controller/'
@@ -208,7 +216,8 @@ class EvaluateControllerUpdate(ObjectUpdateRelated):
                                                           **kwargs)
 
 
-class EvaluateControllerDelete(ObjectDelete):
+class EvaluateControllerDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/controller/'
     redirect_url = 'evaluate-controller-index'
 
@@ -219,7 +228,8 @@ class EvaluateControllerDelete(ObjectDelete):
                                                          **kwargs)
 
 
-class EvaluateTargetProfileIndex(ObjectIndex):
+class EvaluateTargetProfileIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/test/'
     template_name = "evaluate/target/target_index.html"
 
@@ -227,7 +237,8 @@ class EvaluateTargetProfileIndex(ObjectIndex):
         return super(EvaluateTargetProfileIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class EvaluateTargetProfileDetail(ObjectDetail):
+class EvaluateTargetProfileDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/evaluate/test/'
     template_name = "evaluate/target/target_detail.html"
 

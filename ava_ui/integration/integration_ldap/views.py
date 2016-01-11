@@ -1,11 +1,14 @@
 import logging
 
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
 
-class LDAPIntegrationIndex(ObjectIndex):
+class LDAPIntegrationIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/integration/ldap/setup/'
     template_name = "integration/ldap/ldap_index.html"
 
@@ -13,7 +16,8 @@ class LDAPIntegrationIndex(ObjectIndex):
         return super(LDAPIntegrationIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class LDAPIntegrationDetail(ObjectDetail):
+class LDAPIntegrationDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/integration/ldap/setup/'
     template_name = "integration/ldap/ldap_detail.html"
 
@@ -21,7 +25,8 @@ class LDAPIntegrationDetail(ObjectDetail):
         return super(LDAPIntegrationDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class LDAPIntegrationCreate(ObjectCreate):
+class LDAPIntegrationCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
+    permission_required = 'is_staff'
     url_suffix = '/integration/ldap/setup/'
     template_name = "integration/ldap/ldap_form.html"
 
@@ -38,7 +43,7 @@ class LDAPIntegrationCreate(ObjectCreate):
                                                        **kwargs)
 
 
-class LDAPIntegrationUpdate(ObjectUpdate):
+class LDAPIntegrationUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
     url_suffix = '/integration/ldap/setup/'
     template_name = "integration/ldap/ldap_form.html"
 
@@ -55,7 +60,7 @@ class LDAPIntegrationUpdate(ObjectUpdate):
                                                        **kwargs)
 
 
-class LDAPIntegrationDelete(ObjectDelete):
+class LDAPIntegrationDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
     url_suffix = '/integration/ldap/setup/'
     redirect_url = 'integration-ldap-index'
 

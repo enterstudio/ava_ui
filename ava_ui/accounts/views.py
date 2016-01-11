@@ -2,11 +2,13 @@ import logging
 
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
-from ava_ui.abstract.utils import handle_error, csrf_request
+from ava_ui.abstract.utils import csrf_request
+from ava_ui.abstract.errors import handle_error
 
 log = logging.getLogger(__name__)
 
@@ -17,23 +19,29 @@ def login_ui(request):
         password = request.POST.get('password')
 
         # log.debug("Attempting to authenticate :: " + username)
-        user = authenticate(username=username, password=password, request=request)
-        if user:
-            if user.is_active:
-                try:
-                    login(request, user)
-                    # log.debug("Request :: " + str(request.user))
-                    # log.debug("Is authenticated :: " + str(user.is_authenticated()))
-                except Exception as e:
-                    log.debug("Exception during login ::" + e)
-        log.debug(" Login_ui GET called with :: " + str(request.user))
-        return redirect('learn-index')
+        try:
+            user = authenticate(username=username, password=password, request=request)
+
+            if user:
+                if user.is_active:
+                    try:
+                        login(request, user)
+                        # log.debug("Request :: " + str(request.user))
+                        # log.debug("Is authenticated :: " + str(user.is_authenticated()))
+                    except Exception as e:
+                        log.debug("Exception during login ::" + str(e))
+            log.debug(" Login_ui GET called with :: " + str(request.user))
+            return redirect('user-index')
+        except Exception as e:
+            log.error("Connection Failure in authenticate ::" + str(e))
+            return handle_error(request=request, status_code='500',
+                                error_message="Unable to reach AVA backend server " + str(e))
     else:
         return render(request, 'accounts/login.html')
 
 
 def logout_ui(request):
-    request.session['token'] = None
+    log.debug("Called logout")
     Session.objects.all().delete()
     try:
         logout(request)
@@ -119,9 +127,7 @@ def password_reset_complete(request):
     return render(request, template_name)
 
 
-# TODO sort out authentication for this
-# TODO I hate this workflow. This doesn't ask for the old password and is pretty nasty. Could do with replacing this
-# TODO with an email verification thing like used for password reset
+@login_required
 def password_change(request):
     template_name = 'accounts/password-change.html'
     url = settings.API_BASE_URL + '/accounts/password/change/'
@@ -146,6 +152,7 @@ def password_change(request):
         return render(request, template_name)
 
 
+@login_required
 def password_change_done(request):
     template_name = 'accounts/password-change-done.html'
     return render(request, template_name)

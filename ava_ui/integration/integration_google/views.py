@@ -1,12 +1,15 @@
 import logging
 
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from ava_ui.abstract.views import ObjectIndex, ObjectDetail, ObjectCreate, ObjectDelete, ObjectAuthorize, \
     ObjectAuthorizeCallback, ObjectUpdate
 
 log = logging.getLogger(__name__)
 
 
-class GoogleIntegrationIndex(ObjectIndex):
+class GoogleIntegrationIndex(LoginRequiredMixin, PermissionRequiredMixin, ObjectIndex):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/setup/'
     template_name = "integration/google/google_index.html"
 
@@ -14,7 +17,8 @@ class GoogleIntegrationIndex(ObjectIndex):
         return super(GoogleIntegrationIndex, self).get(request, self.template_name, self.url_suffix)
 
 
-class GoogleIntegrationDetail(ObjectDetail):
+class GoogleIntegrationDetail(LoginRequiredMixin, PermissionRequiredMixin, ObjectDetail):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/setup/'
     template_name = "integration/google/google_detail.html"
 
@@ -22,7 +26,8 @@ class GoogleIntegrationDetail(ObjectDetail):
         return super(GoogleIntegrationDetail, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class GoogleIntegrationCreate(ObjectCreate):
+class GoogleIntegrationCreate(LoginRequiredMixin, PermissionRequiredMixin, ObjectCreate):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/setup/'
     template_name = "integration/google/google_form.html"
 
@@ -39,7 +44,8 @@ class GoogleIntegrationCreate(ObjectCreate):
                                                          **kwargs)
 
 
-class GoogleIntegrationUpdate(ObjectUpdate):
+class GoogleIntegrationUpdate(LoginRequiredMixin, PermissionRequiredMixin, ObjectUpdate):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/setup/'
     template_name = "integration/google/google_form.html"
 
@@ -56,7 +62,8 @@ class GoogleIntegrationUpdate(ObjectUpdate):
                                                          **kwargs)
 
 
-class GoogleIntegrationDelete(ObjectDelete):
+class GoogleIntegrationDelete(LoginRequiredMixin, PermissionRequiredMixin, ObjectDelete):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/setup/'
     redirect_url = 'integration-google-index'
 
@@ -67,7 +74,8 @@ class GoogleIntegrationDelete(ObjectDelete):
                                                         **kwargs)
 
 
-class GoogleIntegrationAuthorize(ObjectAuthorize):
+class GoogleIntegrationAuthorize(LoginRequiredMixin, PermissionRequiredMixin, ObjectAuthorize):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/redirect/'
     template_name = "integration/google/google_index.html"
 
@@ -75,7 +83,8 @@ class GoogleIntegrationAuthorize(ObjectAuthorize):
         return super(GoogleIntegrationAuthorize, self).get(request, self.template_name, self.url_suffix, **kwargs)
 
 
-class GoogleIntegrationAuthorizeCallback(ObjectAuthorizeCallback):
+class GoogleIntegrationAuthorizeCallback(LoginRequiredMixin, PermissionRequiredMixin, ObjectAuthorizeCallback):
+    permission_required = 'is_staff'
     url_suffix = '/integration/google/callback/?code='
     template_name = "integration/google/google_index.html"
 

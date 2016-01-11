@@ -3,43 +3,26 @@ import logging
 
 import requests
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+
+from ava_ui.abstract.errors import handle_error, ErrorStatus
 
 log = logging.getLogger(__name__)
 
 
-def handle_error(request, context, status_code, error_message='Unknown Error'):
-    log.debug("Called handle_error with status code :: " + str(status_code))
-    # if status_code is 401 or 403:
-    #     return redirect('login')
-    # else:
-    context['status_code'] = status_code
-    context['error_message'] = error_message
-    return render(request, 'error/generic_error.html', context=context)
-
-
 def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_authenticated=False):
-    # try:
-    #     log.debug("Request User " + str(request.user))
-    # except Exception as e:
-    #     log.debug("Request User doesn't exist")
-    #     pass
-
     # add authorization header to existing headers if is_authenticated == True
     if is_authenticated is True:
         if 'token' in request.session:
             headers['Authorization'] = 'JWT ' + request.session['token']
-            # log.debug("csrf_request :: Adding headers to request" + str(headers))
+
         else:
-            # TODO FIX THIS
-            return handle_error(request, 'Not logged in')
+            return handle_error(request=request, error_message='No token found in session',
+                                status_code=ErrorStatus.NOT_AUTHENTICATED)
 
     # add csrf header to existing headers
     if request:
         headers['HTTP_X_CSRFTOKEN'] = request.COOKIES['csrftoken']
-        # log.debug("csrf_post_request :: Adding CSRF token to headers :: " + str(headers['HTTP_X_CSRFTOKEN']))
-
-    # log.debug("csrf_request :: making " + request_type + " request to " + str(url) + " with " + str(api_data))
 
     try:
         if request_type is 'POST':
@@ -51,8 +34,8 @@ def csrf_request(request, url, request_type='POST', api_data={}, headers={}, is_
         elif request_type is 'PUT':
             return requests.put(url, data=api_data, headers=headers)
     except ConnectionError as e:
-        log.debug("Exception:: Connection Error " + e)
-        return handle_error(None, '404')
+        return handle_error(request=request, error_message='Connection Error' + str(e),
+                            status_code=ErrorStatus.SERVER_ERROR)
 
 
 def refresh_jwt_token(request):
@@ -64,20 +47,17 @@ def refresh_jwt_token(request):
         data = {'token': request.session['token']}
         data = json.dumps(data)
 
-        # log.debug("refresh_jwt_token :: Adding current token to request data :: " + str(data))
         try:
             results = requests.post(url, data=data, headers=headers)
 
             if results.status_code is 200:
                 objects = results.json()
                 request.session['token'] = objects['token']
-                # log.debug("refresh_jwt_token :: Storing new token :: " + str(objects['token']))
             else:
                 log.debug("refresh_jwt_token :: Failed to refresh token :: " + str(results.status_code) + "(" + str(
                     results.content) + ")")
         except ConnectionError as e:
-            log.debug("Exception:: Connection Error " + e)
-            return handle_error(None, '404')
+            return handle_error(request=request, error_message='Connection Error' + str(e),
+                                status_code=ErrorStatus.SERVER_ERROR)
     else:
         return redirect('login')
-

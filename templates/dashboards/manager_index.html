@@ -1,4 +1,44 @@
 {% extends 'evaluate/base.html' %}
+{% load staticfiles %}
 {% block mainpage %}
-This is the index page. We probably should do something pretty here.
+
+    <div class="row dashboard">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="dash-info">
+                            <div class="dash-img">
+                                <img src="{% static 'images/know.png' %}">
+                            </div>
+                            <div class="dash-desc">
+                                <h3>Manager: Dashboard</h3>
+
+                                <p>Your gateway to the protect your people.</p>
+                            </div>
+                        </div>
+
+                        <div class="dash-stats">
+                            <div class="dash-stat">
+                                <img src="{% static 'images/know.png' %}">
+                                <span class="dash-type"></span>
+                                <a href="{% url 'know-index' %}" class="btn btn-sm btn-default">Know</a>
+                            </div>
+                            <div class="dash-stat">
+                                <img src="{% static 'images/test.png' %}">
+                                <span class="dash-type"></span>
+                                <a href="{% url 'evaluate-index' %}" class="btn btn-sm btn-default">Test</a>
+                            </div>
+                            <div class="dash-stat">
+                                <img src="{% static 'images/learn.png' %}">
+                                <span class="dash-type"></span>
+                                <a href="{% url 'educate-index' %}" class="btn btn-sm btn-default">Learn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
