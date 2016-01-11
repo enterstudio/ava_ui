@@ -4,8 +4,6 @@ from .views import *
 
 
 urlpatterns = [
-    # url(r'^profile/$', ProfileIndex.as_view(),
-    #     name="my-profile"),
 
     url(r'^profile/history/$', ActivityLogIndex.as_view(),
         name="my-profile-history-index"),
@@ -25,7 +23,13 @@ urlpatterns = [
     url(r'^learning/profile/$', LearningProfileIndex.as_view(),
         name="my-learning-profile"),
 
+    url(r'^results/$', TestResultsIndex.as_view(),
+        name="my-results-index"),
 
+    url(r'^questions/$', QuestionsIndex.as_view(),
+        name="my-questions-index"),
 
+    url(r'^reports/$', SuspiciousIndex.as_view(),
+        name="my-reports-index"),
     
 ]

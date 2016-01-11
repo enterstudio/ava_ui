@@ -36,7 +36,7 @@ class QuestionCreate(LoginRequiredMixin, ObjectCreate):
 
     def post(self, request, **kwargs):
         expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved']
-        redirect_url = 'my-question-index'
+        redirect_url = 'my-questions-index'
         return super(QuestionCreate, self).post(request=request, template_name=self.template_name,
                                                 url_suffix=self.url_suffix,
                                                 expected_fields=expected_fields,
@@ -86,7 +86,7 @@ class SuspiciousCreate(LoginRequiredMixin, ObjectCreate):
 
     def post(self, request, **kwargs):
         expected_fields = ['reason_type', 'priority_type', 'description', 'is_resolved', 'url', 'incident_date']
-        redirect_url = 'my-suspicious-index'
+        redirect_url = 'my-reports-index'
         return super(SuspiciousCreate, self).post(request=request, template_name=self.template_name,
                                                   url_suffix=self.url_suffix,
                                                   expected_fields=expected_fields,

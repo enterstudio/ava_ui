@@ -7,14 +7,6 @@ from ava_ui.abstract.views import ObjectIndex, ObjectDetail
 log = logging.getLogger(__name__)
 
 
-# class ProfileIndex(LoginRequiredMixin,  ObjectIndex):
-#     url_suffix = '/my/profile/'
-#     template_name = "my/profile/profile.html"
-#
-#     def get(self, request):
-#         return super(ProfileIndex, self).get(request, self.template_name, self.url_suffix)
-
-
 class LearningHistoryIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/learn/history/'
     template_name = "my/learning/history/learning_history_index.html"
@@ -22,6 +14,26 @@ class LearningHistoryIndex(LoginRequiredMixin,  ObjectIndex):
     def get(self, request):
         return super(LearningHistoryIndex, self).get(request, self.template_name, self.url_suffix)
 
+class TestResultsIndex(LoginRequiredMixin,  ObjectIndex):
+    url_suffix = '/my/test/results'
+    template_name = "my/test/results_index.html"
+
+    def get(self, request):
+        return super(TestResultsIndex, self).get(request, self.template_name, self.url_suffix)
+
+class QuestionsIndex(LoginRequiredMixin,  ObjectIndex):
+    url_suffix = '/my/questions'
+    template_name = "report/question/question_index.html"
+
+    def get(self, request):
+        return super(QuestionsIndex, self).get(request, self.template_name, self.url_suffix)
+
+class SuspiciousIndex(LoginRequiredMixin,  ObjectIndex):
+    url_suffix = '/my/suspicious'
+    template_name = "report/suspicious/suspicious_index.html"
+
+    def get(self, request):
+        return super(QuestionsIndex, self).get(request, self.template_name, self.url_suffix)
 
 class LearningQueueIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/learn/queue/'
