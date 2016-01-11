@@ -33,4 +33,7 @@ urlpatterns = [
 
     url(r'^user/dashboard/$', UserDashboard.as_view(),
         name="user-index"),
+
+    url(r'^$', UserDashboard.as_view(),
+        name="home"),
 ]
