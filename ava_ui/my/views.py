@@ -21,6 +21,13 @@ class TestResultsIndex(LoginRequiredMixin,  ObjectIndex):
     def get(self, request):
         return super(TestResultsIndex, self).get(request, self.template_name, self.url_suffix)
 
+class PeopleIndex(LoginRequiredMixin,  ObjectIndex):
+    url_suffix = '/my/people'
+    template_name = "organize/person/person_index.html"
+
+    def get(self, request):
+        return super(PeopleIndex, self).get(request, self.template_name, self.url_suffix)
+
 class QuestionsIndex(LoginRequiredMixin,  ObjectIndex):
     url_suffix = '/my/questions'
     template_name = "report/question/question_index.html"

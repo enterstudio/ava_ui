@@ -10,7 +10,10 @@ urlpatterns = [
 
     url(r'^friends/$', FriendsListIndex.as_view(),
         name="my-friends-index"),
-    
+
+    url(r'^people/$', PeopleIndex.as_view(),
+        name="my-people-index"),
+
     url(r'^scorecard/$', ScoreCardIndex.as_view(),
         name="my-scorecard-index"),
 
