@@ -1,4 +1,4 @@
-{% extends 'menus/user/user_menu.html' %}
+{% extends 'menus/user/base.html' %}
 {% block mainpage %}
 
     <div class="page-header">
@@ -28,7 +28,7 @@
                             <a href="{% url 'report-suspicious-detail' item.id %}">
                                 <button type="button" class="btn btn-primary btn-sm">View</button>
                             </a>
-                            <a href="{% url 'report-suspicious-update' item.id %}">
+                            <a href="{% url 'report-suspicious-detail' item.id %}">
                                 <button type="button" class="btn btn-primary btn-sm">Respond</button>
                             </a>
                             <a href="{% url 'report-suspicious-delete' item.id %}">
