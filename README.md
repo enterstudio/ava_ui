@@ -27,7 +27,7 @@ AVA Secure puts the people first in security assessment, leaving your organisati
 ### License and Open sourcing
 We believe that security tools based on secret recipes are dangerous. Security solutions should always be subject to scrutiny. Open sourcing AVA allows us to be seen and for collaborators to get involved. Only together can we make AVA the best first step to protecting your people.
 
-AVA is released under GPL v2. If you aren't sure what this means then you should probably [read this](http://www.gnu.org/licenses/gpl-2.0.html).
+AVA is released under GPL v3. If you aren't sure what this means then you should probably [read this](http://www.gnu.org/licenses/gpl-3.0.html).
 If the terms of GPL are not suitable to your environment, please get in touch. We would be happy to discuss this with you.
 
 Eventually there may be paid services or components based around AVA. The core will always remain free and open source for those who want to run it internally.
