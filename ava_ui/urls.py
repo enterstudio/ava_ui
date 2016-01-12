@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^game/', include('ava_ui.game.urls')),
     url(r'^learn/', include('ava_ui.learn.urls')),
     url(r'^test/', include('ava_ui.evaluate.urls')),
+    url(r'^report/', include('ava_ui.report.urls')),
     #
     url(r'^', include('ava_ui.dashboards.urls')),
     #

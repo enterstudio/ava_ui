@@ -7,8 +7,8 @@ from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
+from ava_ui.abstract.errors import handle_error, ErrorStatus
 from ava_ui.abstract.utils import csrf_request
-from ava_ui.abstract.errors import handle_error
 
 log = logging.getLogger(__name__)
 
@@ -28,14 +28,16 @@ def login_ui(request):
                         login(request, user)
                         # log.debug("Request :: " + str(request.user))
                         # log.debug("Is authenticated :: " + str(user.is_authenticated()))
+                        return redirect('user-index')
                     except Exception as e:
-                        log.debug("Exception during login ::" + str(e))
-            log.debug(" Login_ui GET called with :: " + str(request.user))
-            return redirect('user-index')
+                        return handle_error(request=request, status_code=ErrorStatus.NOT_AUTHENTICATED,
+                                            error_message="Unable to authenticate " + str(e))
+            else:
+                return handle_error(request=request, status_code=ErrorStatus.NOT_AUTHENTICATED,
+                                    error_message="Authentication failure")
         except Exception as e:
-            log.error("Connection Failure in authenticate ::" + str(e))
-            return handle_error(request=request, status_code='500',
-                                error_message="Unable to reach AVA backend server " + str(e))
+            return handle_error(request=request, status_code=ErrorStatus.NOT_AUTHENTICATED,
+                                error_message="Unable to authenticate " + str(e))
     else:
         return render(request, 'accounts/login.html')
 

@@ -75,8 +75,27 @@ class ObjectDetail(AbstractObjectInterface):
 
 
 class ObjectUpdate(ObjectDetail):
-    def get(self, request, template_name, url_suffix, **kwargs):
-        return super(ObjectUpdate, self).get(request, template_name, url_suffix, **kwargs)
+    def get(self, request, template_name, url_suffix, form_data_url_suffix=None, **kwargs):
+        super(ObjectUpdate, self).get(request, template_name, url_suffix, **kwargs)
+
+        if form_data_url_suffix:
+            self.url = self.url + form_data_url_suffix
+
+            results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
+
+            if results.status_code is 200:
+
+                try:
+                    objects = results.json()
+                    self.context['form_data'] = objects['form_data']
+
+                except Exception as e:
+                    return handle_error(request=request, error_message=str(e),
+                                        status_code=results.status_code)
+            else:
+                return handle_error(request=request, error_message=results.text,
+                                    status_code=results.status_code)
+        return render(request, self.template_name, context=self.context)
 
     def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):
         super(ObjectUpdate, self).post(request, **kwargs)
@@ -108,9 +127,26 @@ class ObjectUpdate(ObjectDetail):
 
 
 class ObjectCreate(AbstractObjectInterface):
-    def get(self, request, template_name, url_suffix):
+    def get(self, request, template_name, form_data_url_suffix=None):
         super(ObjectCreate, self).get(request)
-        self.context['object'] = None
+        if form_data_url_suffix:
+            self.url = self.url + form_data_url_suffix
+
+            results = csrf_request(request=request, url=self.url, request_type='GET', is_authenticated=True)
+
+            if results.status_code is 200:
+
+                try:
+                    objects = results.json()
+                    self.context['form_data'] = objects['form_data']
+                    self.context['object'] = None
+
+                except Exception as e:
+                    return handle_error(request=request, error_message=str(e),
+                                        status_code=results.status_code)
+            else:
+                return handle_error(request=request, error_message=results.text,
+                                    status_code=results.status_code)
         return render(request, self.template_name, context=self.context)
 
     def post(self, request, template_name, url_suffix, expected_fields, redirect_url, **kwargs):

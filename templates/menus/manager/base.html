@@ -2,11 +2,7 @@
 {% block sidebar %}
 {% if user.is_authenticated and user.is_staff %}
 
-    <nav class="navbar bg-inverse">
-        <button class="navbar-toggler" type="button" disabled>
-            <span class="user">Hi, {{ user }}</span>
-        </button>
-    </nav>
+
     <nav class="navbar navbar-dark bg-inverse">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#knowNavBar">
             <span class="glyphicon glyphicon-align-justify">&nbsp;Know</span>
@@ -80,6 +76,19 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'learn-module-index' %}">Modules</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'learn-role-index' %}">Roles</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'game-achievement-index' %}">Achievements</a></li>
+            </ul>
+        </div>
+    </div>
+    <nav class="navbar navbar-light bg-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#supportNavBar">
+            <span class="glyphicon glyphicon-align-justify">&nbsp;Support</span>
+        </button>
+    </nav>
+    <div class="collapse" id="supportNavBar">
+        <div class=" p-a-1">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-suspicious-index' %}">Suspicious Activity Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'report-question-index' %}">Questions</a></li>
             </ul>
         </div>
     </div>
