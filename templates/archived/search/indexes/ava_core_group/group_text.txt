@@ -1,3 +1,0 @@
-{{ object.name }}
-{{ object.type }}
-{{ object.parent }}
