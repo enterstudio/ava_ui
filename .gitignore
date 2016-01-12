@@ -61,3 +61,6 @@ target/
 *.xml
 .idea
 .idea/*
+
+local.py
+secrets.env
